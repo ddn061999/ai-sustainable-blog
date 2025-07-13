@@ -11,11 +11,9 @@ const Header = () => {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'About Me', href: '/about' },
-    { name: 'Background', href: '/background' },
-    { name: 'Research', href: '/research' },
-    { name: 'Future Directions', href: '/future-directions' },
-    { name: 'Products', href: '/products' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Blog', href: '/research' },
+    { name: 'Insights', href: '/future-directions' },
+    { name: 'Contact/Newsletter', href: '/contact' },
   ];
 
   const isActive = (href: string) => location.pathname === href;
@@ -49,9 +47,6 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <Button variant="default" size="sm" className="ml-4">
-              Newsletter
-            </Button>
           </nav>
 
           {/* Mobile menu button */}
@@ -82,9 +77,6 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button variant="default" size="sm" className="mt-4 w-fit">
-                Newsletter
-              </Button>
             </nav>
           </div>
         )}

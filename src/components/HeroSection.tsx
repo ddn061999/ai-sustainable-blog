@@ -16,6 +16,7 @@ const HeroSection = () => {
             <div className="space-y-4">
               <h1 className="text-4xl lg:text-6xl font-playfair font-bold leading-tight">
                 Where <span className="text-gradient">Finance</span> Meets{' '}
+                <span className="text-gradient">AI</span> and{' '}
                 <span className="text-gradient">Sustainability</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
