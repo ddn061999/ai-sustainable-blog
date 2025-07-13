@@ -29,7 +29,7 @@ const Footer = () => {
   const socialLinks = [
     { name: 'LinkedIn', href: '#', icon: Linkedin },
     { name: 'Twitter', href: '#', icon: Twitter },
-    { name: 'Email', href: 'mailto:sarah@example.com', icon: Mail },
+    { name: 'Email', href: 'mailto:duy@example.com', icon: Mail },
   ];
 
   return (
@@ -43,12 +43,12 @@ const Footer = () => {
                 <Leaf className="h-5 w-5 text-white" />
               </div>
               <span className="font-playfair font-semibold text-lg">
-                Dr. Sarah Mitchell
+                Duy Nguyen
               </span>
             </div>
             
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Senior Research Fellow specializing in the intersection of Finance, 
+              Finance professional specializing in the intersection of Finance, 
               AI, and Sustainable Finance. Advancing thought leadership in ESG 
               investing and green policy.
             </p>
@@ -94,7 +94,7 @@ const Footer = () => {
         <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-muted-foreground">
-              © {currentYear} Dr. Sarah Mitchell. All rights reserved.
+              © {currentYear} Duy Nguyen. All rights reserved.
             </div>
             
             <div className="flex items-center space-x-6 text-sm">

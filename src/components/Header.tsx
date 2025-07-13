@@ -28,7 +28,7 @@ const Header = () => {
               <Leaf className="h-5 w-5 text-white" />
             </div>
             <span className="font-playfair font-semibold text-xl text-gradient">
-              Dr. Sarah Mitchell
+              Duy Nguyen
             </span>
           </Link>
 

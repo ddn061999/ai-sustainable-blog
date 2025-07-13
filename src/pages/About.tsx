@@ -21,27 +21,27 @@ const About = () => {
       icon: GraduationCap,
       title: 'Education',
       items: [
-        'PhD in Financial Economics, MIT (2015)',
-        'MSc in Environmental Economics, LSE (2011)',
-        'BSc in Mathematics & Economics, Cambridge (2009)',
+        'MBA in Finance, University of Pennsylvania (2018)',
+        'MSc in Data Science, Stanford University (2016)',
+        'BSc in Economics & Computer Science, UC Berkeley (2014)',
       ],
     },
     {
       icon: Briefcase,
       title: 'Experience',
       items: [
-        'Senior Research Fellow, Green Finance Institute (2020-Present)',
-        'Principal Economist, World Bank Group (2017-2020)',
-        'Quantitative Analyst, Goldman Sachs (2015-2017)',
+        'Senior Finance Analyst, Green Investment Partners (2020-Present)',
+        'ESG Research Specialist, Sustainable Capital Group (2018-2020)',
+        'Financial Analyst, Tech Innovation Fund (2016-2018)',
       ],
     },
     {
       icon: Award,
       title: 'Recognition',
       items: [
-        'UN Environment Finance Initiative Award (2023)',
-        'Best Paper Award - Journal of Sustainable Finance (2022)',
-        'Young Economist of the Year - Financial Times (2021)',
+        'Sustainable Finance Innovation Award (2023)',
+        'Best ESG Analysis Paper - Finance Review (2022)',
+        'Rising Star in Green Finance - Industry Times (2021)',
       ],
     },
   ];
@@ -66,22 +66,22 @@ const About = () => {
 
   const publications = [
     {
-      title: 'Machine Learning for ESG Risk Assessment: A Comprehensive Framework',
-      journal: 'Journal of Financial Innovation',
+      title: 'AI-Driven ESG Scoring: A New Framework for Sustainable Investment',
+      journal: 'Journal of Sustainable Finance',
       year: '2024',
-      citations: '127',
-    },
-    {
-      title: 'The Green Bond Premium: Evidence from Global Markets',
-      journal: 'Review of Financial Studies',
-      year: '2023',
       citations: '89',
     },
     {
-      title: 'Climate Stress Testing: Methodological Advances and Policy Implications',
-      journal: 'Journal of Banking & Finance',
+      title: 'Green Bond Market Analysis: Trends and Future Opportunities',
+      journal: 'Finance & Sustainability Review',
       year: '2023',
-      citations: '156',
+      citations: '67',
+    },
+    {
+      title: 'Climate Risk Assessment in Modern Portfolio Theory',
+      journal: 'Environmental Finance Quarterly',
+      year: '2023',
+      citations: '112',
     },
   ];
 
@@ -94,11 +94,11 @@ const About = () => {
           {/* Hero Section */}
           <div className="text-center space-y-6 mb-16">
             <h1 className="text-4xl lg:text-5xl font-playfair font-bold">
-              About <span className="text-gradient">Dr. Sarah Mitchell</span>
+              About <span className="text-gradient">Duy Nguyen</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              A leading voice in sustainable finance research, bridging the gap between 
-              academic rigor and practical applications in ESG investing and climate finance.
+              A passionate finance professional specializing in sustainable finance, 
+              bridging technology and environmental responsibility in modern investing.
             </p>
           </div>
 
@@ -110,15 +110,15 @@ const About = () => {
                   {/* Professional Photo Placeholder */}
                   <div className="w-full aspect-square rounded-lg bg-gradient-to-br from-primary/20 to-accent/30 flex items-center justify-center">
                     <div className="w-5/6 aspect-square rounded-lg bg-muted flex items-center justify-center">
-                      <span className="text-6xl font-playfair text-muted-foreground">SM</span>
+                      <span className="text-6xl font-playfair text-muted-foreground">DN</span>
                     </div>
                   </div>
                   
                   <div className="text-center space-y-2">
-                    <h2 className="text-xl font-semibold">Dr. Sarah Mitchell</h2>
-                    <p className="text-muted-foreground">Senior Research Fellow</p>
+                    <h2 className="text-xl font-semibold">Duy Nguyen</h2>
+                    <p className="text-muted-foreground">Finance Professional</p>
                     <div className="flex justify-center space-x-2">
-                      <Badge>Finance PhD</Badge>
+                      <Badge>Finance MBA</Badge>
                       <Badge>ESG Expert</Badge>
                     </div>
                   </div>
@@ -136,21 +136,21 @@ const About = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground leading-relaxed">
-                    Dr. Sarah Mitchell is a distinguished researcher and thought leader in sustainable finance, 
-                    with over a decade of experience spanning academia, policy institutions, and financial markets. 
-                    Her work focuses on the critical intersection of artificial intelligence, environmental policy, 
-                    and financial innovation.
+                    Duy Nguyen is a dedicated finance professional with a strong focus on sustainable 
+                    investing and the integration of artificial intelligence in financial markets. 
+                    With over 8 years of experience in finance and technology, Duy specializes in 
+                    ESG research, green finance strategies, and data-driven investment approaches.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    Currently serving as a Senior Research Fellow at the Green Finance Institute, Dr. Mitchell 
-                    leads groundbreaking research on ESG integration methodologies and climate risk assessment 
-                    frameworks. Her expertise has shaped policy discussions at the highest levels, including 
-                    contributions to the UN Sustainable Development Goals and EU Taxonomy development.
+                    Currently working as a Senior Finance Analyst at Green Investment Partners, 
+                    Duy leads innovative research on sustainable finance methodologies and climate 
+                    risk assessment frameworks. His expertise spans across traditional finance, 
+                    environmental policy analysis, and cutting-edge financial technologies.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    With over 50 peer-reviewed publications and frequent media appearances, Dr. Mitchell 
-                    continues to bridge the gap between academic research and practical financial applications, 
-                    helping to accelerate the transition to a more sustainable global economy.
+                    Through this blog, Duy shares insights on the evolving landscape of sustainable 
+                    finance, explores the potential of AI in transforming financial markets, and 
+                    discusses policy implications for a more sustainable economic future.
                   </p>
                 </CardContent>
               </Card>
@@ -241,12 +241,12 @@ const About = () => {
                   Let's Connect
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Interested in collaboration, speaking opportunities, or discussing the latest 
-                  developments in sustainable finance? I'd love to hear from you.
+                  Interested in collaboration, discussing sustainable finance trends, 
+                  or exploring the latest developments in AI-driven investing? I'd love to hear from you.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                   <a 
-                    href="mailto:sarah@example.com"
+                    href="mailto:duy@example.com"
                     className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
                   >
                     Get in Touch
@@ -255,7 +255,7 @@ const About = () => {
                     href="#"
                     className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
                   >
-                    Download CV
+                    Download Resume
                   </a>
                 </div>
               </div>

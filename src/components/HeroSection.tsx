@@ -56,16 +56,16 @@ const HeroSection = () => {
                 {/* Professional Photo Placeholder */}
                 <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/30 flex items-center justify-center">
                   <div className="w-44 h-44 rounded-full bg-muted flex items-center justify-center">
-                    <span className="text-4xl font-playfair text-muted-foreground">SM</span>
+                    <span className="text-4xl font-playfair text-muted-foreground">DN</span>
                   </div>
                 </div>
 
                 <div className="text-center space-y-4">
-                  <h3 className="text-xl font-semibold">Dr. Sarah Mitchell</h3>
+                  <h3 className="text-xl font-semibold">Duy Nguyen</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Senior Research Fellow specializing in sustainable finance and AI applications 
-                    in financial markets. PhD in Financial Economics, 10+ years in ESG research 
-                    and green policy analysis.
+                    Finance professional specializing in sustainable finance and AI applications 
+                    in financial markets. Expert in ESG research, green policy analysis, and 
+                    innovative financial technologies.
                   </p>
                 </div>
 
