@@ -10,10 +10,12 @@ const Header = () => {
 
   const navigation = [
     { name: 'Home', href: '/' },
+    { name: 'About Me', href: '/about' },
+    { name: 'Background', href: '/background' },
     { name: 'Research', href: '/research' },
-    { name: 'AI Tools', href: '/ai-tools' },
-    { name: 'Policy', href: '/policy' },
-    { name: 'About', href: '/about' },
+    { name: 'Future Directions', href: '/future-directions' },
+    { name: 'Products', href: '/products' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   const isActive = (href: string) => location.pathname === href;
@@ -33,7 +35,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-6">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -53,7 +55,7 @@ const Header = () => {
           </nav>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button
               variant="ghost"
               size="sm"
@@ -66,7 +68,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t">
+          <div className="lg:hidden py-4 border-t">
             <nav className="flex flex-col space-y-3">
               {navigation.map((item) => (
                 <Link
