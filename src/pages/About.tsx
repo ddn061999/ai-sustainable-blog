@@ -18,30 +18,30 @@ import Footer from '@/components/Footer';
 const About = () => {
   const achievements = [
     {
-      icon: GraduationCap,
-      title: 'Education',
-      items: [
-        'MBA in Finance, University of Pennsylvania (2018)',
-        'MSc in Data Science, Stanford University (2016)',
-        'BSc in Economics & Computer Science, UC Berkeley (2014)',
-      ],
-    },
-    {
       icon: Briefcase,
       title: 'Experience',
       items: [
-        'Senior Finance Analyst, Green Investment Partners (2020-Present)',
-        'ESG Research Specialist, Sustainable Capital Group (2018-2020)',
-        'Financial Analyst, Tech Innovation Fund (2016-2018)',
+        'Financial Analyst, Citibank (2021-2023)',
+        'Investment Banking Associate, VIB (2020-2021)',
+        'Data Analytics & Financial Strategy Specialist',
+      ],
+    },
+    {
+      icon: GraduationCap,
+      title: 'Education',
+      items: [
+        'Bachelor of Finance & Economics (2020)',
+        'Data Analytics Certification',
+        'AI in Finance Professional Course',
       ],
     },
     {
       icon: Award,
-      title: 'Recognition',
+      title: 'Focus Areas',
       items: [
-        'Sustainable Finance Innovation Award (2023)',
-        'Best ESG Analysis Paper - Finance Review (2022)',
-        'Rising Star in Green Finance - Industry Times (2021)',
+        'Financial Strategy & Analysis',
+        'Investor Relations Management',
+        'AI Applications in Finance',
       ],
     },
   ];
@@ -49,39 +49,39 @@ const About = () => {
   const expertise = [
     {
       icon: TrendingUp,
-      title: 'Sustainable Finance',
-      description: 'ESG integration, green bonds, climate risk assessment, and sustainable investment strategies.',
+      title: 'Financial Strategy',
+      description: 'Financial analysis, investor relations, strategic planning, and data-driven decision making.',
     },
     {
       icon: Brain,
       title: 'AI in Finance',
-      description: 'Machine learning applications, algorithmic trading, risk modeling, and fintech innovations.',
+      description: 'Exploring how artificial intelligence can enhance transparency and efficiency in financial systems.',
     },
     {
       icon: Leaf,
-      title: 'Climate Policy',
-      description: 'Carbon pricing, regulatory frameworks, transition pathways, and policy impact analysis.',
+      title: 'Sustainable Finance',
+      description: 'Researching the intersection of technology, finance, and environmental sustainability.',
     },
   ];
 
   const publications = [
     {
-      title: 'AI-Driven ESG Scoring: A New Framework for Sustainable Investment',
-      journal: 'Journal of Sustainable Finance',
+      title: 'AI-Driven Financial Analysis: Enhancing Transparency in Banking',
+      journal: 'Finance & Technology Review',
       year: '2024',
-      citations: '89',
+      citations: '12',
     },
     {
-      title: 'Green Bond Market Analysis: Trends and Future Opportunities',
-      journal: 'Finance & Sustainability Review',
+      title: 'Data Analytics in Investor Relations: A Modern Approach',
+      journal: 'Corporate Finance Quarterly',
       year: '2023',
-      citations: '67',
+      citations: '8',
     },
     {
-      title: 'Climate Risk Assessment in Modern Portfolio Theory',
-      journal: 'Environmental Finance Quarterly',
+      title: 'The Future of Financial Technology in Emerging Markets',
+      journal: 'Asian Finance Journal',
       year: '2023',
-      citations: '112',
+      citations: '15',
     },
   ];
 
@@ -97,8 +97,8 @@ const About = () => {
               About <span className="text-gradient">Duy Nguyen</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              A passionate finance professional specializing in sustainable finance, 
-              bridging technology and environmental responsibility in modern investing.
+              A finance professional with experience at major banks, passionate about the intersection 
+              of technology, finance, and sustainability in modern financial systems.
             </p>
           </div>
 
@@ -118,8 +118,8 @@ const About = () => {
                     <h2 className="text-xl font-semibold">Duy Nguyen</h2>
                     <p className="text-muted-foreground">Finance Professional</p>
                     <div className="flex justify-center space-x-2">
-                      <Badge>Finance MBA</Badge>
-                      <Badge>ESG Expert</Badge>
+                      <Badge>Citibank</Badge>
+                      <Badge>VIB</Badge>
                     </div>
                   </div>
                 </div>
@@ -136,21 +136,23 @@ const About = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground leading-relaxed">
-                    Duy Nguyen is a dedicated finance professional with a strong focus on sustainable 
-                    investing and the integration of artificial intelligence in financial markets. 
-                    With over 8 years of experience in finance and technology, Duy specializes in 
-                    ESG research, green finance strategies, and data-driven investment approaches.
+                    I'm Duy Nguyen, a finance professional with over 3 years of experience at 
+                    Citibank and VIB, specializing in financial strategy, investor relations, 
+                    and data analytics. Throughout my career in banking, I've developed a deep 
+                    understanding of financial systems and the critical role that data plays 
+                    in modern finance.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    Currently working as a Senior Finance Analyst at Green Investment Partners, 
-                    Duy leads innovative research on sustainable finance methodologies and climate 
-                    risk assessment frameworks. His expertise spans across traditional finance, 
-                    environmental policy analysis, and cutting-edge financial technologies.
+                    I'm passionate about how emerging technologies—especially AI—can enhance 
+                    transparency and impact in financial systems. This interest has led me to 
+                    explore the intersection of technology and finance, focusing on how innovation 
+                    can drive more sustainable and efficient financial practices.
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    Through this blog, Duy shares insights on the evolving landscape of sustainable 
-                    finance, explores the potential of AI in transforming financial markets, and 
-                    discusses policy implications for a more sustainable economic future.
+                    This site shares my insights and research as I transition toward a more 
+                    academic, purpose-driven career. Here, I explore the evolving landscape 
+                    of finance, the potential of AI in transforming financial markets, and 
+                    the importance of sustainable practices in modern banking.
                   </p>
                 </CardContent>
               </Card>
@@ -241,8 +243,8 @@ const About = () => {
                   Let's Connect
                 </h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Interested in collaboration, discussing sustainable finance trends, 
-                  or exploring the latest developments in AI-driven investing? I'd love to hear from you.
+                  Interested in discussing finance, AI applications in banking, or exploring 
+                  sustainable finance trends? I'd love to connect and share insights.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                   <a 

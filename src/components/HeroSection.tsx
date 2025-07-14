@@ -20,8 +20,9 @@ const HeroSection = () => {
                 <span className="text-gradient">Sustainability</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
-                Exploring the intersection of AI, sustainable finance, and green policy. 
-                Research-driven insights for the future of responsible investing.
+                Exploring how emerging technologies can enhance transparency and impact 
+                in financial systems. Insights from a finance professional transitioning 
+                toward academic, purpose-driven research.
               </p>
             </div>
 
@@ -38,9 +39,9 @@ const HeroSection = () => {
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-6 pt-8">
               {[
-                { number: '50+', label: 'Research Papers' },
-                { number: '10K+', label: 'Newsletter Readers' },
-                { number: '5Y+', label: 'Industry Experience' },
+                { number: '3+', label: 'Years Experience' },
+                { number: '2', label: 'Major Banks' },
+                { number: '10+', label: 'Research Articles' },
               ].map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="text-2xl font-bold text-primary">{stat.number}</div>
@@ -64,9 +65,10 @@ const HeroSection = () => {
                 <div className="text-center space-y-4">
                   <h3 className="text-xl font-semibold">Duy Nguyen</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Finance professional specializing in sustainable finance and AI applications 
-                    in financial markets. Expert in ESG research, green policy analysis, and 
-                    innovative financial technologies.
+                    Finance professional with over 3 years of experience at Citibank 
+                    and VIB, specializing in financial strategy, investor relations, 
+                    and data analytics. Passionate about how emerging technologies—especially 
+                    AI—can enhance transparency and impact in financial systems.
                   </p>
                 </div>
 
@@ -75,7 +77,7 @@ const HeroSection = () => {
                   {[
                     { icon: TrendingUp, label: 'Finance' },
                     { icon: Brain, label: 'AI/ML' },
-                    { icon: Leaf, label: 'ESG' },
+                    { icon: Leaf, label: 'Sustainability' },
                   ].map((item, index) => (
                     <div key={index} className="text-center p-3 rounded-lg bg-secondary/50">
                       <item.icon className="h-5 w-5 mx-auto mb-2 text-primary" />
