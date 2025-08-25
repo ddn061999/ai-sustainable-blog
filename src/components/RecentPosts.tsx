@@ -45,15 +45,20 @@ const RecentPosts = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 lg:py-24 relative">
+      {/* Creative Background Elements */}
+      <div className="absolute inset-0 bg-grid opacity-30" />
+      <div className="absolute top-20 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-20 left-10 w-48 h-48 bg-accent/10 rounded-full blur-2xl animate-bounce-subtle" />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="space-y-12">
           {/* Section Header */}
-          <div className="text-center space-y-4">
+          <div className="text-center space-y-6">
             <h2 className="text-3xl lg:text-4xl font-playfair font-bold">
-              Latest Insights & Analysis
+              Latest <span className="text-gradient-aurora">Insights</span> & <span className="text-gradient-aurora">Analysis</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Stay updated with my latest thoughts on sustainable finance, AI applications, 
               and policy developments shaping the future of green investing.
             </p>
@@ -62,14 +67,14 @@ const RecentPosts = () => {
           {/* Featured Posts Grid */}
           <div className="grid md:grid-cols-2 gap-8">
             {posts.map((post, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-border/50 hover:border-primary/20">
+              <Card key={index} className="group glass hover-lift shadow-aurora border-primary/20 hover:border-primary/40 transition-all duration-500 cursor-pointer">
                 <CardHeader className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="p-2 rounded-lg bg-primary/10">
-                        <post.icon className="h-4 w-4 text-primary" />
+                    <div className="flex items-center gap-3">
+                      <div className="p-3 rounded-xl gradient-aurora shadow-glow group-hover:scale-110 transition-transform">
+                        <post.icon className="h-5 w-5 text-white" />
                       </div>
-                      <Badge variant="secondary" className="text-xs">
+                      <Badge variant="secondary" className="text-xs glass border-primary/30">
                         {post.category}
                       </Badge>
                     </div>
@@ -82,7 +87,7 @@ const RecentPosts = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors leading-tight">
+                  <h3 className="text-xl font-semibold group-hover:text-gradient-aurora transition-all duration-300 leading-tight">
                     {post.title}
                   </h3>
                 </CardHeader>
@@ -94,7 +99,7 @@ const RecentPosts = () => {
 
                   <div className="flex flex-wrap gap-2">
                     {post.tags.map((tag, tagIndex) => (
-                      <Badge key={tagIndex} variant="outline" className="text-xs">
+                      <Badge key={tagIndex} variant="outline" className="text-xs hover-glow border-primary/30 hover:border-primary/50 transition-all">
                         {tag}
                       </Badge>
                     ))}
@@ -104,9 +109,9 @@ const RecentPosts = () => {
                     <span className="text-sm text-muted-foreground">
                       {post.readTime}
                     </span>
-                    <Button variant="ghost" size="sm" className="group/btn">
+                    <Button variant="ghost" size="sm" className="group/btn hover-glow text-primary">
                       Read More
-                      <ArrowRight className="ml-2 h-3 w-3 group-hover/btn:translate-x-1 transition-transform" />
+                      <ArrowRight className="ml-2 h-3 w-3 group-hover/btn:translate-x-1 group-hover/btn:text-primary transition-all" />
                     </Button>
                   </div>
                 </CardContent>
@@ -116,9 +121,9 @@ const RecentPosts = () => {
 
           {/* View All Button */}
           <div className="text-center">
-            <Button variant="outline" size="lg">
+            <Button variant="outline" size="lg" className="glass hover-lift shadow-glow border-primary/30 hover:border-primary/50 group">
               View All Posts
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </div>

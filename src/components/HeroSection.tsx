@@ -3,18 +3,24 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 const HeroSection = () => {
   return <section className="relative py-20 lg:py-28 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 via-background to-accent/10" />
+      {/* Creative Background */}
+      <div className="absolute inset-0 gradient-mesh" />
+      <div className="absolute inset-0 bg-dots opacity-40" />
+      
+      {/* Floating Elements */}
+      <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-xl animate-float" />
+      <div className="absolute bottom-20 right-10 w-48 h-48 bg-accent/20 rounded-full blur-2xl animate-bounce-subtle" />
+      <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-primary/20 rounded-full blur-lg animate-pulse-slow" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="space-y-8 animate-fade-in">
-            <div className="space-y-4">
+            <div className="space-y-6">
               <h1 className="text-4xl lg:text-6xl font-playfair font-bold leading-tight">
-                Where <span className="text-gradient">Finance</span> Meets{' '}
-                <span className="text-gradient">AI</span> and{' '}
-                <span className="text-gradient">Sustainability</span>
+                Where <span className="text-gradient-aurora animate-pulse-slow">Finance</span> Meets{' '}
+                <span className="text-gradient-aurora animate-pulse-slow">AI</span> and{' '}
+                <span className="text-gradient-aurora animate-pulse-slow">Sustainability</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
                 Exploring how emerging technologies can enhance transparency and impact 
@@ -24,11 +30,11 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="group">
+              <Button size="lg" className="group shadow-glow hover-glow gradient-aurora text-white border-0">
                 Latest Research
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" className="glass hover-lift border-primary/30 hover:border-primary/50">
                 Subscribe to Newsletter
               </Button>
             </div>
@@ -53,12 +59,12 @@ const HeroSection = () => {
 
           {/* Professional Photo & Bio Card */}
           <div className="space-y-6">
-            <Card className="p-6 bg-card/50 backdrop-blur border-border/50">
+            <Card className="p-8 glass hover-lift shadow-aurora border-primary/20">
               <div className="space-y-6">
                 {/* Professional Photo Placeholder */}
-                <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/30 flex items-center justify-center">
-                  <div className="w-44 h-44 rounded-full bg-muted flex items-center justify-center">
-                    <span className="text-4xl font-playfair text-muted-foreground">DN</span>
+                <div className="w-48 h-48 mx-auto rounded-full gradient-aurora p-1 shadow-glow animate-pulse-slow">
+                  <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
+                    <span className="text-4xl font-playfair text-gradient-aurora">DN</span>
                   </div>
                 </div>
 
@@ -78,9 +84,9 @@ const HeroSection = () => {
                 }, {
                   icon: Leaf,
                   label: 'Corporate Governance'
-                }].map((item, index) => <div key={index} className="text-center p-3 rounded-lg bg-secondary/50">
-                      <item.icon className="h-5 w-5 mx-auto mb-2 text-primary" />
-                      <span className="text-xs font-medium">{item.label}</span>
+                }].map((item, index) => <div key={index} className="text-center p-4 rounded-xl glass hover-glow transition-all duration-300 group cursor-pointer">
+                      <item.icon className="h-6 w-6 mx-auto mb-2 text-primary group-hover:scale-110 transition-transform" />
+                      <span className="text-xs font-medium group-hover:text-primary transition-colors">{item.label}</span>
                     </div>)}
                 </div>
               </div>
