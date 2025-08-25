@@ -77,7 +77,7 @@ const HeroSection = () => {
                   label: 'AI/ML'
                 }, {
                   icon: Leaf,
-                  label: 'Sustainability'
+                  label: 'Corporate Governance'
                 }].map((item, index) => <div key={index} className="text-center p-3 rounded-lg bg-secondary/50">
                       <item.icon className="h-5 w-5 mx-auto mb-2 text-primary" />
                       <span className="text-xs font-medium">{item.label}</span>
