@@ -1,11 +1,8 @@
-
 import { ArrowRight, TrendingUp, Brain, Leaf } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-
 const HeroSection = () => {
-  return (
-    <section className="relative py-20 lg:py-28 overflow-hidden">
+  return <section className="relative py-20 lg:py-28 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 via-background to-accent/10" />
       
@@ -38,16 +35,19 @@ const HeroSection = () => {
 
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-6 pt-8">
-              {[
-                { number: '3+', label: 'Years Experience' },
-                { number: '2', label: 'Major Banks' },
-                { number: '10+', label: 'Research Articles' },
-              ].map((stat, index) => (
-                <div key={index} className="text-center">
+              {[{
+              number: '3+',
+              label: 'Years Experience'
+            }, {
+              number: '2',
+              label: 'Major Banks'
+            }, {
+              number: '10+',
+              label: 'Research Articles'
+            }].map((stat, index) => <div key={index} className="text-center">
                   <div className="text-2xl font-bold text-primary">{stat.number}</div>
                   <div className="text-sm text-muted-foreground">{stat.label}</div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
 
@@ -64,34 +64,30 @@ const HeroSection = () => {
 
                 <div className="text-center space-y-4">
                   <h3 className="text-xl font-semibold">Duy Nguyen</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Finance professional with over 3 years of experience at Citibank 
-                    and VIB, specializing in financial strategy, investor relations, 
-                    and data analytics. Passionate about how emerging technologies—especially 
-                    AI—can enhance transparency and impact in financial systems.
-                  </p>
+                  <p className="text-muted-foreground leading-relaxed">Finance & Investor Relations professional with 3+ years of experience at Citibank and Vietnam International Bank (VIB), specializing in financial analysis, investor communications, and data analytics. Passionate about leveraging emerging technologies—especially AI—to enhance transparency and impact in financial systems.</p>
                 </div>
 
                 {/* Expertise Areas */}
                 <div className="grid grid-cols-3 gap-3">
-                  {[
-                    { icon: TrendingUp, label: 'Finance' },
-                    { icon: Brain, label: 'AI/ML' },
-                    { icon: Leaf, label: 'Sustainability' },
-                  ].map((item, index) => (
-                    <div key={index} className="text-center p-3 rounded-lg bg-secondary/50">
+                  {[{
+                  icon: TrendingUp,
+                  label: 'Finance'
+                }, {
+                  icon: Brain,
+                  label: 'AI/ML'
+                }, {
+                  icon: Leaf,
+                  label: 'Sustainability'
+                }].map((item, index) => <div key={index} className="text-center p-3 rounded-lg bg-secondary/50">
                       <item.icon className="h-5 w-5 mx-auto mb-2 text-primary" />
                       <span className="text-xs font-medium">{item.label}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
             </Card>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
