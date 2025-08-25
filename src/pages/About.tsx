@@ -64,24 +64,24 @@ const About = () => {
     },
   ];
 
-  const publications = [
+  const blogPosts = [
     {
       title: 'AI-Driven Financial Analysis: Enhancing Transparency in Banking',
-      journal: 'Finance & Technology Review',
-      year: '2024',
-      citations: '12',
+      description: 'Exploring how artificial intelligence can transform financial analysis and improve transparency in banking operations.',
+      date: 'January 2024',
+      readTime: '8 min read',
     },
     {
       title: 'Data Analytics in Investor Relations: A Modern Approach',
-      journal: 'Corporate Finance Quarterly',
-      year: '2023',
-      citations: '8',
+      description: 'How modern data analytics tools are revolutionizing investor communications and relationship management.',
+      date: 'December 2023',
+      readTime: '6 min read',
     },
     {
       title: 'The Future of Financial Technology in Emerging Markets',
-      journal: 'Asian Finance Journal',
-      year: '2023',
-      citations: '15',
+      description: 'Examining the potential impact of fintech innovations on emerging market economies and financial inclusion.',
+      date: 'November 2023',
+      readTime: '10 min read',
     },
   ];
 
@@ -206,25 +206,27 @@ const About = () => {
             ))}
           </div>
 
-          {/* Recent Publications */}
+          {/* Recent Blog Posts */}
           <div className="mb-16">
             <h2 className="text-3xl font-playfair font-bold text-center mb-8">
-              Recent Publications
+              Recent Blog Posts
             </h2>
             <div className="space-y-4">
-              {publications.map((pub, index) => (
+              {blogPosts.map((post, index) => (
                 <Card key={index}>
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between">
                       <div className="space-y-2 flex-1">
-                        <h3 className="font-semibold text-lg">{pub.title}</h3>
+                        <h3 className="font-semibold text-lg">{post.title}</h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          {post.description}
+                        </p>
                         <div className="flex items-center gap-4 text-sm text-muted-foreground">
                           <span className="flex items-center gap-1">
                             <BookOpen className="h-4 w-4" />
-                            {pub.journal}
+                            {post.date}
                           </span>
-                          <span>{pub.year}</span>
-                          <Badge variant="outline">{pub.citations} citations</Badge>
+                          <Badge variant="outline">{post.readTime}</Badge>
                         </div>
                       </div>
                       <Globe className="h-5 w-5 text-muted-foreground flex-shrink-0 ml-4" />

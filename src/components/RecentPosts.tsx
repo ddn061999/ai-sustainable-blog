@@ -51,10 +51,10 @@ const RecentPosts = () => {
           {/* Section Header */}
           <div className="text-center space-y-4">
             <h2 className="text-3xl lg:text-4xl font-playfair font-bold">
-              Latest Research & Insights
+              Latest Insights & Analysis
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Stay updated with cutting-edge analysis on sustainable finance, AI applications, 
+              Stay updated with my latest thoughts on sustainable finance, AI applications, 
               and policy developments shaping the future of green investing.
             </p>
           </div>
@@ -117,7 +117,7 @@ const RecentPosts = () => {
           {/* View All Button */}
           <div className="text-center">
             <Button variant="outline" size="lg">
-              View All Research
+              View All Posts
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
