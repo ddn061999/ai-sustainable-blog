@@ -66,18 +66,6 @@ const HeroSection = () => {
 
         {/* Floating Cards - Desktop */}
         <div className="hidden lg:block">
-          {/* Featured Article Card */}
-          <div className="absolute top-1/4 left-8 max-w-sm">
-            <Card className="p-6 bg-black/70 backdrop-blur-sm border-0 shadow-xl hover-lift">
-              <div className="text-sm font-bold text-white mb-2 font-helvetica">INNOVATION SPOTLIGHT</div>
-              <h3 className="text-xl font-bold text-white mb-3 font-helvetica">
-                Where Finance Meets AI and Sustainability
-              </h3>
-              <p className="text-white text-sm font-bold font-helvetica">
-                How emerging technologies are enhancing transparency and impact in financial systems.
-              </p>
-            </Card>
-          </div>
 
           {/* Bio Card */}
           <div className="absolute top-1/3 right-8 max-w-xs">
