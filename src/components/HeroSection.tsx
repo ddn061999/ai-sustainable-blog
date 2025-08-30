@@ -1,12 +1,13 @@
 import { ArrowRight, TrendingUp, Brain, Leaf } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import woodenBlocks from '@/assets/wooden-blocks-clean.jpg';
 const HeroSection = () => {
   return <section className="relative py-20 lg:py-28 overflow-hidden">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-bottom bg-no-repeat scale-110 origin-bottom"
-        style={{ backgroundImage: `url(/lovable-uploads/c9e914c5-92fb-46f3-8b8f-cf54a967b915.png)` }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${woodenBlocks})` }}
       />
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-white/70 to-white/85" />
