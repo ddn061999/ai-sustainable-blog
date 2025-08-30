@@ -1,6 +1,4 @@
 import React, { Suspense, useState } from 'react';
-import { TrendingUp, Brain, Leaf } from 'lucide-react';
-import { Card } from '@/components/ui/card';
 import Spline from '@splinetool/react-spline';
 
 const HeroSection = () => {
@@ -64,37 +62,6 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Floating Cards - Desktop */}
-        <div className="hidden lg:block">
-
-          {/* Bio Card */}
-          <div className="absolute top-1/3 right-8 max-w-xs">
-            <Card className="p-6 bg-black/70 backdrop-blur-sm border-0 shadow-xl hover-lift">
-              <div className="space-y-4">
-                <div className="text-center space-y-2">
-                  <h4 className="text-lg font-bold text-white font-helvetica">Professional Focus</h4>
-                  <p className="text-sm text-white font-bold leading-relaxed font-helvetica">
-                    3+ years at Citibank and VIB, specializing in sustainable finance and emerging technologies.
-                  </p>
-                </div>
-
-                {/* Expertise Areas */}
-                <div className="grid grid-cols-3 gap-2">
-                  {[
-                    { icon: TrendingUp, label: 'Finance' },
-                    { icon: Brain, label: 'AI/ML' },
-                    { icon: Leaf, label: 'ESG' }
-                  ].map((item, index) => (
-                    <div key={index} className="text-center p-2 rounded bg-white/20">
-                      <item.icon className="h-4 w-4 mx-auto mb-1 text-white" />
-                      <span className="text-xs font-bold text-white font-helvetica">{item.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Card>
-          </div>
-        </div>
 
         {/* Quick Stats Section */}
         <div className="bg-black/20 backdrop-blur-sm py-8 mt-auto">
