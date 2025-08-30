@@ -16,7 +16,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 w-full h-full">
         <Suspense fallback={
           <div className="w-full h-full bg-gradient-to-br from-gates-cyan via-gates-purple to-gates-red flex items-center justify-center">
-            <div className="text-white text-xl font-medium animate-pulse">Loading 3D Experience...</div>
+            <div className="text-white text-xl font-bold animate-pulse font-helvetica">Loading 3D Experience...</div>
           </div>
         }>
           <Spline 
@@ -30,7 +30,7 @@ const HeroSection = () => {
       {/* Loading Overlay */}
       {isLoading && (
         <div className="absolute inset-0 bg-gradient-to-br from-gates-cyan via-gates-purple to-gates-red flex items-center justify-center z-50">
-          <div className="text-white text-xl font-medium animate-pulse">Loading 3D Experience...</div>
+          <div className="text-white text-xl font-bold animate-pulse font-helvetica">Loading 3D Experience...</div>
         </div>
       )}
 
@@ -40,13 +40,13 @@ const HeroSection = () => {
         <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             {/* Main Title */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight font-helvetica">
               <span className="block">Finance meets</span>
-              <span className="block text-gradient">AI & Sustainability</span>
+              <span className="block">AI & Sustainability</span>
             </h1>
             
             {/* Subtitle */}
-            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-white font-bold mb-8 max-w-2xl mx-auto leading-relaxed font-helvetica">
               Exploring the intersection of financial innovation, artificial intelligence, 
               and sustainable development through research and practical applications.
             </p>
@@ -57,8 +57,8 @@ const HeroSection = () => {
                 <span className="text-white font-bold">DN</span>
               </div>
               <div className="text-left">
-                <div className="text-white font-semibold">Duy Nguyen</div>
-                <div className="text-white/80 text-sm">Finance & AI Professional</div>
+                <div className="text-white font-bold font-helvetica">Duy Nguyen</div>
+                <div className="text-white font-bold text-sm font-helvetica">Finance & AI Professional</div>
               </div>
             </div>
           </div>
@@ -68,12 +68,12 @@ const HeroSection = () => {
         <div className="hidden lg:block">
           {/* Featured Article Card */}
           <div className="absolute top-1/4 left-8 max-w-sm">
-            <Card className="p-6 bg-white/95 backdrop-blur-sm border-0 shadow-xl hover-lift">
-              <div className="text-sm font-semibold text-gates-red mb-2">INNOVATION SPOTLIGHT</div>
-              <h3 className="text-xl font-bold text-gates-navy mb-3">
+            <Card className="p-6 bg-black/70 backdrop-blur-sm border-0 shadow-xl hover-lift">
+              <div className="text-sm font-bold text-white mb-2 font-helvetica">INNOVATION SPOTLIGHT</div>
+              <h3 className="text-xl font-bold text-white mb-3 font-helvetica">
                 Where Finance Meets AI and Sustainability
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-white text-sm font-bold font-helvetica">
                 How emerging technologies are enhancing transparency and impact in financial systems.
               </p>
             </Card>
@@ -81,11 +81,11 @@ const HeroSection = () => {
 
           {/* Bio Card */}
           <div className="absolute top-1/3 right-8 max-w-xs">
-            <Card className="p-6 bg-white/95 backdrop-blur-sm border-0 shadow-xl hover-lift">
+            <Card className="p-6 bg-black/70 backdrop-blur-sm border-0 shadow-xl hover-lift">
               <div className="space-y-4">
                 <div className="text-center space-y-2">
-                  <h4 className="text-lg font-bold text-gates-navy">Professional Focus</h4>
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  <h4 className="text-lg font-bold text-white font-helvetica">Professional Focus</h4>
+                  <p className="text-sm text-white font-bold leading-relaxed font-helvetica">
                     3+ years at Citibank and VIB, specializing in sustainable finance and emerging technologies.
                   </p>
                 </div>
@@ -97,9 +97,9 @@ const HeroSection = () => {
                     { icon: Brain, label: 'AI/ML' },
                     { icon: Leaf, label: 'ESG' }
                   ].map((item, index) => (
-                    <div key={index} className="text-center p-2 rounded bg-gates-gray">
-                      <item.icon className="h-4 w-4 mx-auto mb-1 text-gates-cyan" />
-                      <span className="text-xs font-medium text-gates-navy">{item.label}</span>
+                    <div key={index} className="text-center p-2 rounded bg-white/20">
+                      <item.icon className="h-4 w-4 mx-auto mb-1 text-white" />
+                      <span className="text-xs font-bold text-white font-helvetica">{item.label}</span>
                     </div>
                   ))}
                 </div>
@@ -118,8 +118,8 @@ const HeroSection = () => {
                 { number: '5+', label: 'Research Papers' }
               ].map((stat, index) => (
                 <div key={index}>
-                  <div className="text-2xl md:text-3xl font-bold text-white">{stat.number}</div>
-                  <div className="text-xs md:text-sm text-white/80 font-medium">{stat.label}</div>
+                  <div className="text-2xl md:text-3xl font-bold text-white font-helvetica">{stat.number}</div>
+                  <div className="text-xs md:text-sm text-white font-bold font-helvetica">{stat.label}</div>
                 </div>
               ))}
             </div>
