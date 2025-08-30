@@ -5,7 +5,7 @@ const HeroSection = () => {
   return <section className="relative py-20 lg:py-28 overflow-hidden">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-left-bottom bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-bottom bg-no-repeat scale-110 origin-bottom"
         style={{ backgroundImage: `url(/lovable-uploads/c9e914c5-92fb-46f3-8b8f-cf54a967b915.png)` }}
       />
       {/* Overlay for better text readability */}
