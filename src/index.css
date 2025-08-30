@@ -3,70 +3,78 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Sustainable Finance Blog Design System */
+/* Gates Notes Inspired Design System */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 158 12% 15%;
+    --background: 0 0% 98%;
+    --foreground: 210 24% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 158 12% 15%;
+    --card-foreground: 210 24% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 158 12% 15%;
+    --popover-foreground: 210 24% 8%;
 
-    --primary: 158 64% 52%;
+    --primary: 0 84% 60%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 158 24% 96%;
-    --secondary-foreground: 158 12% 15%;
+    --secondary: 210 24% 96%;
+    --secondary-foreground: 210 24% 8%;
 
-    --muted: 158 24% 96%;
-    --muted-foreground: 158 8% 46%;
+    --muted: 210 24% 96%;
+    --muted-foreground: 210 8% 46%;
 
-    --accent: 158 48% 88%;
-    --accent-foreground: 158 12% 15%;
+    --accent: 195 85% 70%;
+    --accent-foreground: 210 24% 8%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 158 24% 91%;
-    --input: 158 24% 91%;
-    --ring: 158 64% 52%;
+    --border: 210 24% 91%;
+    --input: 210 24% 91%;
+    --ring: 0 84% 60%;
 
     --radius: 0.75rem;
+
+    /* Gates Notes Custom Colors */
+    --gates-red: 0 84% 60%;
+    --gates-navy: 210 24% 12%;
+    --gates-gray: 210 24% 96%;
+    --gates-pink: 0 50% 92%;
+    --gates-cyan: 195 85% 70%;
+    --gates-purple: 258 90% 66%;
   }
 
   .dark {
-    --background: 158 12% 6%;
-    --foreground: 158 24% 95%;
+    --background: 210 24% 6%;
+    --foreground: 210 24% 95%;
 
-    --card: 158 12% 6%;
-    --card-foreground: 158 24% 95%;
+    --card: 210 24% 6%;
+    --card-foreground: 210 24% 95%;
 
-    --popover: 158 12% 6%;
-    --popover-foreground: 158 24% 95%;
+    --popover: 210 24% 6%;
+    --popover-foreground: 210 24% 95%;
 
-    --primary: 158 64% 52%;
-    --primary-foreground: 158 12% 6%;
+    --primary: 0 84% 60%;
+    --primary-foreground: 210 24% 6%;
 
-    --secondary: 158 12% 12%;
-    --secondary-foreground: 158 24% 95%;
+    --secondary: 210 24% 12%;
+    --secondary-foreground: 210 24% 95%;
 
-    --muted: 158 12% 12%;
-    --muted-foreground: 158 8% 65%;
+    --muted: 210 24% 12%;
+    --muted-foreground: 210 8% 65%;
 
-    --accent: 158 12% 12%;
-    --accent-foreground: 158 24% 95%;
+    --accent: 195 85% 70%;
+    --accent-foreground: 210 24% 95%;
 
     --destructive: 0 62% 51%;
-    --destructive-foreground: 158 24% 95%;
+    --destructive-foreground: 210 24% 95%;
 
-    --border: 158 12% 12%;
-    --input: 158 12% 12%;
-    --ring: 158 64% 52%;
+    --border: 210 24% 12%;
+    --input: 210 24% 12%;
+    --ring: 0 84% 60%;
   }
 }
 
@@ -93,14 +101,53 @@
     font-family: 'Playfair Display', serif;
   }
 
-  .gradient-green {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  /* Gates Notes Gradients */
+  .gradient-red {
+    background: linear-gradient(135deg, hsl(var(--gates-red)) 0%, hsl(var(--gates-pink)) 100%);
+  }
+
+  .gradient-tech {
+    background: linear-gradient(135deg, hsl(var(--gates-cyan)) 0%, hsl(var(--gates-purple)) 100%);
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(158 64% 35%) 100%);
+    background: linear-gradient(135deg, hsl(var(--gates-red)) 0%, hsl(var(--gates-navy)) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  /* Background Patterns */
+  .pattern-dots {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.3'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size: 60px 60px;
+  }
+
+  .pattern-grid {
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%23374151' stroke-width='1' fill='none' opacity='0.1'%3E%3Cpath d='M0 0h40v40H0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size: 40px 40px;
+  }
+
+  /* Custom Gates Notes Colors */
+  .bg-gates-red { background-color: hsl(var(--gates-red)); }
+  .bg-gates-navy { background-color: hsl(var(--gates-navy)); }
+  .bg-gates-gray { background-color: hsl(var(--gates-gray)); }
+  .bg-gates-pink { background-color: hsl(var(--gates-pink)); }
+  .bg-gates-cyan { background-color: hsl(var(--gates-cyan)); }
+  .bg-gates-purple { background-color: hsl(var(--gates-purple)); }
+
+  .text-gates-red { color: hsl(var(--gates-red)); }
+  .text-gates-navy { color: hsl(var(--gates-navy)); }
+  .text-gates-cyan { color: hsl(var(--gates-cyan)); }
+  .text-gates-purple { color: hsl(var(--gates-purple)); }
+
+  /* Interactive Effects */
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 }

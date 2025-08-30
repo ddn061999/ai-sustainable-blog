@@ -26,24 +26,24 @@ const NewsletterSignup = () => {
   };
 
   return (
-    <section className="py-16 lg:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <Card className="max-w-4xl mx-auto bg-gradient-to-br from-primary/5 via-background to-accent/5 border-primary/20">
+    <section className="py-16 lg:py-24 bg-gates-navy">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Card className="max-w-4xl mx-auto bg-white border-none shadow-2xl">
           <CardContent className="p-8 lg:p-12">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               {/* Content */}
               <div className="space-y-6">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="p-3 rounded-full bg-primary/10">
-                      <Mail className="h-6 w-6 text-primary" />
+                    <div className="p-3 rounded-full bg-gates-red/10">
+                      <Mail className="h-6 w-6 text-gates-red" />
                     </div>
-                    <h2 className="text-2xl lg:text-3xl font-playfair font-bold">
+                    <h2 className="text-2xl lg:text-3xl font-bold text-gates-navy">
                       Weekly Insights
                     </h2>
                   </div>
                   
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-lg text-gray-600 leading-relaxed">
                     Get exclusive access to cutting-edge research, market analysis, 
                     and policy updates in sustainable finance delivered to your inbox.
                   </p>
@@ -58,14 +58,14 @@ const NewsletterSignup = () => {
                     'Exclusive interviews with industry leaders',
                   ].map((benefit, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
-                      <span className="text-sm">{benefit}</span>
+                      <CheckCircle className="h-4 w-4 text-gates-red flex-shrink-0" />
+                      <span className="text-sm text-gray-600">{benefit}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="text-sm text-muted-foreground">
-                  Join <strong>10,000+</strong> finance professionals • Free • No spam
+                <div className="text-sm text-gray-500">
+                  Join <strong className="text-gates-navy">10,000+</strong> finance professionals • Free • No spam
                 </div>
               </div>
 
@@ -85,7 +85,7 @@ const NewsletterSignup = () => {
                       <Button 
                         type="submit" 
                         size="lg" 
-                        className="w-full group"
+                        className="w-full group bg-gates-red hover:bg-gates-red/90 text-white"
                         disabled={!email}
                       >
                         Subscribe to Newsletter
