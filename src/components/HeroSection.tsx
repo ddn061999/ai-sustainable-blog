@@ -28,7 +28,7 @@ const HeroSection = () => {
   const expertiseIcons = [
     { icon: TrendingUp, label: 'Finance', color: 'text-green-600', bgColor: 'bg-green-100' },
     { icon: Brain, label: 'AI/ML', color: 'text-blue-500', bgColor: 'bg-blue-50' },
-    { icon: Leaf, label: 'Sustainability', color: 'text-emerald-500', bgColor: 'bg-emerald-50' }
+    { icon: Shield, label: 'Corporate Governance', color: 'text-purple-500', bgColor: 'bg-purple-50' }
   ];
 
   const floatingElements = [
