@@ -1,6 +1,7 @@
 import { ArrowRight, TrendingUp, Brain, Leaf } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import woodenBlocks from '@/assets/wooden-blocks-clean.jpg';
 const HeroSection = () => {
   return <section className="relative py-20 lg:py-28 overflow-hidden">
@@ -63,9 +64,10 @@ const HeroSection = () => {
               <div className="space-y-6">
                 {/* Professional Photo Placeholder */}
                 <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/30 flex items-center justify-center">
-                  <div className="w-44 h-44 rounded-full bg-muted flex items-center justify-center">
-                    <span className="text-4xl font-playfair text-muted-foreground">DN</span>
-                  </div>
+                  <Avatar className="w-44 h-44">
+                    <AvatarImage src="/lovable-uploads/ef1bf23a-a44c-46c8-b5ff-54520ca1d0a3.png" alt="Duy Nguyen" />
+                    <AvatarFallback className="text-4xl font-playfair">DN</AvatarFallback>
+                  </Avatar>
                 </div>
 
                 <div className="text-center space-y-4">
