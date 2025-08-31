@@ -1,134 +1,179 @@
-import { ArrowRight, TrendingUp, Brain, Leaf, Zap, Shield, Target, BarChart3, Cpu, Recycle } from 'lucide-react';
+import { ArrowRight, TrendingUp, Brain, Leaf, Zap, Shield, Target, BarChart3, Cpu, Recycle, Sprout, TreePine, Wind } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const HeroSection = () => {
   const [isCardFlipped, setIsCardFlipped] = useState(false);
+  const [particles, setParticles] = useState<Array<{id: number, size: number, left: number, delay: number}>>([]);
+
+  // Generate floating particles
+  useEffect(() => {
+    const newParticles = Array.from({ length: 12 }, (_, i) => ({
+      id: i,
+      size: Math.random() * 4 + 2,
+      left: Math.random() * 100,
+      delay: Math.random() * 15
+    }));
+    setParticles(newParticles);
+  }, []);
 
   const tickerKeywords = [
-    'ESG', 'Artificial Intelligence', 'Transparency', 'Corporate Governance', 
-    'Impact Investing', 'Sustainable Finance', 'Machine Learning', 'Risk Analytics',
-    'Green Bonds', 'Climate Finance', 'Data Science', 'Financial Innovation'
+    'ESG', 'Sustainable Finance', 'AI Analytics', 'Green Technology', 
+    'Impact Investing', 'Climate Data', 'Carbon Credits', 'Renewable Energy',
+    'Ethical AI', 'Nature-Based Solutions', 'Clean Innovation', 'Biodiversity Finance'
   ];
 
   const expertiseIcons = [
-    { icon: TrendingUp, label: 'Finance', color: 'text-emerald-400' },
-    { icon: Brain, label: 'AI/ML', color: 'text-blue-400' },
-    { icon: Leaf, label: 'Sustainability', color: 'text-green-400' }
+    { icon: TrendingUp, label: 'Finance', color: 'text-green-600', bgColor: 'bg-green-100' },
+    { icon: Brain, label: 'AI/ML', color: 'text-blue-500', bgColor: 'bg-blue-50' },
+    { icon: Leaf, label: 'Sustainability', color: 'text-emerald-500', bgColor: 'bg-emerald-50' }
   ];
 
-  const floatingIcons = [
-    { icon: BarChart3, position: 'top-20 left-20', delay: '0s' },
-    { icon: Cpu, position: 'top-32 right-32', delay: '1s' },
-    { icon: Recycle, position: 'bottom-32 left-32', delay: '2s' },
-    { icon: Shield, position: 'bottom-20 right-20', delay: '3s' },
+  const floatingElements = [
+    { icon: TreePine, position: 'top-20 left-16', delay: '0s', color: 'text-green-400' },
+    { icon: Wind, position: 'top-40 right-20', delay: '2s', color: 'text-blue-300' },
+    { icon: Sprout, position: 'bottom-40 left-20', delay: '4s', color: 'text-emerald-400' },
+    { icon: Recycle, position: 'bottom-24 right-16', delay: '6s', color: 'text-green-500' },
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden gradient-hero">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 circuit-pattern opacity-30" />
+    <section className="relative min-h-screen flex items-center overflow-hidden gradient-eco-hero">
+      {/* Organic Background Patterns */}
+      <div className="absolute inset-0 nature-pattern" />
+      <div className="absolute inset-0 leaf-circuit-pattern opacity-40" />
       
-      {/* Floating Icons */}
-      {floatingIcons.map((item, index) => (
+      {/* Floating Particles */}
+      <div className="particles">
+        {particles.map((particle) => (
+          <div
+            key={particle.id}
+            className="particle"
+            style={{
+              width: `${particle.size}px`,
+              height: `${particle.size}px`,
+              left: `${particle.left}%`,
+              animationDelay: `${particle.delay}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Gentle Wave Animations */}
+      <div className="absolute top-1/4 left-0 w-full h-32 wave-pattern opacity-30" />
+      <div className="absolute bottom-1/3 right-0 w-full h-24 wave-pattern opacity-20" style={{ animationDelay: '3s' }} />
+
+      {/* Floating Natural Elements */}
+      {floatingElements.map((item, index) => (
         <div
           key={index}
-          className={`absolute ${item.position} float opacity-20 animate-pulse-glow`}
+          className={`absolute ${item.position} float-gentle opacity-20`}
           style={{ animationDelay: item.delay }}
         >
-          <item.icon className="w-8 h-8 text-primary" />
+          <item.icon className={`w-8 h-8 ${item.color}`} />
         </div>
       ))}
-
-      {/* Energy Flow Lines */}
-      <div className="absolute top-0 left-0 w-full h-1 energy-flow opacity-60" />
-      <div className="absolute bottom-0 right-0 w-full h-1 energy-flow opacity-60" style={{ animationDelay: '1.5s' }} />
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
-          {/* Left Side - Bold Statement */}
+          {/* Left Side - Nature-Inspired Statement */}
           <div className="space-y-8 animate-slide-in-left">
-            {/* Main Headline */}
+            {/* Organic Header */}
             <div className="space-y-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-1 gradient-tech rounded-full animate-pulse-glow" />
-                <span className="text-sm font-inter font-medium text-primary-foreground/80 tracking-wider uppercase">
-                  Finance • AI • Sustainability
+              <div className="flex items-center gap-3 mb-6">
+                <Leaf className="w-6 h-6 text-green-600 animate-pulse" />
+                <div className="h-px flex-1 bg-gradient-to-r from-green-400 via-green-500 to-transparent opacity-50" />
+                <span className="text-sm font-inter font-medium text-green-700 tracking-wider uppercase">
+                  Sustainable • Intelligent • Purposeful
                 </span>
               </div>
 
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-primary-foreground">
+              <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-foreground">
                 Where{' '}
-                <span className="text-gradient-tech block lg:inline">Finance</span>{' '}
+                <span className="text-gradient-nature inline-flex items-center gap-3">
+                  Finance
+                  <TrendingUp className="w-12 h-12 text-green-600 float-gentle-delayed" />
+                </span>{' '}
+                <br className="hidden lg:block" />
                 Meets{' '}
-                <span className="text-gradient block lg:inline">AI</span>{' '}
+                <span className="text-gradient-tech inline-flex items-center gap-3">
+                  AI
+                  <Brain className="w-12 h-12 text-blue-500 float-gentle" />
+                </span>{' '}
                 and{' '}
-                <span className="text-gradient-tech block lg:inline">Sustainability</span>
+                <span className="text-gradient-nature inline-flex items-center gap-3">
+                  Sustainability
+                  <Leaf className="w-12 h-12 text-emerald-500 float-gentle-delayed" />
+                </span>
               </h1>
 
-              <p className="text-xl font-inter leading-relaxed text-primary-foreground/90 max-w-2xl">
-                Shaping the Future of Finance with Purpose-Driven Innovation
-              </p>
+              <div className="space-y-4">
+                <p className="text-2xl font-inter leading-relaxed text-green-800 font-medium">
+                  🌱 Nurturing the Future of Finance with Nature-Inspired Innovation
+                </p>
 
-              <p className="text-lg font-inter leading-relaxed text-primary-foreground/70 max-w-xl">
-                Exploring how emerging technologies can enhance transparency and impact 
-                in financial systems through rigorous research and practical implementation.
-              </p>
+                <p className="text-lg font-inter leading-relaxed text-muted-foreground max-w-xl">
+                  Exploring how emerging technologies can create harmony between financial growth 
+                  and environmental stewardship through thoughtful research and sustainable practices.
+                </p>
+              </div>
             </div>
 
-            {/* Animated Icon Badges */}
+            {/* Organic Expertise Badges */}
             <div className="flex flex-wrap gap-4">
               {expertiseIcons.map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-3 px-4 py-2 bg-card/10 backdrop-blur-sm border border-primary/20 rounded-full hover:bg-card/20 transition-all duration-300 animate-scale-in"
-                  style={{ animationDelay: `${index * 0.2}s` }}
+                  className={`flex items-center gap-3 px-5 py-3 ${item.bgColor} border border-green-200 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300 animate-scale-in`}
+                  style={{ animationDelay: `${index * 0.3}s` }}
                 >
                   <item.icon className={`w-5 h-5 ${item.color}`} />
-                  <span className="text-sm font-inter font-medium text-primary-foreground">
+                  <span className="text-sm font-inter font-semibold text-slate-700">
                     {item.label}
                   </span>
                 </div>
               ))}
             </div>
 
-            {/* Dynamic CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            {/* Eco-Friendly CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-6">
               <Button 
                 size="lg" 
-                className="btn-glow bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-8 py-4 rounded-full group"
+                className="btn-eco-glow bg-green-600 hover:bg-green-700 text-white font-medium px-8 py-4 rounded-full group shadow-lg"
               >
-                Latest Research
+                <Sprout className="mr-2 h-5 w-5" />
+                Explore Research
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               
               <Button 
                 variant="outline" 
                 size="lg"
-                className="btn-glow border-primary/30 bg-card/10 hover:bg-card/20 text-primary-foreground backdrop-blur-sm px-8 py-4 rounded-full"
+                className="btn-eco-glow border-green-300 bg-white/80 hover:bg-green-50 text-green-700 backdrop-blur-sm px-8 py-4 rounded-full shadow-lg"
               >
-                <Zap className="mr-2 h-5 w-5" />
+                <Wind className="mr-2 h-5 w-5" />
                 Newsletter
               </Button>
             </div>
 
-            {/* Quick Impact Stats */}
+            {/* Impact Stats with Nature Icons */}
             <div className="grid grid-cols-3 gap-6 pt-8">
               {[
-                { number: '3+', label: 'Years Experience', icon: Target },
-                { number: '2', label: 'Major Banks', icon: TrendingUp },
-                { number: '5+', label: 'Research Papers', icon: Brain }
+                { number: '3+', label: 'Years Growing', icon: TreePine, color: 'text-green-600' },
+                { number: '2', label: 'Major Banks', icon: Shield, color: 'text-blue-600' },
+                { number: '5+', label: 'Green Papers', icon: Leaf, color: 'text-emerald-600' }
               ].map((stat, index) => (
-                <div key={index} className="text-center group animate-fade-in" style={{ animationDelay: `${1 + index * 0.3}s` }}>
-                  <div className="flex flex-col items-center gap-2">
-                    <stat.icon className="w-6 h-6 text-primary mb-1 group-hover:animate-pulse-glow" />
-                    <div className="text-3xl font-bold text-primary-foreground drop-shadow-sm group-hover:text-gradient-tech transition-colors">
+                <div key={index} className="text-center group animate-fade-in" style={{ animationDelay: `${1 + index * 0.4}s` }}>
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="p-3 bg-white/80 rounded-full shadow-lg group-hover:shadow-xl transition-all">
+                      <stat.icon className={`w-6 h-6 ${stat.color} group-hover:scale-110 transition-transform`} />
+                    </div>
+                    <div className="text-3xl font-bold text-green-800 group-hover:text-gradient-nature transition-colors">
                       {stat.number}
                     </div>
-                    <div className="text-sm text-primary-foreground/70 font-inter">
+                    <div className="text-sm text-muted-foreground font-inter font-medium">
                       {stat.label}
                     </div>
                   </div>
@@ -137,12 +182,12 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Side - Interactive Profile Card */}
+          {/* Right Side - Eco-Friendly Profile Card */}
           <div className="flex justify-center lg:justify-end animate-slide-in-right">
             <div className="relative">
-              {/* Card Container with Flip Effect */}
+              {/* Natural Card with Soft Shadows */}
               <div 
-                className="relative w-80 h-96 preserve-3d cursor-pointer"
+                className="relative w-80 h-96 preserve-3d cursor-pointer group"
                 style={{ 
                   transformStyle: 'preserve-3d',
                   transform: isCardFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
@@ -150,86 +195,101 @@ const HeroSection = () => {
                 }}
                 onClick={() => setIsCardFlipped(!isCardFlipped)}
               >
-                {/* Front Side */}
-                <Card className="absolute inset-0 w-full h-full p-6 bg-card/20 backdrop-blur-xl border border-primary/20 overflow-hidden group hover:border-primary/40 transition-all duration-500 animate-pulse-glow backface-hidden">
+                {/* Front Side - Eco Card */}
+                <Card className="absolute inset-0 w-full h-full p-6 eco-card overflow-hidden group-hover:shadow-2xl transition-all duration-500 backface-hidden">
                   <div className="flex flex-col h-full justify-between">
-                    {/* Profile Section */}
-                    <div className="text-center space-y-4">
+                    {/* Profile Section with Natural Elements */}
+                    <div className="text-center space-y-6">
                       <div className="relative w-32 h-32 mx-auto">
-                        <div className="absolute inset-0 rounded-full bg-gradient-tech animate-rotate-slow opacity-30" />
-                        <Avatar className="w-30 h-30 relative z-10 ring-4 ring-primary/30">
+                        {/* Organic Ring Animation */}
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 animate-pulse opacity-20" />
+                        <div className="absolute inset-2 rounded-full bg-gradient-to-r from-blue-400 via-green-500 to-emerald-600 animate-rotate-slow opacity-10" />
+                        
+                        <Avatar className="w-28 h-28 relative z-10 ring-4 ring-green-200 shadow-xl">
                           <AvatarImage 
                             src="/lovable-uploads/ef1bf23a-a44c-46c8-b5ff-54520ca1d0a3.png" 
                             alt="Duy Nguyen" 
                             className="object-cover object-[center_20%]"
                           />
-                          <AvatarFallback className="text-2xl bg-gradient-tech text-primary-foreground">DN</AvatarFallback>
+                          <AvatarFallback className="text-2xl bg-gradient-nature text-white">DN</AvatarFallback>
                         </Avatar>
+
+                        {/* Floating Leaf Elements */}
+                        <Leaf className="absolute -top-2 -right-2 w-4 h-4 text-green-400 animate-pulse" />
+                        <Sprout className="absolute -bottom-1 -left-1 w-4 h-4 text-emerald-400 animate-pulse" style={{ animationDelay: '1s' }} />
                       </div>
                       
-                      <div>
-                        <h3 className="text-xl font-playfair font-bold text-primary-foreground mb-2">
+                      <div className="space-y-2">
+                        <h3 className="text-xl font-playfair font-bold text-green-800">
                           Duy Nguyen
                         </h3>
-                        <p className="text-sm text-primary-foreground/70 font-inter">
+                        <p className="text-sm text-green-600 font-inter font-medium">
                           Finance & AI Professional
                         </p>
+                        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
+                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                          <span>Sustainable Innovation Advocate</span>
+                        </div>
                       </div>
                     </div>
 
-                    {/* Interactive Elements */}
+                    {/* Expertise Grid */}
                     <div className="space-y-4">
-                      {/* Expertise Icons */}
                       <div className="grid grid-cols-3 gap-3">
                         {expertiseIcons.map((item, index) => (
                           <div 
                             key={index}
-                            className="flex flex-col items-center p-3 rounded-lg bg-card/20 border border-primary/10 hover:border-primary/30 transition-all duration-300 hover:scale-105"
+                            className={`flex flex-col items-center p-3 rounded-xl ${item.bgColor} border border-green-100 hover:border-green-200 transition-all duration-300 hover:scale-105 hover:shadow-md`}
                           >
                             <item.icon className={`h-6 w-6 mb-1 ${item.color}`} />
-                            <span className="text-xs font-inter font-medium text-primary-foreground/80">
+                            <span className="text-xs font-inter font-medium text-slate-600">
                               {item.label}
                             </span>
                           </div>
                         ))}
                       </div>
 
-                      <div className="text-center">
-                        <p className="text-xs text-primary-foreground/50 font-inter">
-                          Click to flip card
+                      <div className="text-center bg-green-50 rounded-lg p-3">
+                        <p className="text-xs text-green-700 font-inter flex items-center justify-center gap-1">
+                          <Leaf className="w-3 h-3" />
+                          Click to discover more
                         </p>
                       </div>
                     </div>
                   </div>
                 </Card>
 
-                {/* Back Side */}
-                <Card className="absolute inset-0 w-full h-full p-6 bg-card/20 backdrop-blur-xl border border-primary/20 overflow-hidden rotate-y-180 backface-hidden">
-                  <div className="flex flex-col h-full justify-center text-center space-y-6">
-                    <h4 className="text-lg font-playfair font-bold text-primary-foreground">
-                      Professional Journey
-                    </h4>
+                {/* Back Side - Professional Journey */}
+                <Card className="absolute inset-0 w-full h-full p-6 eco-card overflow-hidden rotate-y-180 backface-hidden">
+                  <div className="flex flex-col h-full justify-center space-y-6">
+                    <div className="text-center">
+                      <TreePine className="w-12 h-12 text-green-600 mx-auto mb-4 animate-pulse" />
+                      <h4 className="text-lg font-playfair font-bold text-green-800 mb-4">
+                        Growing Impact
+                      </h4>
+                    </div>
                     
-                    <div className="space-y-4 text-sm font-inter text-primary-foreground/80">
-                      <div className="space-y-2">
-                        <div className="font-semibold text-primary">Citibank</div>
-                        <div>Investment Banking & Risk Analytics</div>
+                    <div className="space-y-6 text-sm font-inter">
+                      <div className="bg-green-50 rounded-lg p-4 border-l-4 border-green-400">
+                        <div className="font-semibold text-green-800 mb-1">🏛️ Citibank</div>
+                        <div className="text-green-700">Investment Banking & Risk Analytics</div>
                       </div>
                       
-                      <div className="space-y-2">
-                        <div className="font-semibold text-primary">Vietnam International Bank</div>
-                        <div>Investor Relations & Data Science</div>
+                      <div className="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-400">
+                        <div className="font-semibold text-blue-800 mb-1">🏦 Vietnam International Bank</div>
+                        <div className="text-blue-700">Investor Relations & Data Science</div>
                       </div>
                       
-                      <div className="space-y-2">
-                        <div className="font-semibold text-primary">Current Focus</div>
-                        <div>AI-Driven Sustainable Finance Research</div>
+                      <div className="bg-emerald-50 rounded-lg p-4 border-l-4 border-emerald-400">
+                        <div className="font-semibold text-emerald-800 mb-1">🌱 Current Mission</div>
+                        <div className="text-emerald-700">AI-Driven Sustainable Finance</div>
                       </div>
                     </div>
 
-                    <div className="text-center">
-                      <p className="text-xs text-primary-foreground/50 font-inter">
-                        Click to flip back
+                    <div className="text-center bg-green-100 rounded-lg p-3">
+                      <p className="text-xs text-green-700 font-inter flex items-center justify-center gap-1">
+                        <Wind className="w-3 h-3" />
+                        Click to return
                       </p>
                     </div>
                   </div>
@@ -239,18 +299,17 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Scrolling Ticker */}
+        {/* Nature-Inspired Ticker */}
         <div className="absolute bottom-8 left-0 w-full overflow-hidden">
-          <div className="bg-card/10 backdrop-blur-sm border-t border-primary/20 py-3">
+          <div className="bg-white/10 backdrop-blur-sm border-t border-green-200/50 py-4 rounded-t-lg">
             <div className="whitespace-nowrap ticker-scroll">
-              <span className="text-sm font-inter text-primary-foreground/60 mr-8">
-                {tickerKeywords.join(' • ')} • {tickerKeywords.join(' • ')}
+              <span className="text-sm font-inter text-green-700 mr-8">
+                🌍 {tickerKeywords.join(' 🔗 ')} 🌿 {tickerKeywords.join(' ♻️ ')} 🌱
               </span>
             </div>
           </div>
         </div>
       </div>
-
     </section>
   );
 };

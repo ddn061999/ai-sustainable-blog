@@ -17,24 +17,31 @@
     --popover: 0 0% 100%;
     --popover-foreground: 158 12% 15%;
 
-    --primary: 158 75% 45%;
+    --primary: 142 76% 36%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 158 24% 96%;
+    --secondary: 142 30% 96%;
     --secondary-foreground: 158 12% 15%;
 
-    --muted: 158 24% 96%;
+    --muted: 142 30% 96%;
     --muted-foreground: 158 8% 46%;
 
-    --accent: 158 48% 88%;
+    --accent: 142 50% 88%;
     --accent-foreground: 158 12% 15%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 158 24% 91%;
-    --input: 158 24% 91%;
-    --ring: 158 64% 52%;
+    --border: 142 30% 91%;
+    --input: 142 30% 91%;
+    --ring: 142 70% 45%;
+
+    /* Nature-inspired colors */
+    --nature-green: 142 76% 36%;
+    --nature-light: 142 50% 88%;
+    --nature-dark: 142 60% 25%;
+    --tech-blue: 200 100% 70%;
+    --tech-purple: 280 100% 75%;
 
     --radius: 0.75rem;
   }
@@ -93,105 +100,224 @@
     font-family: 'Playfair Display', serif;
   }
 
-  /* Modern gradients for finance + tech theme */
+  /* Modern gradients for nature + tech theme */
   .gradient-green {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    background: linear-gradient(135deg, hsl(var(--nature-green)) 0%, hsl(var(--nature-light)) 100%);
   }
 
-  .gradient-tech {
-    background: linear-gradient(135deg, hsl(240 100% 65%) 0%, hsl(280 100% 70%) 50%, hsl(var(--primary)) 100%);
-  }
-
-  .gradient-hero {
+  .gradient-nature {
     background: linear-gradient(135deg, 
-      hsl(240 50% 15%) 0%, 
-      hsl(280 40% 20%) 30%, 
-      hsl(158 30% 25%) 70%, 
-      hsl(var(--primary)) 100%
+      hsl(var(--nature-light)) 0%, 
+      hsl(var(--nature-green)) 50%, 
+      hsl(var(--nature-dark)) 100%
+    );
+  }
+
+  .gradient-eco-hero {
+    background: linear-gradient(135deg, 
+      hsl(142 30% 96%) 0%, 
+      hsl(142 40% 85%) 30%, 
+      hsl(142 50% 75%) 70%, 
+      hsl(var(--nature-green)) 100%
+    );
+  }
+
+  .gradient-tech-soft {
+    background: linear-gradient(135deg, 
+      hsl(var(--tech-blue) / 0.1) 0%, 
+      hsl(var(--tech-purple) / 0.1) 50%, 
+      hsl(var(--nature-green) / 0.1) 100%
     );
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(158 64% 35%) 100%);
+    background: linear-gradient(135deg, hsl(var(--nature-green)) 0%, hsl(var(--nature-dark)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-nature {
+    background: linear-gradient(135deg, 
+      hsl(var(--nature-green)) 0%, 
+      hsl(var(--nature-dark)) 50%,
+      hsl(142 80% 30%) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-tech {
-    background: linear-gradient(135deg, hsl(240 100% 65%) 0%, hsl(280 100% 70%) 50%, hsl(var(--primary)) 100%);
+    background: linear-gradient(135deg, 
+      hsl(var(--tech-blue)) 0%, 
+      hsl(var(--tech-purple)) 50%, 
+      hsl(var(--nature-green)) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Animated background patterns */
-  .circuit-pattern {
+  /* Organic background patterns */
+  .nature-pattern {
     background-image: 
-      radial-gradient(circle at 2px 2px, hsl(240 100% 65% / 0.15) 1px, transparent 0),
-      linear-gradient(45deg, hsl(280 100% 70% / 0.05) 25%, transparent 25%),
-      linear-gradient(-45deg, hsl(var(--primary) / 0.05) 25%, transparent 25%);
-    background-size: 40px 40px, 60px 60px, 60px 60px;
-    animation: circuit-flow 20s linear infinite;
+      radial-gradient(circle at 20% 80%, hsl(var(--nature-green) / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--nature-light) / 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsl(var(--tech-blue) / 0.05) 0%, transparent 50%);
+    background-size: 400px 400px, 300px 300px, 200px 200px;
+    animation: organic-flow 25s ease-in-out infinite;
   }
 
-  .energy-flow {
+  .leaf-circuit-pattern {
+    background-image: 
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234ade80' fill-opacity='0.05'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zM10 10c11.046 0 20 8.954 20 20s-8.954 20-20 20S-10 41.046-10 30s8.954-20 20-20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(45deg, transparent 40%, hsl(var(--tech-blue) / 0.02) 50%, transparent 60%);
+    background-size: 60px 60px, 120px 120px;
+    animation: pattern-drift 30s linear infinite;
+  }
+
+  /* Gentle wave animation */
+  .wave-pattern {
     background: linear-gradient(90deg, 
       transparent 0%, 
-      hsl(var(--primary) / 0.1) 50%, 
+      hsl(var(--nature-green) / 0.1) 25%,
+      hsl(var(--nature-light) / 0.15) 50%,
+      hsl(var(--nature-green) / 0.1) 75%,
       transparent 100%);
-    animation: flow-right 3s ease-in-out infinite;
+    animation: wave-flow 8s ease-in-out infinite;
   }
 
-  /* Button glow effects */
-  .btn-glow {
+  /* Eco-friendly card styles */
+  .eco-card {
+    background: linear-gradient(145deg, 
+      hsl(0 0% 100% / 0.95) 0%, 
+      hsl(var(--nature-light) / 0.1) 100%
+    );
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--nature-green) / 0.2);
+    box-shadow: 
+      0 8px 32px hsl(var(--nature-green) / 0.1),
+      0 1px 0 hsl(0 0% 100% / 0.5) inset;
+  }
+
+  /* Gentle button glow */
+  .btn-eco-glow {
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 16px hsl(var(--nature-green) / 0.2);
   }
 
-  .btn-glow::before {
+  .btn-eco-glow::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.4), transparent);
-    transition: left 0.5s ease;
+    background: linear-gradient(90deg, 
+      transparent, 
+      hsl(var(--nature-light) / 0.3), 
+      transparent
+    );
+    transition: left 0.6s ease;
   }
 
-  .btn-glow:hover::before {
+  .btn-eco-glow:hover::before {
     left: 100%;
   }
 
-  /* Floating animation */
-  .float {
-    animation: float 6s ease-in-out infinite;
+  /* Floating leaves animation */
+  .float-gentle {
+    animation: float-gentle 8s ease-in-out infinite;
   }
 
-  .float-delayed {
-    animation: float 6s ease-in-out infinite 2s;
+  .float-gentle-delayed {
+    animation: float-gentle 8s ease-in-out infinite 3s;
+  }
+
+  /* Particles */
+  .particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    background: hsl(var(--nature-green) / 0.3);
+    border-radius: 50%;
+    animation: particle-float 15s linear infinite;
+  }
+
+  .particle:nth-child(odd) {
+    background: hsl(var(--tech-blue) / 0.2);
   }
 
   /* Ticker scroll */
   .ticker-scroll {
-    animation: ticker 30s linear infinite;
+    animation: ticker 35s linear infinite;
   }
 }
 
-@keyframes circuit-flow {
-  0% { background-position: 0 0, 0 0, 0 0; }
-  100% { background-position: 40px 40px, 60px 60px, -60px -60px; }
+@keyframes organic-flow {
+  0%, 100% { 
+    background-position: 0% 50%, 100% 50%, 50% 0%; 
+    transform: scale(1);
+  }
+  33% { 
+    background-position: 100% 0%, 0% 100%, 0% 50%; 
+    transform: scale(1.05);
+  }
+  66% { 
+    background-position: 50% 100%, 50% 0%, 100% 50%; 
+    transform: scale(0.95);
+  }
 }
 
-@keyframes flow-right {
-  0%, 100% { transform: translateX(-100%); opacity: 0; }
-  50% { transform: translateX(0); opacity: 1; }
+@keyframes pattern-drift {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 60px 60px, 120px 120px; }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+@keyframes wave-flow {
+  0%, 100% { 
+    transform: translateX(-100%) scaleY(1); 
+    opacity: 0.3;
+  }
+  50% { 
+    transform: translateX(100%) scaleY(1.2); 
+    opacity: 0.6;
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+    opacity: 0.7;
+  }
+  50% { 
+    transform: translateY(-15px) rotate(5deg); 
+    opacity: 1;
+  }
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) translateX(-10px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(10px) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 @keyframes ticker {
