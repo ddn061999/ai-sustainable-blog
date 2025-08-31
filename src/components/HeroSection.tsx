@@ -75,7 +75,7 @@ const HeroSection = () => {
         </div>
       ))}
 
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           {/* Left Side - Nature-Inspired Statement */}
