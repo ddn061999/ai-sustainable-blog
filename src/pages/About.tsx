@@ -31,7 +31,7 @@ const About = () => {
       icon: GraduationCap,
       title: 'Education',
       items: [
-        'University of Washington, Seattle Foster School of Business Bachelor of Business Administration – Concentration in Finance & Information Systems',
+        'Finance & Information Systems (Foster School of Business, US)',
         'Data Analytics Certification',
         'AI in Finance Professional Course',
       ],
