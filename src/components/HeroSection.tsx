@@ -39,7 +39,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden gradient-eco-hero">
+    <section className="relative min-h-screen flex items-center overflow-hidden gradient-eco-hero pb-16">
       {/* Organic Background Patterns */}
       <div className="absolute inset-0 nature-pattern" />
       <div className="absolute inset-0 leaf-circuit-pattern opacity-40" />
@@ -75,8 +75,8 @@ const HeroSection = () => {
         </div>
       ))}
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh] py-12">
           
           {/* Left Side - Nature-Inspired Statement */}
           <div className="space-y-8 animate-slide-in-left">
