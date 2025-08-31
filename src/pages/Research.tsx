@@ -65,17 +65,17 @@ const Research = () => {
       <main className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-6 mb-16">
-            <h1 className="text-4xl lg:text-5xl font-playfair font-bold">
+            <h1 className="text-4xl lg:text-5xl font-bold">
               Research <span className="text-gradient">Portfolio</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground font-inter max-w-3xl mx-auto leading-relaxed">
               Exploring the intersection of finance, technology, and sustainability through rigorous research.
             </p>
           </div>
 
           {/* Research Areas */}
           <div className="mb-16">
-            <h2 className="text-3xl font-playfair font-bold text-center mb-8">
+            <h2 className="text-3xl font-bold text-center mb-8">
               Research Focus Areas
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -86,8 +86,8 @@ const Research = () => {
                       <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
                         <area.icon className="h-8 w-8 text-primary" />
                       </div>
-                      <h3 className="text-xl font-semibold">{area.title}</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
+                      <h3 className="text-xl">{area.title}</h3>
+                      <p className="text-muted-foreground font-inter text-sm leading-relaxed">
                         {area.description}
                       </p>
                       <Badge variant="outline" className="mt-2">
@@ -102,7 +102,7 @@ const Research = () => {
 
           {/* Publications */}
           <div className="mb-16">
-            <h2 className="text-3xl font-playfair font-bold text-center mb-8 flex items-center justify-center gap-3">
+            <h2 className="text-3xl font-bold text-center mb-8 flex items-center justify-center gap-3">
               <BookOpen className="h-8 w-8 text-primary" />
               Recent Publications
             </h2>
@@ -112,7 +112,7 @@ const Research = () => {
                   <CardContent className="p-6">
                     <div className="space-y-3">
                       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3">
-                        <h3 className="font-semibold text-lg flex-1">{pub.title}</h3>
+                        <h3 className="text-lg flex-1">{pub.title}</h3>
                         <div className="flex gap-2">
                           <Badge variant={pub.status === 'peer-reviewed' ? 'default' : 'secondary'}>
                             {pub.status}

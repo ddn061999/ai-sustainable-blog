@@ -56,10 +56,10 @@ const Contact = () => {
       <main className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-6 mb-16">
-            <h1 className="text-4xl lg:text-5xl font-playfair font-bold">
+            <h1 className="text-4xl lg:text-5xl font-bold">
               Get In <span className="text-gradient">Touch</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground font-inter max-w-3xl mx-auto leading-relaxed">
               Let's discuss sustainable finance, AI applications, or potential collaborations.
             </p>
           </div>
@@ -68,7 +68,7 @@ const Contact = () => {
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-2xl font-playfair font-bold mb-6">
+                <h2 className="text-2xl font-bold mb-6">
                   Contact Information
                 </h2>
                 <div className="space-y-4">
@@ -80,9 +80,9 @@ const Contact = () => {
                             <method.icon className="h-5 w-5 text-primary" />
                           </div>
                           <div className="space-y-2 flex-1">
-                            <h3 className="font-semibold">{method.title}</h3>
+                            <h3 className="font-inter">{method.title}</h3>
                             <p className="text-primary font-mono text-sm">{method.value}</p>
-                            <p className="text-muted-foreground text-sm">{method.description}</p>
+                            <p className="text-muted-foreground font-inter text-sm">{method.description}</p>
                             <a 
                               href={method.action}
                               className="inline-flex items-center text-sm text-primary hover:underline"
@@ -108,17 +108,17 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
-                    <p className="text-sm font-medium">Based in San Francisco, CA</p>
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-sm font-inter font-medium">Based in San Francisco, CA</p>
+                    <p className="text-muted-foreground font-inter text-sm">
                       Available for remote consultations worldwide
                     </p>
                   </div>
                   <div className="space-y-2">
-                    <p className="text-sm font-medium flex items-center gap-2">
+                    <p className="text-sm font-inter font-medium flex items-center gap-2">
                       <Calendar className="h-4 w-4 text-primary" />
                       Response Time
                     </p>
-                    <p className="text-muted-foreground text-sm">
+                    <p className="text-muted-foreground font-inter text-sm">
                       Typically within 24-48 hours for inquiries
                     </p>
                   </div>
@@ -128,7 +128,7 @@ const Contact = () => {
 
             {/* Collaboration Opportunities */}
             <div>
-              <h2 className="text-2xl font-playfair font-bold mb-6">
+              <h2 className="text-2xl font-bold mb-6">
                 Collaboration Opportunities
               </h2>
               <div className="space-y-4">
@@ -136,8 +136,8 @@ const Contact = () => {
                   <Card key={index} className="hover:shadow-lg transition-shadow">
                     <CardContent className="p-6">
                       <div className="space-y-2">
-                        <h3 className="font-semibold text-lg">{opportunity.title}</h3>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
+                        <h3 className="text-lg">{opportunity.title}</h3>
+                        <p className="text-muted-foreground font-inter text-sm leading-relaxed">
                           {opportunity.description}
                         </p>
                       </div>
@@ -153,10 +153,10 @@ const Contact = () => {
             <CardContent className="p-8">
               <div className="space-y-4">
                 <Mail className="h-12 w-12 mx-auto text-primary" />
-                <h2 className="text-2xl font-playfair font-bold">
+                <h2 className="text-2xl font-bold">
                   Stay Updated
                 </h2>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
+                <p className="text-muted-foreground font-inter max-w-2xl mx-auto">
                   Subscribe to my newsletter for the latest insights on sustainable finance, 
                   AI applications, and market analysis.
                 </p>

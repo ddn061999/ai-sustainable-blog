@@ -50,10 +50,10 @@ const RecentPosts = () => {
         <div className="space-y-12">
           {/* Section Header */}
           <div className="text-center space-y-4">
-            <h2 className="text-3xl lg:text-4xl font-playfair font-bold">
+            <h2 className="text-3xl lg:text-4xl font-bold">
               Latest Insights & Analysis
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground font-inter max-w-2xl mx-auto">
               Stay updated with my latest thoughts on sustainable finance, AI applications, 
               and policy developments shaping the future of green investing.
             </p>
@@ -82,13 +82,13 @@ const RecentPosts = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-semibold group-hover:text-primary transition-colors leading-tight">
+                  <h3 className="text-xl group-hover:text-primary transition-colors leading-tight">
                     {post.title}
                   </h3>
                 </CardHeader>
 
                 <CardContent className="space-y-4">
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground font-inter leading-relaxed">
                     {post.excerpt}
                   </p>
 

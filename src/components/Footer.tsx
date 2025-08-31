@@ -42,12 +42,12 @@ const Footer = () => {
               <div className="flex items-center justify-center w-8 h-8 rounded-lg gradient-green">
                 <Leaf className="h-5 w-5 text-white" />
               </div>
-              <span className="font-playfair font-semibold text-lg">
+              <span className="font-semibold text-lg">
                 Duy Nguyen
               </span>
             </div>
             
-            <p className="text-muted-foreground text-sm leading-relaxed">
+            <p className="text-muted-foreground font-inter text-sm leading-relaxed">
               Finance professional specializing in the intersection of Finance, 
               AI, and Sustainable Finance. Advancing thought leadership in ESG 
               investing and green policy.
@@ -71,7 +71,7 @@ const Footer = () => {
           {/* Navigation Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category} className="space-y-4">
-              <h3 className="font-semibold text-sm uppercase tracking-wider">
+              <h3 className="font-inter font-semibold text-sm uppercase tracking-wider">
                 {category}
               </h3>
               <ul className="space-y-3">
@@ -79,7 +79,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                      className="text-muted-foreground hover:text-primary transition-colors font-inter text-sm"
                     >
                       {link.name}
                     </Link>
@@ -93,20 +93,20 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-sm text-muted-foreground">
+            <div className="text-sm text-muted-foreground font-inter">
               © {currentYear} Duy Nguyen. All rights reserved.
             </div>
             
             <div className="flex items-center space-x-6 text-sm">
-              <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors font-inter">
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link to="/terms" className="text-muted-foreground hover:text-primary transition-colors font-inter">
                 Terms of Service
               </Link>
               <a 
                 href="#" 
-                className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+                className="text-muted-foreground hover:text-primary transition-colors font-inter flex items-center gap-1"
               >
                 Sitemap
                 <ExternalLink className="h-3 w-3" />

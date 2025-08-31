@@ -27,7 +27,7 @@ const Header = () => {
             <div className="flex items-center justify-center w-8 h-8 rounded-lg gradient-green">
               <Leaf className="h-5 w-5 text-white" />
             </div>
-            <span className="font-playfair font-semibold text-xl text-gradient">
+            <span className="font-semibold text-xl text-gradient">
               Duy Nguyen
             </span>
           </Link>
@@ -38,7 +38,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-sm font-inter font-medium transition-colors hover:text-primary ${
                   isActive(item.href)
                     ? 'text-primary border-b-2 border-primary pb-1'
                     : 'text-muted-foreground'
@@ -69,7 +69,7 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                  className={`text-sm font-inter font-medium transition-colors hover:text-primary ${
                     isActive(item.href) ? 'text-primary' : 'text-muted-foreground'
                   }`}
                   onClick={() => setIsMenuOpen(false)}

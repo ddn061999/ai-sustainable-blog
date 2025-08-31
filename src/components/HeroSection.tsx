@@ -18,12 +18,12 @@ const HeroSection = () => {
           {/* Content */}
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
-              <h1 className="text-4xl lg:text-6xl font-playfair font-bold leading-tight">
+              <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
                 Where <span className="text-gradient">Finance</span> Meets{' '}
                 <span className="text-gradient">AI</span> and{' '}
                 <span className="text-gradient">Sustainability</span>
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
+              <p className="text-xl text-muted-foreground font-inter leading-relaxed max-w-xl">
                 Exploring how emerging technologies can enhance transparency and impact 
                 in financial systems. Insights from a finance professional transitioning 
                 toward academic, purpose-driven research.
@@ -70,13 +70,13 @@ const HeroSection = () => {
                       alt="Duy Nguyen" 
                       className="object-cover object-[center_20%]"
                     />
-                    <AvatarFallback className="text-4xl font-playfair">DN</AvatarFallback>
+                    <AvatarFallback className="text-4xl">DN</AvatarFallback>
                   </Avatar>
                 </div>
 
                 <div className="text-center space-y-4">
-                  <h3 className="text-xl font-semibold">Duy Nguyen</h3>
-                  <p className="text-muted-foreground leading-relaxed">Finance & Investor Relations professional with 3+ years of experience at Citibank and Vietnam International Bank (VIB), specializing in financial analysis, investor communications, and data analytics. Passionate about leveraging emerging technologies—especially AI—to enhance transparency and impact in financial systems.</p>
+                  <h3 className="text-xl">Duy Nguyen</h3>
+                  <p className="text-muted-foreground font-inter leading-relaxed">Finance & Investor Relations professional with 3+ years of experience at Citibank and Vietnam International Bank (VIB), specializing in financial analysis, investor communications, and data analytics. Passionate about leveraging emerging technologies—especially AI—to enhance transparency and impact in financial systems.</p>
                 </div>
 
                 {/* Expertise Areas */}
@@ -92,7 +92,7 @@ const HeroSection = () => {
                   label: 'Corporate Governance'
                 }].map((item, index) => <div key={index} className="text-center p-3 rounded-lg bg-secondary/50">
                       <item.icon className="h-5 w-5 mx-auto mb-2 text-primary" />
-                      <span className="text-xs font-medium">{item.label}</span>
+                      <span className="text-xs font-inter font-medium">{item.label}</span>
                     </div>)}
                 </div>
               </div>

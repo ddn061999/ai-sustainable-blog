@@ -38,12 +38,12 @@ const NewsletterSignup = () => {
                     <div className="p-3 rounded-full bg-primary/10">
                       <Mail className="h-6 w-6 text-primary" />
                     </div>
-                    <h2 className="text-2xl lg:text-3xl font-playfair font-bold">
+                    <h2 className="text-2xl lg:text-3xl font-bold">
                       Weekly Insights
                     </h2>
                   </div>
                   
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-lg text-muted-foreground font-inter leading-relaxed">
                     Get exclusive access to cutting-edge research, market analysis, 
                     and policy updates in sustainable finance delivered to your inbox.
                   </p>
@@ -59,12 +59,12 @@ const NewsletterSignup = () => {
                   ].map((benefit, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
-                      <span className="text-sm">{benefit}</span>
+                      <span className="text-sm font-inter">{benefit}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-muted-foreground font-inter">
                   Join <strong>10,000+</strong> finance professionals • Free • No spam
                 </div>
               </div>
@@ -99,10 +99,10 @@ const NewsletterSignup = () => {
                       <CheckCircle className="h-8 w-8 text-green-600" />
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-lg font-semibold text-green-600">
+                      <h3 className="text-lg text-green-600">
                         Welcome aboard!
                       </h3>
-                      <p className="text-muted-foreground">
+                      <p className="text-muted-foreground font-inter">
                         Check your email for a confirmation link.
                       </p>
                     </div>
@@ -110,7 +110,7 @@ const NewsletterSignup = () => {
                 )}
 
                 <div className="text-center">
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-muted-foreground font-inter">
                     By subscribing, you agree to our privacy policy and terms of service.
                   </p>
                 </div>

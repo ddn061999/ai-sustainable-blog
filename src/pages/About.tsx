@@ -94,10 +94,10 @@ const About = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
           <div className="text-center space-y-6 mb-16">
-            <h1 className="text-4xl lg:text-5xl font-playfair font-bold">
+            <h1 className="text-4xl lg:text-5xl font-bold">
               About <span className="text-gradient">Duy Nguyen</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground font-inter max-w-3xl mx-auto leading-relaxed">
               A finance professional with experience at major banks, passionate about the intersection 
               of technology, finance, and sustainability in modern financial systems.
             </p>
@@ -116,13 +116,13 @@ const About = () => {
                         alt="Duy Nguyen" 
                         className="object-cover rounded-lg w-full h-full"
                       />
-                      <AvatarFallback className="text-6xl font-playfair rounded-lg">DN</AvatarFallback>
+                      <AvatarFallback className="text-6xl rounded-lg">DN</AvatarFallback>
                     </Avatar>
                   </div>
                   
                   <div className="text-center space-y-2">
-                    <h2 className="text-xl font-semibold">Duy Nguyen</h2>
-                    <p className="text-muted-foreground">Finance Professional</p>
+                    <h2 className="text-xl">Duy Nguyen</h2>
+                    <p className="text-muted-foreground font-inter">Finance Professional</p>
                     <div className="flex justify-center space-x-2">
                       <Badge>Citibank</Badge>
                       <Badge>VIB</Badge>
@@ -141,20 +141,20 @@ const About = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground font-inter leading-relaxed">
                     I'm Duy Nguyen, a finance professional with over 3 years of experience at 
                     Citibank and VIB, specializing in financial strategy, investor relations, 
                     and data analytics. Throughout my career in banking, I've developed a deep 
                     understanding of financial systems and the critical role that data plays 
                     in modern finance.
                   </p>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground font-inter leading-relaxed">
                     I'm passionate about how emerging technologies—especially AI—can enhance 
                     transparency and impact in financial systems. This interest has led me to 
                     explore the intersection of technology and finance, focusing on how innovation 
                     can drive more sustainable and efficient financial practices.
                   </p>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground font-inter leading-relaxed">
                     This site shares my insights and research as I transition toward a more 
                     academic, purpose-driven career. Here, I explore the evolving landscape 
                     of finance, the potential of AI in transforming financial markets, and 
@@ -167,7 +167,7 @@ const About = () => {
 
           {/* Expertise Areas */}
           <div className="mb-16">
-            <h2 className="text-3xl font-playfair font-bold text-center mb-8">
+            <h2 className="text-3xl font-bold text-center mb-8">
               Areas of Expertise
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -178,8 +178,8 @@ const About = () => {
                       <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
                         <area.icon className="h-8 w-8 text-primary" />
                       </div>
-                      <h3 className="text-xl font-semibold">{area.title}</h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
+                      <h3 className="text-xl">{area.title}</h3>
+                      <p className="text-muted-foreground font-inter text-sm leading-relaxed">
                         {area.description}
                       </p>
                     </div>
@@ -202,7 +202,7 @@ const About = () => {
                 <CardContent>
                   <ul className="space-y-3">
                     {category.items.map((item, itemIndex) => (
-                      <li key={itemIndex} className="text-sm text-muted-foreground leading-relaxed">
+                      <li key={itemIndex} className="text-sm text-muted-foreground font-inter leading-relaxed">
                         {item}
                       </li>
                     ))}
@@ -214,7 +214,7 @@ const About = () => {
 
           {/* Recent Blog Posts */}
           <div className="mb-16">
-            <h2 className="text-3xl font-playfair font-bold text-center mb-8">
+            <h2 className="text-3xl font-bold text-center mb-8">
               Recent Blog Posts
             </h2>
             <div className="space-y-4">
@@ -223,8 +223,8 @@ const About = () => {
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between">
                       <div className="space-y-2 flex-1">
-                        <h3 className="font-semibold text-lg">{post.title}</h3>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
+                        <h3 className="text-lg">{post.title}</h3>
+                        <p className="text-muted-foreground font-inter text-sm leading-relaxed">
                           {post.description}
                         </p>
                         <div className="flex items-center gap-4 text-sm text-muted-foreground">
@@ -247,10 +247,10 @@ const About = () => {
           <Card className="text-center bg-gradient-to-br from-primary/5 to-accent/5 border-primary/20">
             <CardContent className="p-8">
               <div className="space-y-4">
-                <h2 className="text-2xl font-playfair font-bold">
+                <h2 className="text-2xl font-bold">
                   Let's Connect
                 </h2>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
+                <p className="text-muted-foreground font-inter max-w-2xl mx-auto">
                   Interested in discussing finance, AI applications in banking, or exploring 
                   sustainable finance trends? I'd love to connect and share insights.
                 </p>
