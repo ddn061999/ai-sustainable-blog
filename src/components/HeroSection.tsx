@@ -172,7 +172,7 @@ const HeroSection = () => {
                           Duy Nguyen
                         </h3>
                         <p className="text-sm text-primary-foreground/70 font-inter">
-                          Finance & AI Researcher
+                          Finance & AI Professional
                         </p>
                       </div>
                     </div>
