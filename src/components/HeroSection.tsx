@@ -65,7 +65,11 @@ const HeroSection = () => {
                 {/* Professional Photo Placeholder */}
                 <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/30 flex items-center justify-center">
                   <Avatar className="w-44 h-44">
-                    <AvatarImage src="/lovable-uploads/ef1bf23a-a44c-46c8-b5ff-54520ca1d0a3.png" alt="Duy Nguyen" />
+                    <AvatarImage 
+                      src="/lovable-uploads/ef1bf23a-a44c-46c8-b5ff-54520ca1d0a3.png" 
+                      alt="Duy Nguyen" 
+                      className="object-cover object-center"
+                    />
                     <AvatarFallback className="text-4xl font-playfair">DN</AvatarFallback>
                   </Avatar>
                 </div>
