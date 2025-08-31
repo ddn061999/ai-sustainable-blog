@@ -31,7 +31,7 @@ const About = () => {
       icon: GraduationCap,
       title: 'Education',
       items: [
-        'Bachelor of Finance & Economics (2020)',
+        'University of Washington, Seattle Foster School of Business Bachelor of Business Administration – Concentration in Finance & Information Systems',
         'Data Analytics Certification',
         'AI in Finance Professional Course',
       ],
