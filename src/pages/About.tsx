@@ -109,12 +109,12 @@ const About = () => {
               <Card className="p-6">
                 <div className="space-y-6">
                   {/* Professional Photo Placeholder */}
-                  <div className="w-full aspect-square rounded-lg bg-gradient-to-br from-primary/20 to-accent/30 flex items-center justify-center">
-                    <Avatar className="w-5/6 aspect-square rounded-lg">
+                  <div className="w-full aspect-square rounded-lg bg-gradient-to-br from-primary/20 to-accent/30 flex items-center justify-center overflow-hidden">
+                    <Avatar className="w-full h-full rounded-lg">
                       <AvatarImage 
                         src="/lovable-uploads/ef1bf23a-a44c-46c8-b5ff-54520ca1d0a3.png" 
                         alt="Duy Nguyen" 
-                        className="object-contain rounded-lg"
+                        className="object-cover rounded-lg w-full h-full"
                       />
                       <AvatarFallback className="text-6xl font-playfair rounded-lg">DN</AvatarFallback>
                     </Avatar>
