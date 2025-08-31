@@ -1,5 +1,5 @@
 
-import { Brain, TrendingUp, Leaf, BookOpen, Award, Users } from 'lucide-react';
+import { Brain, TrendingUp, Leaf, BookOpen, Award, Users, Shield } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Header from '@/components/Header';
@@ -20,10 +20,10 @@ const Research = () => {
       papers: 8,
     },
     {
-      icon: Leaf,
-      title: 'Climate Policy',
-      description: 'Carbon pricing mechanisms and regulatory framework analysis for sustainable transitions.',
-      papers: 6,
+      icon: Shield,
+      title: 'Corporate Governance',
+      description: 'Board effectiveness, executive compensation structures, and stakeholder engagement frameworks in modern corporations.',
+      papers: 10,
     },
   ];
 
