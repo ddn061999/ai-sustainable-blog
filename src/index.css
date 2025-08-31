@@ -93,8 +93,22 @@
     font-family: 'Playfair Display', serif;
   }
 
+  /* Modern gradients for finance + tech theme */
   .gradient-green {
     background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  }
+
+  .gradient-tech {
+    background: linear-gradient(135deg, hsl(240 100% 65%) 0%, hsl(280 100% 70%) 50%, hsl(var(--primary)) 100%);
+  }
+
+  .gradient-hero {
+    background: linear-gradient(135deg, 
+      hsl(240 50% 15%) 0%, 
+      hsl(280 40% 20%) 30%, 
+      hsl(158 30% 25%) 70%, 
+      hsl(var(--primary)) 100%
+    );
   }
 
   .text-gradient {
@@ -103,4 +117,97 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  .text-gradient-tech {
+    background: linear-gradient(135deg, hsl(240 100% 65%) 0%, hsl(280 100% 70%) 50%, hsl(var(--primary)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animated background patterns */
+  .circuit-pattern {
+    background-image: 
+      radial-gradient(circle at 2px 2px, hsl(240 100% 65% / 0.15) 1px, transparent 0),
+      linear-gradient(45deg, hsl(280 100% 70% / 0.05) 25%, transparent 25%),
+      linear-gradient(-45deg, hsl(var(--primary) / 0.05) 25%, transparent 25%);
+    background-size: 40px 40px, 60px 60px, 60px 60px;
+    animation: circuit-flow 20s linear infinite;
+  }
+
+  .energy-flow {
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      hsl(var(--primary) / 0.1) 50%, 
+      transparent 100%);
+    animation: flow-right 3s ease-in-out infinite;
+  }
+
+  /* Button glow effects */
+  .btn-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.4), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .btn-glow:hover::before {
+    left: 100%;
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .float-delayed {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+
+  /* Ticker scroll */
+  .ticker-scroll {
+    animation: ticker 30s linear infinite;
+  }
+}
+
+@keyframes circuit-flow {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  100% { background-position: 40px 40px, 60px 60px, -60px -60px; }
+}
+
+@keyframes flow-right {
+  0%, 100% { transform: translateX(-100%); opacity: 0; }
+  50% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes ticker {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* 3D Card Flip Styles */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
 }
