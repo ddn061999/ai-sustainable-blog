@@ -52,7 +52,7 @@ const HeroSection = () => {
               number: '5+',
               label: 'Blog Posts'
             }].map((stat, index) => <div key={index} className="text-center">
-                  <div className="text-2xl font-bold text-primary">{stat.number}</div>
+                  <div className="text-3xl font-black text-primary drop-shadow-sm">{stat.number}</div>
                   <div className="text-sm text-muted-foreground">{stat.label}</div>
                 </div>)}
             </div>
