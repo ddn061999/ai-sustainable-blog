@@ -114,7 +114,7 @@ const About = () => {
                       <AvatarImage 
                         src="/lovable-uploads/ef1bf23a-a44c-46c8-b5ff-54520ca1d0a3.png" 
                         alt="Duy Nguyen" 
-                        className="object-cover object-[center_20%] rounded-lg"
+                        className="object-contain rounded-lg"
                       />
                       <AvatarFallback className="text-6xl font-playfair rounded-lg">DN</AvatarFallback>
                     </Avatar>
