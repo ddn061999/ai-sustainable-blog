@@ -167,13 +167,13 @@ const HeroSection = () => {
               ].map((stat, index) => (
                 <div key={index} className="text-center group animate-fade-in" style={{ animationDelay: `${1 + index * 0.4}s` }}>
                   <div className="flex flex-col items-center gap-3">
-                    <div className="p-3 bg-white/80 rounded-full shadow-lg group-hover:shadow-xl transition-all">
-                      <stat.icon className={`w-6 h-6 ${stat.color} group-hover:scale-110 transition-transform`} />
+                    <div className="p-4 bg-white rounded-full shadow-xl border-2 border-green-200 group-hover:shadow-2xl group-hover:border-green-400 transition-all">
+                      <stat.icon className={`w-8 h-8 ${stat.color} group-hover:scale-125 transition-transform`} />
                     </div>
-                    <div className="text-3xl font-bold text-green-800 group-hover:text-gradient-nature transition-colors">
+                    <div className="text-5xl font-black text-green-900 group-hover:text-green-700 transition-colors drop-shadow-lg">
                       {stat.number}
                     </div>
-                    <div className="text-sm text-muted-foreground font-inter font-medium">
+                    <div className="text-base text-green-800 font-inter font-bold tracking-wide">
                       {stat.label}
                     </div>
                   </div>
