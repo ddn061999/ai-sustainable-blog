@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -109,9 +110,14 @@ const About = () => {
                 <div className="space-y-6">
                   {/* Professional Photo Placeholder */}
                   <div className="w-full aspect-square rounded-lg bg-gradient-to-br from-primary/20 to-accent/30 flex items-center justify-center">
-                    <div className="w-5/6 aspect-square rounded-lg bg-muted flex items-center justify-center">
-                      <span className="text-6xl font-playfair text-muted-foreground">DN</span>
-                    </div>
+                    <Avatar className="w-5/6 aspect-square rounded-lg">
+                      <AvatarImage 
+                        src="/lovable-uploads/ef1bf23a-a44c-46c8-b5ff-54520ca1d0a3.png" 
+                        alt="Duy Nguyen" 
+                        className="object-cover object-[center_20%] rounded-lg"
+                      />
+                      <AvatarFallback className="text-6xl font-playfair rounded-lg">DN</AvatarFallback>
+                    </Avatar>
                   </div>
                   
                   <div className="text-center space-y-2">
