@@ -31,7 +31,7 @@ const About = () => {
       icon: GraduationCap,
       title: 'Education',
       items: [
-        'Finance & Information Systems (Foster School of Business, US)',
+        'Bachelor of Finance & Information Systems (Foster School of Business, US)',
         'Data Analytics Certification',
         'AI in Finance Professional Course',
       ],
