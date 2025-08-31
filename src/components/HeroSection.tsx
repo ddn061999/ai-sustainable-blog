@@ -226,10 +226,6 @@ const HeroSection = () => {
                         <p className="text-sm text-green-600 font-inter font-medium">
                           Finance & AI Professional
                         </p>
-                        <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
-                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                          <span>Sustainable Innovation Advocate</span>
-                        </div>
                       </div>
                     </div>
 
