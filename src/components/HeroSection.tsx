@@ -68,7 +68,7 @@ const HeroSection = () => {
                     <AvatarImage 
                       src="/lovable-uploads/ef1bf23a-a44c-46c8-b5ff-54520ca1d0a3.png" 
                       alt="Duy Nguyen" 
-                      className="object-cover object-center"
+                      className="object-cover object-[center_20%]"
                     />
                     <AvatarFallback className="text-4xl font-playfair">DN</AvatarFallback>
                   </Avatar>
