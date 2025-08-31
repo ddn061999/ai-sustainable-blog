@@ -1,105 +1,120 @@
-import { ArrowRight, TrendingUp, Brain, Leaf } from 'lucide-react';
+import { ArrowRight, TrendingUp, Brain, Leaf, BarChart3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import woodenBlocks from '@/assets/wooden-blocks-clean.jpg';
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 const HeroSection = () => {
-  return <section className="relative py-20 lg:py-28 overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${woodenBlocks})` }}
-      />
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-white/70 to-white/85" />
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="space-y-8 animate-fade-in">
-            <div className="space-y-4">
-              <h1 className="text-4xl lg:text-6xl font-playfair font-bold leading-tight">
-                Where <span className="text-gradient">Finance</span> Meets{' '}
-                <span className="text-gradient">AI</span> and{' '}
-                <span className="text-gradient">Sustainability</span>
+  // Sample data for the chart similar to the reference image
+  const growthData = [
+    { month: '09-24', value: 20 },
+    { month: '10-24', value: 36 },
+    { month: '11-24', value: 80, highlight: true },
+    { month: '12-24', value: 22 },
+  ];
+
+  const trustedPartners = [
+    'Citibank',
+    'VIB Bank',
+    'Foster School',
+    'Research Institute',
+    'FinTech Partners',
+    'AI Consortium'
+  ];
+
+  return (
+    <section className="relative py-20 lg:py-32 bg-gradient-to-br from-background to-muted/20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Content */}
+          <div className="space-y-8">
+            <div className="space-y-6">
+              <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-foreground">
+                Achieve Your Goals
+                <br />
+                with Smart{' '}
+                <span className="text-primary">Financial</span>
+                <br />
+                Solutions
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
-                Exploring how emerging technologies can enhance transparency and impact 
-                in financial systems. Insights from a finance professional transitioning 
-                toward academic, purpose-driven research.
+              <p className="text-xl text-muted-foreground leading-relaxed max-w-lg">
+                Unlock your potential with tailored financial research and insights 
+                designed to meet your unique needs in AI and sustainability.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="group">
-                Latest Research
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <Button size="lg" className="px-8 py-4 text-base font-medium">
+                Get Started
               </Button>
-              <Button variant="outline" size="lg">
-                Subscribe to Newsletter
+              <Button variant="outline" size="lg" className="px-8 py-4 text-base font-medium">
+                Our Research
               </Button>
-            </div>
-
-            {/* Quick Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8">
-              {[{
-              number: '3+',
-              label: 'Years Experience'
-            }, {
-              number: '2',
-              label: 'Major Banks'
-            }, {
-              number: '5+',
-              label: 'Blog Posts'
-            }].map((stat, index) => <div key={index} className="text-center">
-                  <div className="text-2xl font-bold text-primary">{stat.number}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
-                </div>)}
             </div>
           </div>
 
-          {/* Professional Photo & Bio Card */}
+          {/* Right Content - Chart */}
           <div className="space-y-6">
-            <Card className="p-6 bg-card/50 backdrop-blur border-border/50">
+            <Card className="p-8 bg-card border-border/50 shadow-lg">
               <div className="space-y-6">
-                {/* Professional Photo Placeholder */}
-                <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/30 flex items-center justify-center">
-                  <Avatar className="w-44 h-44">
-                    <AvatarImage 
-                      src="/lovable-uploads/ef1bf23a-a44c-46c8-b5ff-54520ca1d0a3.png" 
-                      alt="Duy Nguyen" 
-                      className="object-cover object-[center_20%]"
-                    />
-                    <AvatarFallback className="text-4xl font-playfair">DN</AvatarFallback>
-                  </Avatar>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <BarChart3 className="h-5 w-5 text-primary" />
+                    <span className="text-sm font-medium text-muted-foreground">Research Impact</span>
+                  </div>
+                  <span className="text-sm font-medium text-foreground">2024</span>
+                </div>
+                
+                <div className="text-sm text-muted-foreground mb-4">
+                  <span className="font-semibold text-primary">80%</span> highest Growth in November 2024
                 </div>
 
-                <div className="text-center space-y-4">
-                  <h3 className="text-xl font-semibold">Duy Nguyen</h3>
-                  <p className="text-muted-foreground leading-relaxed">Finance & Investor Relations professional with 3+ years of experience at Citibank and Vietnam International Bank (VIB), specializing in financial analysis, investor communications, and data analytics. Passionate about leveraging emerging technologies—especially AI—to enhance transparency and impact in financial systems.</p>
+                <div className="h-64">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={growthData}>
+                      <XAxis 
+                        dataKey="month" 
+                        axisLine={false}
+                        tickLine={false}
+                        className="text-xs"
+                      />
+                      <YAxis hide />
+                      <Bar 
+                        dataKey="value" 
+                        fill="hsl(var(--primary))"
+                        radius={[4, 4, 0, 0]}
+                        className="opacity-80"
+                      />
+                    </BarChart>
+                  </ResponsiveContainer>
                 </div>
 
-                {/* Expertise Areas */}
-                <div className="grid grid-cols-3 gap-3">
-                  {[{
-                  icon: TrendingUp,
-                  label: 'Finance'
-                }, {
-                  icon: Brain,
-                  label: 'AI/ML'
-                }, {
-                  icon: Leaf,
-                  label: 'Corporate Governance'
-                }].map((item, index) => <div key={index} className="text-center p-3 rounded-lg bg-secondary/50">
-                      <item.icon className="h-5 w-5 mx-auto mb-2 text-primary" />
-                      <span className="text-xs font-medium">{item.label}</span>
-                    </div>)}
+                <div className="text-center">
+                  <div className="text-xs text-muted-foreground">
+                    <span className="inline-block w-3 h-1 bg-primary rounded mr-1"></span>
+                    Growth
+                  </div>
+                  <div className="text-sm font-medium text-foreground mt-1">Report in 2024</div>
                 </div>
               </div>
             </Card>
           </div>
         </div>
+
+        {/* Trusted Partners Section */}
+        <div className="mt-20 text-center space-y-8">
+          <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+            Our Trusted Partners
+          </h3>
+          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+            {trustedPartners.map((partner, index) => (
+              <span key={index} className="text-lg font-medium text-muted-foreground">
+                {partner}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
-    </section>;
+    </section>
+  );
 };
 export default HeroSection;
