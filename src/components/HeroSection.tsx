@@ -299,16 +299,6 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Nature-Inspired Ticker */}
-        <div className="absolute bottom-8 left-0 w-full overflow-hidden">
-          <div className="bg-white/10 backdrop-blur-sm border-t border-green-200/50 py-4 rounded-t-lg">
-            <div className="whitespace-nowrap ticker-scroll">
-              <span className="text-sm font-inter text-green-700 mr-8">
-                🌍 {tickerKeywords.join(' 🔗 ')} 🌿 {tickerKeywords.join(' ♻️ ')} 🌱
-              </span>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
