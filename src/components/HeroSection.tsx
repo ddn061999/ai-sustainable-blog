@@ -277,7 +277,7 @@ const HeroSection = () => {
                       
                       <div className="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-400">
                         <div className="font-semibold text-blue-800 mb-1">🏦 Vietnam International Bank</div>
-                        <div className="text-blue-700">Investor Relations & Data Science</div>
+                        <div className="text-blue-700">Investor Relations & Strategic Finance</div>
                       </div>
                       
                       <div className="bg-emerald-50 rounded-lg p-4 border-l-4 border-emerald-400">
