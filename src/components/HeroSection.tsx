@@ -1,4 +1,4 @@
-import { ArrowRight, TrendingUp, Brain, Leaf, Zap, Shield, Target, BarChart3, Cpu, Recycle, Sprout, TreePine, Wind } from 'lucide-react';
+import { ArrowRight, TrendingUp, Brain, Leaf, Zap, Shield, Target, BarChart3, Cpu, Recycle, Sprout, TreePine, Wind, Calendar, Landmark, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
@@ -161,9 +161,9 @@ const HeroSection = () => {
             {/* Impact Stats with Nature Icons */}
             <div className="grid grid-cols-3 gap-6 pt-8">
               {[
-                { number: '3+', label: 'Years Experience', icon: TreePine, color: 'text-green-600' },
-                { number: '2', label: 'Major Banks', icon: Shield, color: 'text-blue-600' },
-                { number: '10+', label: 'Blog Posts', icon: Leaf, color: 'text-emerald-600' }
+                { number: '3+', label: 'Years Experience', icon: Calendar, color: 'text-blue-600' },
+                { number: '2', label: 'Major Banks', icon: Landmark, color: 'text-gray-600' },
+                { number: '10+', label: 'Blog Posts', icon: FileText, color: 'text-green-600' }
               ].map((stat, index) => (
                 <div key={index} className="text-center group animate-fade-in" style={{ animationDelay: `${1 + index * 0.4}s` }}>
                   <div className="flex flex-col items-center gap-3">
