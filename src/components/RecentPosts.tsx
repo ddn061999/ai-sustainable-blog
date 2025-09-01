@@ -45,9 +45,9 @@ const RecentPosts = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-24">
+    <section className="py-12 lg:py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-12">
+        <div className="space-y-8">
           {/* Section Header */}
           <div className="text-center space-y-4">
             <h2 className="text-3xl lg:text-4xl font-bold">
@@ -60,7 +60,7 @@ const RecentPosts = () => {
           </div>
 
           {/* Featured Posts Grid */}
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {posts.map((post, index) => (
               <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-border/50 hover:border-primary/20">
                 <CardHeader className="space-y-4">
