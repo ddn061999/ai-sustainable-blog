@@ -45,7 +45,7 @@ const RecentPosts = () => {
   ];
 
   return (
-    <section className="py-12 lg:py-16">
+    <section className="py-12 lg:py-16 pb-6 lg:pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-8">
           {/* Section Header */}
