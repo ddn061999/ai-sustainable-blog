@@ -211,7 +211,7 @@ const HeroSection = () => {
                         <Sprout className="absolute -bottom-1 -left-1 w-4 h-4 text-emerald-400 animate-pulse" style={{ animationDelay: '1s' }} />
                       </div>
                       
-                      <div className="space-y-2">
+                      <div className="space-y-1">
                         <h3 className="text-xl font-playfair font-bold text-green-800">
                           Duy Nguyen
                         </h3>
