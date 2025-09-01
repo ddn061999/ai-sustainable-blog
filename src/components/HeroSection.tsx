@@ -82,13 +82,6 @@ const HeroSection = () => {
           <div className="space-y-8 animate-slide-in-left">
             {/* Organic Header */}
             <div className="space-y-6">
-              <div className="flex items-center gap-3 mb-6">
-                <Leaf className="w-6 h-6 text-green-600 animate-pulse" />
-                <div className="h-px flex-1 bg-gradient-to-r from-green-400 via-green-500 to-transparent opacity-50" />
-                <span className="text-sm font-inter font-medium text-green-700 tracking-wider uppercase">
-                  Sustainable • Intelligent • Purposeful
-                </span>
-              </div>
 
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-foreground">
                 Where{' '}
