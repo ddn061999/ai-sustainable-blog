@@ -26,7 +26,7 @@ const NewsletterSignup = () => {
   };
 
   return (
-    <section className="py-16 lg:py-24">
+    <section className="py-8 lg:py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <Card className="max-w-4xl mx-auto bg-gradient-to-br from-primary/5 via-background to-accent/5 border-primary/20">
           <CardContent className="p-8 lg:p-12">
