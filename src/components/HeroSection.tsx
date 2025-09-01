@@ -104,7 +104,7 @@ const HeroSection = () => {
 
               <div className="space-y-4">
                 <p className="text-2xl font-inter leading-relaxed text-green-800 font-medium">
-                  🌱 Nurturing the Future of Finance with Nature-Inspired Innovation
+                  📊 Bridging financial strategy with corporate governance, data-driven innovation
                 </p>
 
                 <p className="text-lg font-inter leading-relaxed text-muted-foreground max-w-xl">
