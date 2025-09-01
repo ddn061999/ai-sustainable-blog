@@ -252,7 +252,7 @@ const HeroSection = () => {
                   <div className="flex flex-col h-full justify-center space-y-6">
                     <div className="text-center">
                       <TreePine className="w-12 h-12 text-green-600 mx-auto mb-4 animate-pulse" />
-                      <h4 className="text-lg font-playfair font-bold text-green-800 mb-4">
+                      <h4 className="text-lg font-playfair font-bold text-green-800 mb-2">
                         Growing Impact
                       </h4>
                     </div>
