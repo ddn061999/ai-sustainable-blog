@@ -108,7 +108,7 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
-                    <p className="text-sm font-inter font-medium">Based in San Francisco, CA</p>
+                    <p className="text-sm font-inter font-medium">Based in Vietnam</p>
                     <p className="text-muted-foreground font-inter text-sm">
                       Available for remote consultations worldwide
                     </p>
