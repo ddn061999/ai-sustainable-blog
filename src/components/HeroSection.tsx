@@ -108,8 +108,7 @@ const HeroSection = () => {
                 </p>
 
                 <p className="text-lg font-inter leading-relaxed text-muted-foreground max-w-xl">
-                  Exploring how emerging technologies can create harmony between financial growth 
-                  and environmental stewardship through thoughtful research and sustainable practices.
+                  Integrating financial strategy, investor relations, and AI/ML to shape decisions that create sustainable value.
                 </p>
               </div>
             </div>
