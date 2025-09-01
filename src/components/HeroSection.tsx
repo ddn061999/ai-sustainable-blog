@@ -215,7 +215,7 @@ const HeroSection = () => {
                         <h3 className="text-xl font-playfair font-bold text-green-800">
                           Duy Nguyen
                         </h3>
-                        <p className="text-sm text-green-600 font-inter font-medium">
+                        <p className="text-sm text-green-600 font-inter font-medium mb-4">
                           Finance & AI Professional
                         </p>
                       </div>
