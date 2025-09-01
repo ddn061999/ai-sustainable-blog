@@ -21,15 +21,52 @@ export const FloatingNav = ({
 }) => {
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(false);
+  const [isLightBackground, setIsLightBackground] = useState(true);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
     if (typeof current === "number") {
+      const scrollProgress = scrollYProgress.get();
+      
       // Show nav when user has scrolled down more than 10% of the page
-      if (scrollYProgress.get() > 0.1) {
+      if (scrollProgress > 0.1) {
         setVisible(true);
       } else {
         setVisible(false);
+      }
+      
+      // Detect background sections based on scroll position
+      // Adjust these values based on your page sections
+      const viewportHeight = window.innerHeight;
+      const scrollPosition = scrollProgress * (document.documentElement.scrollHeight - viewportHeight);
+      
+      // Sample the background color at the navbar position
+      const element = document.elementFromPoint(window.innerWidth / 2, 60); // 60px is roughly where navbar sits
+      if (element) {
+        const computedStyle = window.getComputedStyle(element);
+        const bgColor = computedStyle.backgroundColor;
+        
+        // If no background color is set, check parent elements
+        let currentElement = element;
+        let finalBgColor = bgColor;
+        
+        while (currentElement && (finalBgColor === 'rgba(0, 0, 0, 0)' || finalBgColor === 'transparent')) {
+          currentElement = currentElement.parentElement;
+          if (currentElement) {
+            finalBgColor = window.getComputedStyle(currentElement).backgroundColor;
+          }
+        }
+        
+        // Determine if background is light or dark
+        if (finalBgColor && finalBgColor !== 'rgba(0, 0, 0, 0)' && finalBgColor !== 'transparent') {
+          const rgb = finalBgColor.match(/\d+/g);
+          if (rgb && rgb.length >= 3) {
+            const r = parseInt(rgb[0]);
+            const g = parseInt(rgb[1]);
+            const b = parseInt(rgb[2]);
+            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+            setIsLightBackground(luminance > 0.5);
+          }
+        }
       }
     }
   });
@@ -49,7 +86,10 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-fit fixed top-10 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-full dark:bg-black bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] px-8 py-2 items-center justify-center space-x-4",
+          "flex max-w-fit fixed top-10 inset-x-0 mx-auto rounded-full z-[5000] px-8 py-2 items-center justify-center space-x-4 transition-all duration-300 ease-in-out",
+          isLightBackground 
+            ? "bg-white/90 backdrop-blur-sm border border-gray-200/50 shadow-lg" 
+            : "bg-gray-900/90 backdrop-blur-sm border border-gray-700/50 shadow-lg",
           className
         )}
       >
@@ -58,11 +98,14 @@ export const FloatingNav = ({
             key={`link=${idx}`}
             to={navItem.link}
             className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
+              "relative items-center flex space-x-1 transition-colors duration-300 ease-in-out",
+              isLightBackground 
+                ? "text-gray-700 hover:text-gray-900" 
+                : "text-gray-200 hover:text-white"
             )}
           >
             <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="hidden sm:block text-sm">{navItem.name}</span>
+            <span className="hidden sm:block text-sm font-medium">{navItem.name}</span>
           </Link>
         ))}
       </motion.div>
