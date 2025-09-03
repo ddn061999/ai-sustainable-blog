@@ -260,7 +260,7 @@ const HeroSection = () => {
                     <div className="space-y-6 text-sm font-inter">
                       <div className="bg-green-50 rounded-lg p-4 border-l-4 border-green-400">
                         <div className="font-semibold text-green-800 mb-1">🏛️ Citibank</div>
-                        <div className="text-green-700">Banking Operations</div>
+                        <div className="text-green-700">Banking Operations & Tech</div>
                       </div>
                       
                       <div className="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-400">
