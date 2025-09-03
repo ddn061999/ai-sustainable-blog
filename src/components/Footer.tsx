@@ -34,10 +34,10 @@ const Footer = () => {
 
   return (
     <footer className="bg-card border-t">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid lg:grid-cols-4 gap-8">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 py-8 sm:py-10 lg:py-12 xl:py-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Brand */}
-          <div className="lg:col-span-1 space-y-6">
+          <div className="sm:col-span-2 lg:col-span-1 space-y-4 sm:space-y-6">
             <div className="flex items-center space-x-2">
               <div className="flex items-center justify-center w-8 h-8 rounded-lg gradient-green">
                 <Leaf className="h-5 w-5 text-white" />
@@ -91,8 +91,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-border mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div className="border-t border-border mt-8 sm:mt-10 lg:mt-12 pt-6 sm:pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-3 sm:space-y-4 md:space-y-0">
             <div className="text-sm text-muted-foreground font-inter">
               © {currentYear} Duy Nguyen. All rights reserved.
             </div>

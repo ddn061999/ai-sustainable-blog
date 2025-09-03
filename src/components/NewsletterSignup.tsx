@@ -26,24 +26,24 @@ const NewsletterSignup = () => {
   };
 
   return (
-    <section className="py-8 lg:py-12">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-6 sm:py-8 lg:py-12">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
         <Card className="max-w-4xl mx-auto bg-gradient-to-br from-primary/5 via-background to-accent/5 border-primary/20">
-          <CardContent className="p-8 lg:p-12">
-            <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <CardContent className="p-4 sm:p-6 lg:p-8 xl:p-12">
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
               {/* Content */}
-              <div className="space-y-6">
-                <div className="space-y-4">
+              <div className="space-y-4 sm:space-y-6">
+                <div className="space-y-3 sm:space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="p-3 rounded-full bg-primary/10">
-                      <Mail className="h-6 w-6 text-primary" />
+                    <div className="p-2 sm:p-3 rounded-full bg-primary/10">
+                      <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                     </div>
-                    <h2 className="text-2xl lg:text-3xl font-bold">
+                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold">
                       Weekly Insights
                     </h2>
                   </div>
                   
-                  <p className="text-lg text-muted-foreground font-inter leading-relaxed">
+                  <p className="text-base sm:text-lg text-muted-foreground font-inter leading-relaxed">
                     Get exclusive access to cutting-edge research, market analysis, 
                     and policy updates in sustainable finance delivered to your inbox.
                   </p>

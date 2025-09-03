@@ -39,7 +39,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden gradient-eco-hero pb-16">
+    <section className="relative min-h-screen flex items-center overflow-hidden gradient-eco-hero pb-8 sm:pb-12 lg:pb-16">
       {/* Organic Background Patterns */}
       <div className="absolute inset-0 nature-pattern" />
       <div className="absolute inset-0 leaf-circuit-pattern opacity-40" />
@@ -75,15 +75,15 @@ const HeroSection = () => {
         </div>
       ))}
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh] py-12">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-8 relative z-10 w-full">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[80vh] py-6 sm:py-8 lg:py-12">
           
           {/* Left Side - Nature-Inspired Statement */}
-          <div className="space-y-8 animate-slide-in-left">
+          <div className="space-y-4 sm:space-y-6 lg:space-y-8 animate-slide-in-left">
             {/* Organic Header */}
-            <div className="space-y-6">
+            <div className="space-y-3 sm:space-y-4 lg:space-y-6">
 
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-foreground">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-7xl font-bold leading-tight text-foreground">
                 Where{' '}
                 <span className="text-gradient-nature inline-flex items-center gap-3">
                   Finance
@@ -102,27 +102,27 @@ const HeroSection = () => {
                 </span>
               </h1>
 
-              <div className="space-y-4">
-                <p className="text-2xl font-inter leading-relaxed text-green-800 font-medium">
+              <div className="space-y-3 sm:space-y-4">
+                <p className="text-lg sm:text-xl lg:text-2xl font-inter leading-relaxed text-green-800 font-medium">
                   📊 Bridging financial strategy with corporate governance, data-driven innovation
                 </p>
 
-                <p className="text-lg font-inter leading-relaxed text-muted-foreground max-w-xl">
+                <p className="text-base sm:text-lg font-inter leading-relaxed text-muted-foreground max-w-xl">
                   Integrating financial strategy, investor relations, and AI/ML to shape decisions that create sustainable value.
                 </p>
               </div>
             </div>
 
             {/* Organic Expertise Badges */}
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-2 sm:gap-3 lg:gap-4">
               {expertiseIcons.map((item, index) => (
                 <div
                   key={index}
-                  className={`flex items-center gap-3 px-5 py-3 ${item.bgColor} border border-green-200 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300 animate-scale-in`}
+                  className={`flex items-center gap-2 sm:gap-3 px-3 sm:px-4 lg:px-5 py-2 sm:py-3 ${item.bgColor} border border-green-200 rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300 animate-scale-in`}
                   style={{ animationDelay: `${index * 0.3}s` }}
                 >
-                  <item.icon className={`w-5 h-5 ${item.color}`} />
-                  <span className="text-sm font-inter font-semibold text-slate-700">
+                  <item.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${item.color}`} />
+                  <span className="text-xs sm:text-sm font-inter font-semibold text-slate-700">
                     {item.label}
                   </span>
                 </div>
@@ -130,7 +130,7 @@ const HeroSection = () => {
             </div>
 
             {/* Eco-Friendly CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6">
               <Button 
                 size="lg" 
                 className="btn-eco-glow bg-green-600 hover:bg-green-700 text-white font-medium px-8 py-4 rounded-full group shadow-lg"
@@ -151,21 +151,21 @@ const HeroSection = () => {
             </div>
 
             {/* Impact Stats with Nature Icons */}
-            <div className="grid grid-cols-3 gap-6 pt-8">
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 pt-6 sm:pt-8">
               {[
                 { number: '3+', label: 'Years Experience', icon: Calendar, color: 'text-blue-600' },
                 { number: '2', label: 'Major Banks', icon: Landmark, color: 'text-gray-600' },
                 { number: '10+', label: 'Blog Posts', icon: FileText, color: 'text-green-600' }
               ].map((stat, index) => (
                 <div key={index} className="text-center group animate-fade-in" style={{ animationDelay: `${1 + index * 0.4}s` }}>
-                  <div className="flex flex-col items-center gap-3">
-                    <div className="p-4 bg-white rounded-full shadow-xl border-2 border-green-200 group-hover:shadow-2xl group-hover:border-green-400 transition-all">
-                      <stat.icon className={`w-8 h-8 ${stat.color} group-hover:scale-125 transition-transform`} />
+                  <div className="flex flex-col items-center gap-2 sm:gap-3">
+                    <div className="p-2 sm:p-3 lg:p-4 bg-white rounded-full shadow-xl border-2 border-green-200 group-hover:shadow-2xl group-hover:border-green-400 transition-all">
+                      <stat.icon className={`w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 ${stat.color} group-hover:scale-125 transition-transform`} />
                     </div>
-                    <div className="text-5xl font-black text-green-900 group-hover:text-green-700 transition-colors drop-shadow-lg">
+                    <div className="text-2xl sm:text-3xl lg:text-5xl font-black text-green-900 group-hover:text-green-700 transition-colors drop-shadow-lg">
                       {stat.number}
                     </div>
-                    <div className="text-base text-green-800 font-inter font-bold tracking-wide">
+                    <div className="text-xs sm:text-sm lg:text-base text-green-800 font-inter font-bold tracking-wide">
                       {stat.label}
                     </div>
                   </div>
@@ -179,7 +179,7 @@ const HeroSection = () => {
             <div className="relative">
               {/* Natural Card with Soft Shadows */}
               <div 
-                className="relative w-80 h-96 preserve-3d cursor-pointer group"
+                className="relative w-72 h-80 sm:w-80 sm:h-96 preserve-3d cursor-pointer group"
                 style={{ 
                   transformStyle: 'preserve-3d',
                   transform: isCardFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',

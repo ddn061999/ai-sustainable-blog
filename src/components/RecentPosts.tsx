@@ -45,22 +45,22 @@ const RecentPosts = () => {
   ];
 
   return (
-    <section className="py-12 lg:py-16 pb-6 lg:pb-8">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-8">
+    <section className="py-6 sm:py-8 lg:py-12 xl:py-16 pb-4 sm:pb-6 lg:pb-8">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
+        <div className="space-y-6 sm:space-y-8">
           {/* Section Header */}
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl lg:text-4xl font-bold">
+          <div className="text-center space-y-3 sm:space-y-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
               Latest Insights & Analysis
             </h2>
-            <p className="text-lg text-muted-foreground font-inter max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-muted-foreground font-inter max-w-2xl mx-auto">
               Stay updated with my latest thoughts on sustainable finance, AI applications, 
               and policy developments shaping the future of green investing.
             </p>
           </div>
 
           {/* Featured Posts Grid */}
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
             {posts.map((post, index) => (
               <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-border/50 hover:border-primary/20">
                 <CardHeader className="space-y-4">
