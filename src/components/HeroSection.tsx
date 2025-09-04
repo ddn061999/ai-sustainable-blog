@@ -216,7 +216,7 @@ const HeroSection = () => {
                           Duy Nguyen
                         </h3>
                         <p className="text-sm text-green-600 font-inter font-medium mb-4">
-                          Finance & AI Professional
+                          Finance & Data professional
                         </p>
                       </div>
                     </div>
