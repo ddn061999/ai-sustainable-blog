@@ -223,13 +223,13 @@ const HeroSection = () => {
 
                     {/* Expertise Grid */}
                     <div className="space-y-4">
-                      <div className="grid grid-cols-3 gap-3">
+                      <div className="grid grid-cols-3 gap-2">
                         {expertiseIcons.map((item, index) => (
                           <div 
                             key={index}
-                            className={`flex flex-col items-center p-3 rounded-xl ${item.bgColor} border border-green-100 hover:border-green-200 transition-all duration-300 hover:scale-105 hover:shadow-md`}
+                            className={`flex flex-col items-center p-2 rounded-lg ${item.bgColor} border border-green-100 hover:border-green-200 transition-all duration-300 hover:scale-105 hover:shadow-md`}
                           >
-                            <item.icon className={`h-6 w-6 mb-1 ${item.color}`} />
+                            <item.icon className={`h-4 w-4 mb-1 ${item.color}`} />
                             <span className="text-xs font-inter font-medium text-slate-600">
                               {item.label}
                             </span>
