@@ -33,7 +33,7 @@ const About = () => {
       items: [
         'Bachelor of Finance & Information Systems (UW Foster School of Business, USA)',
         'Master of International Business (RMIT University, VN)',
-        'AI in Finance Professional Course',
+        'Operations & Tech Staff, Citibank (2021-2022)',
       ],
     },
     {
