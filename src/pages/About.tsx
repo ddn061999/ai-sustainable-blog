@@ -31,7 +31,7 @@ const About = () => {
       icon: GraduationCap,
       title: 'Education',
       items: [
-        'Master International Business (RMIT University, Vietnam)',
+        'Bachelor of Finance & Information Systems (UW Foster School of Business, USA)',
         'Data Analytics Certification',
         'AI in Finance Professional Course',
       ],
