@@ -222,7 +222,7 @@ const HeroSection = () => {
                     </div>
 
                     {/* Expertise Grid */}
-                    <div className="space-y-4">
+                    <div className="space-y-2">
                       <div className="grid grid-cols-3 gap-2 mt-4">
                         {expertiseIcons.map((item, index) => (
                           <div 
