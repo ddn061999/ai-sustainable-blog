@@ -32,7 +32,7 @@ const About = () => {
       title: 'Education',
       items: [
         'Bachelor of Finance & Information Systems (UW Foster School of Business, USA)',
-        'Data Analytics Certification',
+        'Master of International Business (RMIT University, VN)',
         'AI in Finance Professional Course',
       ],
     },
