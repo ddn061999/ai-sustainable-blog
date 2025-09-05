@@ -22,7 +22,7 @@ const About = () => {
       icon: Briefcase,
       title: 'Experience',
       items: [
-        'Fund Transfer Staff, Citibank (2021-2022)',
+        'Operations & Tech Staff, Citibank (2021-2022)',
         'Investor Relations Senior Officer, VIB (2023-2025)',
         'Finance & Data Professional',
       ],
