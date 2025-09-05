@@ -237,7 +237,7 @@ const HeroSection = () => {
                         ))}
                       </div>
 
-                      <div className="text-center bg-green-50 rounded-lg p-2 mx-2">
+                      <div className="text-center bg-green-50 rounded-lg p-2">
                         <p className="text-xs text-green-700 font-inter flex items-center justify-center gap-1">
                           <Leaf className="w-3 h-3" />
                           Click to discover more
