@@ -23,7 +23,7 @@ const About = () => {
       title: 'Experience',
       items: [
         'Operations & Tech Staff, Citibank (2021-2022)',
-        'Investor Relations cum Financial Analyst Senior Officer, VIB (2023-2025)',
+        'Investor Relations cum Financial Analysis Senior Officer, VIB (2023-2025)',
         'Finance & Data Professional',
       ],
     },
