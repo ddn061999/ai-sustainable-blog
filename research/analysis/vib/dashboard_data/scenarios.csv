@@ -1,0 +1,4 @@
+scenario,roe,coe,g,pb,value,upside,return_12m,rationale
+Bear,0.13,0.155,0.05,0.7619,9757.4577,-0.2904,-0.1825,"credit cost ~1.5% (FY2024: 1.47%), NIM squeeze; market keeps punitive COE"
+Base,0.155,0.14,0.06,1.1875,15207.9127,0.106,0.2652,ROE ~TTM (15.7%) / company H1 16%; COE converges to peer-implied median
+Bull,0.175,0.135,0.06,1.5333,19636.8837,0.4281,0.6432,"NIM recovery + credit cost ~1.0%, plan delivery; P/B capped near 3Y max (1.58x)"

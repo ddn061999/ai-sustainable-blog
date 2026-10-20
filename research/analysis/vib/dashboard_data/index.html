@@ -1,0 +1,604 @@
+<style>
+.vb{display:flex;flex-direction:column;gap:var(--cds-gap-xl);font-family:var(--font-anthropic-sans);max-width:1200px;margin-inline:auto}
+.vb-head{display:flex;flex-direction:column;gap:var(--cds-gap-sm)}
+.vb-head h1{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);margin:0;text-wrap:balance}
+.vb-meta{display:flex;flex-wrap:wrap;gap:var(--cds-gap-sm);align-items:center;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.vb-pill{display:inline-flex;align-items:center;gap:6px;padding:2px 10px;border-radius:999px;border:1px solid var(--color-border-line);color:var(--color-fg);font-weight:var(--cds-font-weight-medium)}
+.vb-pill i{width:8px;height:8px;border-radius:50%;background:var(--color-warn)}
+.vb .vb-take b{font-weight:var(--cds-font-weight-medium)}
+.vb-take{margin:0;max-width:72ch;font-size:var(--cds-font-size-body);line-height:1.55}
+.vb-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,10.5rem),1fr));gap:var(--cds-gap-md)}
+.vb-kpi{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-md);display:flex;flex-direction:column;gap:var(--cds-gap-xs);min-width:0}
+.vb-kpi .lbl{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.vb-kpi .num{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);font-variant-numeric:tabular-nums;line-height:1.15}
+.vb-kpi .sub{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);font-variant-numeric:tabular-nums}
+.vb-sec{display:flex;flex-direction:column;gap:var(--cds-gap-md)}
+.vb-sec>h2{font-size:var(--cds-font-size-heading);font-weight:var(--cds-font-weight-medium);margin:0}
+.vb-sec>p{margin:0;color:var(--color-fg-muted);max-width:72ch}
+.vb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,24rem),1fr));gap:var(--cds-gap-md)}
+.vb-card{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-lg);display:flex;flex-direction:column;gap:var(--cds-gap-sm);min-width:0}
+.vb-wide{grid-column:1/-1}
+.vb-card h3{font-size:var(--cds-font-size-body);font-weight:var(--cds-font-weight-medium);margin:0}
+.vb-note{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin:0}
+.vb-chart{position:relative;min-width:0}
+.vb-legend{display:flex;flex-wrap:wrap;gap:var(--cds-gap-md);font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.vb-legend span{display:inline-flex;align-items:center;gap:6px}
+.vb-sw{display:inline-block;width:12px;height:3px;border-radius:2px;flex:none}
+.vb-ring{display:inline-block;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--color-fg);flex:none}
+.vb-tip{position:absolute;top:0;left:0;opacity:0;pointer-events:none;background:var(--cds-surface-popover);border:1px solid var(--cds-border);border-radius:var(--cds-radius);box-shadow:var(--cds-shadow-popover);padding:var(--cds-pad-xs) var(--cds-pad-sm);font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums;z-index:2;max-width:240px}
+.vb-tip-t{color:var(--cds-text-secondary);margin-bottom:2px}
+.vb-tip-r{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.vb .vb-tip-r b{margin-left:auto;padding-left:12px;font-weight:var(--cds-font-weight-medium)}
+.vb-tip-x{margin-top:4px;color:var(--cds-text-secondary);white-space:normal}
+.vb-reflbl{font-size:var(--cds-font-size-caption);fill:var(--color-fg-muted);paint-order:stroke;stroke:var(--color-panel);stroke-width:4px;stroke-linejoin:round}
+.vb-endlbl{font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums}
+.vb-fail{display:flex;align-items:center;justify-content:center;gap:8px;min-height:inherit;height:100%;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.vb-fail i{width:.375rem;height:.375rem;border-radius:50%;background:var(--color-bad)}
+.vb-tablewrap{overflow-x:auto}
+.vb-table{width:100%;border-collapse:collapse;font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums}
+.vb-table th{text-align:right;font-weight:var(--cds-font-weight-medium);color:var(--color-fg-muted);padding:6px 8px;border-bottom:1px solid var(--color-border-line);white-space:nowrap}
+.vb-table td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--color-border-line);white-space:nowrap}
+.vb-table th:first-child,.vb-table td:first-child{text-align:left}
+.vb-table td.wrap{white-space:normal;text-align:left;min-width:12rem}
+.vb-table th.wrap{text-align:left}
+.vb-table tr.hl td{font-weight:var(--cds-font-weight-medium);background:color-mix(in srgb,var(--color-fg) 5%,transparent)}
+.vb-sens{border-collapse:separate;border-spacing:2px;font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums;width:100%}
+.vb-sens th{color:var(--color-fg-muted);font-weight:var(--cds-font-weight-medium);padding:4px 6px;white-space:nowrap}
+.vb-sens td{text-align:center;padding:8px 4px;border-radius:4px;white-space:nowrap}
+.vb-list{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:var(--cds-gap-xs);font-size:var(--cds-font-size-body);line-height:1.5}
+.vb .vb-list b{font-weight:var(--cds-font-weight-medium)}
+.vb .pos{color:var(--color-ok)}
+.vb .neg{color:var(--color-bad)}
+[data-dash-source-state=empty]{color:transparent}
+[data-dash-source-state=refreshing]{opacity:.5;transition:opacity var(--cds-dur-slow)}
+</style>
+
+<div class="vb" id="vb">
+  <header class="vb-head" id="top">
+    <div class="vb-meta">
+      <span class="vb-pill"><i></i>Hold / Neutral</span>
+      <span>HOSE: VIB · Prices as of <span data-source="kpis" data-field="as_of" data-row="0" data-fmt="date" class="dash-skeleton">—</span> · Financials to Q2-2026</span>
+    </div>
+    <h1>VIB investment brief</h1>
+    <p class="vb-take">VIB trades at <b data-source="kpis" data-field="pb" data-row="0" data-fmt="x" class="dash-skeleton">—</b> book value against a three-year median of <b data-source="peers" data-field="pb_3y_median" data-where="ticker=VIB" data-fmt="x" class="dash-skeleton">—</b>. It is cheap for a reason: provisions are absorbing revenue growth and the 2026 profit plan looks out of reach. The base case is worth <b data-source="scenarios" data-field="value" data-where="scenario=Base" data-fmt="vnd" class="dash-skeleton">—</b> VND, but the bear case falls to <b data-source="scenarios" data-field="value" data-where="scenario=Bear" data-fmt="vnd" class="dash-skeleton">—</b>. Hold until Q3-2026 results show credit costs stabilising.</p>
+  </header>
+
+  <section class="vb-kpis" id="kpis" aria-label="Headline figures">
+    <div class="vb-kpi"><span class="lbl">Share price (VND)</span><span class="num dash-skeleton" data-source="kpis" data-field="close" data-row="0" data-fmt="vnd">—</span><span class="sub">VN-Index <span data-source="kpis" data-field="vnindex" data-row="0" data-fmt="idx">—</span></span></div>
+    <div class="vb-kpi"><span class="lbl">Price / book</span><span class="num dash-skeleton" data-source="kpis" data-field="pb" data-row="0" data-fmt="x">—</span><span class="sub">Book value <span data-source="kpis" data-field="bvps" data-row="0" data-fmt="vnd">—</span> / share</span></div>
+    <div class="vb-kpi"><span class="lbl">Price / earnings, trailing 12M</span><span class="num dash-skeleton" data-source="kpis" data-field="pe" data-row="0" data-fmt="x">—</span><span class="sub">ROE <span data-source="kpis" data-field="roe_ttm" data-row="0" data-fmt="pctu">—</span></span></div>
+    <div class="vb-kpi"><span class="lbl">Return, last 1 year</span><span class="num dash-skeleton" data-source="returns" data-field="VIB" data-where="period=1%20year" data-fmt="pct" data-tone="1">—</span><span class="sub">VN-Index <span data-source="returns" data-field="VNINDEX" data-where="period=1%20year" data-fmt="pct">—</span></span></div>
+    <div class="vb-kpi"><span class="lbl">Below all-time peak</span><span class="num dash-skeleton" data-source="kpis" data-field="curr_dd" data-row="0" data-fmt="pct" data-tone="1">—</span><span class="sub">Peak <span data-source="kpis" data-field="peak" data-row="0" data-fmt="vnd">—</span> VND</span></div>
+    <div class="vb-kpi"><span class="lbl">Base-case value (VND)</span><span class="num dash-skeleton" data-source="scenarios" data-field="value" data-where="scenario=Base" data-fmt="vnd">—</span><span class="sub"><span data-source="scenarios" data-field="upside" data-where="scenario=Base" data-fmt="pct" data-tone="1">—</span> vs price</span></div>
+  </section>
+
+  <section class="vb-sec" id="price">
+    <h2>Price and trend</h2>
+    <p>Down-trend intact but stabilising: price is back above its 50-day average, still below a falling 200-day average.</p>
+    <div class="vb-grid">
+      <div class="vb-card vb-wide">
+        <h3>VIB share price with moving averages</h3>
+        <p class="vb-note">Daily close, VND, adjusted for corporate actions. Rings mark the largest one-day moves; dashed lines are key technical levels.</p>
+        <div class="vb-legend" data-source="prices big_moves"><span><i class="vb-sw" id="lg-close"></i>Close</span><span><i class="vb-sw" id="lg-ma50"></i>50-day average</span><span><i class="vb-sw" id="lg-ma200"></i>200-day average</span><span><i class="vb-ring"></i>Largest moves</span></div>
+        <div class="vb-chart dash-skeleton" id="c-price" style="min-height:320px" data-source="prices kpis big_moves"></div>
+      </div>
+      <div class="vb-card">
+        <h3>VIB vs VN-Index</h3>
+        <p class="vb-note">Both rebased to 100 at the start of the sample. VIB has lagged the market by a wide margin since its August 2025 peak.</p>
+        <div class="vb-chart dash-skeleton" id="c-rel" style="min-height:240px" data-source="prices"></div>
+      </div>
+      <div class="vb-card">
+        <h3>Returns by period</h3>
+        <p class="vb-note">Price return; the last row is compound annual growth over the full sample.</p>
+        <div class="vb-legend" data-source="returns"><span><i class="vb-sw" id="lg-r1"></i>VIB</span><span><i class="vb-sw" id="lg-r2"></i>VN-Index</span></div>
+        <div class="vb-chart dash-skeleton" id="c-ret" style="min-height:270px" data-source="returns"></div>
+      </div>
+      <div class="vb-card vb-wide">
+        <h3>Momentum: RSI (14-day)</h3>
+        <p class="vb-note">Last 12 months. Above 70 reads as overbought, below 30 as oversold. Currently neutral.</p>
+        <div class="vb-chart dash-skeleton" id="c-rsi" style="min-height:170px" data-source="prices"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vb-sec" id="fundamentals">
+    <h2>Fundamentals</h2>
+    <p>Revenue is growing, but rising provisions keep profit flat. Funding quality (CASA) is weakening and loan-loss coverage is thin.</p>
+    <div class="vb-grid">
+      <div class="vb-card">
+        <h3>Provisions vs net profit by quarter</h3>
+        <p class="vb-note">VND billion. Provisions roughly doubled from mid-2025 while profit stalled.</p>
+        <div class="vb-legend" data-source="fundamentals"><span><i class="vb-sw" id="lg-f1"></i>Net profit</span><span><i class="vb-sw" id="lg-f2"></i>Provisions</span></div>
+        <div class="vb-chart dash-skeleton" id="c-prov" style="min-height:240px" data-source="fundamentals"></div>
+      </div>
+      <div class="vb-card">
+        <h3>Asset quality and funding</h3>
+        <p class="vb-note">Quarterly. NPL on Vietcap's loan-grading basis (VIB reports a lower figure). CASA is current deposits as a share of total deposits.</p>
+        <div class="vb-chart dash-skeleton" id="c-asset" style="min-height:270px" data-source="fundamentals"></div>
+      </div>
+      <div class="vb-card vb-wide">
+        <h3>Peer banks: price / book vs ROE</h3>
+        <p class="vb-note">Trailing 12 months, prices as of the same date. VIB has the lowest price / book of the group despite mid-range ROE.</p>
+        <div class="vb-chart dash-skeleton" id="c-peers" style="min-height:300px" data-source="peers"></div>
+        <div class="vb-tablewrap">
+          <table class="vb-table" id="t-peers" data-source="peers" data-row-key="ticker">
+            <thead><tr><th data-field="ticker">Bank</th><th data-field="pb">P/B</th><th data-field="pe">P/E</th><th data-field="roe">ROE</th><th data-field="nim">NIM</th><th data-field="npl">NPL</th><th data-field="coverage">Coverage</th><th data-field="casa">CASA</th><th data-field="ret_1y">1-yr return</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vb-sec" id="valuation">
+    <h2>Valuation scenarios</h2>
+    <p>Justified price / book = (ROE − growth) ÷ (cost of equity − growth), applied to Q2-2026 book value per share. All inputs are assumptions.</p>
+    <div class="vb-grid">
+      <div class="vb-card">
+        <h3>Bear, base and bull value vs today's price</h3>
+        <p class="vb-note">VND per share. Bars run from the current price to each scenario's value.</p>
+        <div class="vb-chart dash-skeleton" id="c-scen" style="min-height:170px" data-source="scenarios kpis"></div>
+        <ul class="vb-list" id="scen-list" data-source="scenarios"></ul>
+      </div>
+      <div class="vb-card">
+        <h3>Sensitivity: value by ROE and cost of equity</h3>
+        <p class="vb-note">VND per share at 6% long-term growth. Green cells are above today's price, red below. Cost of equity moves value more than any other input.</p>
+        <div class="vb-chart dash-skeleton" id="c-sens" style="min-height:200px" data-source="sensitivity kpis"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vb-sec" id="moves">
+    <h2>What moved the stock</h2>
+    <p>Most of the largest one-day moves were market-wide. The stock-specific column strips out the VN-Index move using beta.</p>
+    <div class="vb-card">
+      <div class="vb-tablewrap">
+        <table class="vb-table" id="t-moves" data-source="big_moves" data-row-key="date">
+          <thead><tr><th data-field="date">Date</th><th data-field="ret">VIB</th><th data-field="vnindex_ret">VN-Index</th><th data-field="idio">Stock-specific</th><th data-field="vol_vs_20d">Volume vs 20-day avg</th><th data-field="driver" class="wrap">Likely driver</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="vb-sec" id="decision">
+    <h2>What would change the view</h2>
+    <div class="vb-grid">
+      <div class="vb-card">
+        <h3>Triggers</h3>
+        <ul class="vb-list">
+          <li><b>Turn constructive</b> if Q3-2026 credit cost is at or below 1.2% with stable NPL and coverage, and price closes above <span data-source="kpis" data-field="resistance" data-row="0" data-fmt="vnd">—</span> VND on volume above 1.2× its 20-day average.</li>
+          <li><b>Turn negative</b> on a close below <span data-source="kpis" data-field="stop" data-row="0" data-fmt="vnd">—</span> VND on volume, or NPL above 3% on Vietcap's basis.</li>
+          <li><b>2026 profit plan:</b> H1 pre-tax profit of <span data-source="kpis" data-field="pbt_h1" data-row="0" data-fmt="vnd">—</span> bn VND is <span data-source="kpis" data-field="h1_pct_target" data-row="0" data-fmt="pctu">—</span> of the <span data-source="kpis" data-field="pbt_target" data-row="0" data-fmt="vnd">—</span> bn target. H2 must grow <span data-source="kpis" data-field="h2_req_growth" data-row="0" data-fmt="pct">—</span> year on year to hit it.</li>
+          <li><b>Market pricing:</b> today's price implies a cost of equity of <span data-source="kpis" data-field="implied_coe" data-row="0" data-fmt="pctu">—</span>, against a peer median of <span data-source="kpis" data-field="peer_coe" data-row="0" data-fmt="pctu">—</span>.</li>
+        </ul>
+      </div>
+      <div class="vb-card">
+        <h3>Catalysts and risks</h3>
+        <ul class="vb-list">
+          <li><b>Catalyst:</b> Q3-2026 results, expected late October.</li>
+          <li><b>Catalyst:</b> cheaper offshore funding from the new syndicated loan.</li>
+          <li><b>Catalyst:</b> foreign buying returning after the FTSE upgrade.</li>
+          <li><b>Risk:</b> thin loan-loss coverage if asset quality worsens.</li>
+          <li><b>Risk:</b> further erosion of net interest margin and CASA.</li>
+          <li><b>Risk:</b> missing the 2026 profit plan, leading to earnings downgrades.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="vb-note">Sources: prices from Vietcap public chart data; financials from Vietcap IQ through Q2-2026; events from CafeF reporting. Scenario inputs are analyst assumptions, not forecasts. This is research, not investment advice.</p>
+  </section>
+</div>
+
+<script>
+(function(){
+  const C = dash.colors;
+  const parseDate = d3.utcParse('%Y-%m-%d');
+  const fVnd = d3.format(',.0f');
+  const fPct = d3.format('+.1%');
+  const fPctU = d3.format('.1%');
+  const FMT = {
+    vnd: v => fVnd(+v),
+    idx: v => d3.format(',.2f')(+v),
+    x: v => d3.format('.2f')(+v) + '×',
+    pct: v => fPct(+v).replace('-', '−'),
+    pctu: v => fPctU(+v),
+    date: v => d3.utcFormat('%-d %b %Y')(parseDate(String(v).slice(0, 10)))
+  };
+  const num = v => (v === '' || v == null) ? NaN : +v;
+
+  document.getElementById('lg-close').style.background = C[0];
+  document.getElementById('lg-ma50').style.background = C[1];
+  document.getElementById('lg-ma200').style.background = C[2];
+  document.getElementById('lg-r1').style.background = C[0];
+  document.getElementById('lg-r2').style.background = 'var(--cds-chart-muted)';
+  document.getElementById('lg-f1').style.background = C[0];
+  document.getElementById('lg-f2').style.background = C[1];
+
+  function findRow(el, rows) {
+    if (el.dataset.row != null) return rows[+el.dataset.row];
+    if (el.dataset.where) {
+      const [k, v] = el.dataset.where.split('=');
+      const want = decodeURIComponent(v);
+      return rows.find(r => String(r[k]) === want);
+    }
+  }
+  function fillMarks() {
+    document.querySelectorAll('#vb [data-fmt]').forEach(el => {
+      const d = dash.data(el.dataset.source);
+      if (d.status !== 'ok') { el.textContent = '—'; if (d.status !== 'loading') el.classList.remove('dash-skeleton'); return; }
+      const row = findRow(el, d.data);
+      const v = row ? row[el.dataset.field] : undefined;
+      el.classList.remove('dash-skeleton');
+      el.textContent = (v == null || v === '') ? '—' : FMT[el.dataset.fmt](v);
+      if (el.dataset.tone) { el.classList.toggle('neg', +v < 0); el.classList.toggle('pos', +v > 0); }
+    });
+  }
+
+  function ready(box, ids) {
+    const st = ids.map(i => dash.data(i).status);
+    if (st.every(s => s === 'ok')) { box.classList.remove('dash-skeleton'); return true; }
+    box.replaceChildren();
+    if (st.some(s => s === 'error' || s === 'connect' || s === 'missing' || s === 'declined')) {
+      box.classList.remove('dash-skeleton');
+      const f = document.createElement('div'); f.className = 'vb-fail';
+      const dot = document.createElement('i'); const t = document.createElement('span'); t.textContent = 'Failed to load';
+      f.append(dot, t); box.appendChild(f);
+    } else box.classList.add('dash-skeleton');
+    return false;
+  }
+  function frame(box, h) {
+    box.replaceChildren();
+    const w = Math.max(280, box.clientWidth || 600);
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('height', h)
+      .attr('viewBox', `0 0 ${w} ${h}`).style('display', 'block').style('overflow', 'visible');
+    return { svg, w };
+  }
+  function measure(svg, texts) {
+    const t = svg.append('text').attr('class', 'vb-endlbl');
+    let m = 0; texts.forEach(s => { t.text(s); m = Math.max(m, t.node().getComputedTextLength()); });
+    t.remove(); return m;
+  }
+  function axisStyle(g) {
+    g.attr('font-size', null).attr('font-family', null);
+    g.selectAll('text').attr('fill', 'var(--color-fg-muted)').style('font-size', 'var(--cds-font-size-caption)');
+    g.selectAll('line').attr('stroke', 'var(--cds-chart-grid)');
+    g.select('.domain').remove();
+  }
+  function tipEl(box) { const t = document.createElement('div'); t.className = 'vb-tip'; box.appendChild(t); return t; }
+  function fillTip(tip, title, rows, extra) {
+    tip.replaceChildren();
+    const t = document.createElement('div'); t.className = 'vb-tip-t'; t.textContent = title; tip.appendChild(t);
+    rows.forEach(r => {
+      const l = document.createElement('div'); l.className = 'vb-tip-r';
+      if (r.color) { const s = document.createElement('span'); s.className = 'vb-sw'; s.style.background = r.color; l.appendChild(s); }
+      const n = document.createElement('span'); n.textContent = r.name;
+      const v = document.createElement('b'); v.textContent = r.value;
+      l.append(n, v); tip.appendChild(l);
+    });
+    if (extra) { const e = document.createElement('div'); e.className = 'vb-tip-x'; e.textContent = extra; tip.appendChild(e); }
+  }
+  function placeTip(tip, box, px, py) {
+    tip.style.opacity = 1;
+    const bw = box.clientWidth, tw = tip.offsetWidth, th = tip.offsetHeight;
+    let left = px + 14; if (left + tw > bw) left = px - 14 - tw; left = Math.max(0, left);
+    let top = py - th - 10; if (top < 0) top = py + 14;
+    tip.style.left = left + 'px'; tip.style.top = top + 'px';
+  }
+  const dateTitle = d => d3.utcFormat('%-d %b %Y')(d.date);
+
+  let pCache = null, pSrc = null;
+  function prices() {
+    const d = dash.data('prices').data;
+    if (d !== pSrc) {
+      pSrc = d;
+      pCache = d.map(r => ({ key: String(r.date).slice(0, 10), date: parseDate(String(r.date).slice(0, 10)),
+        close: num(r.VIB_close), vib: num(r.VIB_rebased100), vni: num(r.VNINDEX_rebased100),
+        ma50: num(r.MA50), ma200: num(r.MA200), rsi: num(r.RSI14) })).filter(r => r.date);
+    }
+    return pCache;
+  }
+
+  function hoverLine(box, g, m, iw, ih, P, x, series, extra) {
+    const tip = tipEl(box);
+    const rule = g.append('line').attr('y1', 0).attr('y2', ih).attr('stroke', 'var(--cds-chart-axis)').style('opacity', 0);
+    const dots = series.map(s => g.append('circle').attr('r', 4).attr('fill', s.color)
+      .attr('stroke', 'var(--color-panel)').attr('stroke-width', 2).style('opacity', 0).style('pointer-events', 'none'));
+    const bis = d3.bisector(d => d.date).center;
+    g.append('rect').attr('width', iw).attr('height', ih).attr('fill', 'transparent')
+      .on('pointermove', ev => {
+        const [px] = d3.pointer(ev);
+        const d = P[bis(P, x.invert(px))]; if (!d) return;
+        const cx = x(d.date);
+        rule.attr('x1', cx).attr('x2', cx).style('opacity', 1);
+        series.forEach((s, i) => { const v = d[s.key]; dots[i].attr('cx', cx).attr('cy', isFinite(v) ? s.y(v) : 0).style('opacity', isFinite(v) ? 1 : 0); });
+        fillTip(tip, dateTitle(d), series.filter(s => isFinite(d[s.key])).map(s => ({ color: series.length > 1 ? s.color : null, name: s.name, value: s.fmt(d[s.key]) })), extra ? extra(d) : null);
+        const [bx, by] = d3.pointer(ev, box);
+        placeTip(tip, box, bx, by);
+      })
+      .on('pointerleave', () => { rule.style('opacity', 0); dots.forEach(c => c.style('opacity', 0)); tip.style.opacity = 0; });
+  }
+
+  function drawPrice() {
+    const box = document.getElementById('c-price');
+    if (!ready(box, ['prices', 'kpis', 'big_moves'])) return;
+    const P = prices(); const K = dash.data('kpis').data[0];
+    const moves = new Map(dash.data('big_moves').data.map(r => [String(r.date).slice(0, 10), r]));
+    const h = 320; const { svg, w } = frame(box, h);
+    const refs = [{ k: 'resistance', n: 'Resistance', dy: -5 }, { k: 'support', n: 'Support', dy: -5 }, { k: 'stop', n: 'Stop level', dy: 13 }].map(r => ({ ...r, v: num(K[r.k]) }));
+    const vals = P.flatMap(d => [d.close, d.ma50, d.ma200]).filter(isFinite).concat(refs.map(r => r.v));
+    const y0 = d3.scaleLinear(d3.extent(vals), [1, 0]).nice();
+    const yt = y0.ticks(5);
+    const last = P[P.length - 1];
+    const ml = measure(svg, yt.map(fVnd)) + 10, mr = measure(svg, [fVnd(last.close)]) + 16;
+    const m = { t: 10, r: mr, b: 26, l: ml }, iw = w - m.l - m.r, ih = h - m.t - m.b;
+    const x = d3.scaleUtc(d3.extent(P, d => d.date), [0, iw]);
+    const y = d3.scaleLinear(y0.domain(), [ih, 0]);
+    const g = svg.append('g').attr('transform', `translate(${m.l},${m.t})`);
+    g.append('g').call(d3.axisLeft(y).tickValues(yt).tickFormat(fVnd).tickSize(-iw).tickPadding(8)).call(axisStyle);
+    g.append('g').attr('transform', `translate(0,${ih})`).call(d3.axisBottom(x).ticks(Math.max(2, Math.floor(iw / 110))).tickFormat(d3.utcFormat('%b %Y')).tickSize(0).tickPadding(8)).call(axisStyle);
+    const line = k => d3.line().defined(d => isFinite(d[k])).x(d => x(d.date)).y(d => y(d[k]));
+    [['ma200', C[2], 1.5], ['ma50', C[1], 1.5], ['close', C[0], 2]].forEach(([k, c, sw]) =>
+      g.append('path').datum(P).attr('d', line(k)).attr('fill', 'none').attr('stroke', c).attr('stroke-width', sw).attr('stroke-linejoin', 'round').attr('stroke-linecap', 'round'));
+    refs.forEach(r => {
+      g.append('line').attr('x1', 0).attr('x2', iw).attr('y1', y(r.v)).attr('y2', y(r.v)).attr('stroke', 'var(--cds-chart-reference)').attr('stroke-dasharray', '4 4');
+      g.append('text').attr('class', 'vb-reflbl').attr('x', 4).attr('y', y(r.v) + r.dy).text(`${r.n} ${fVnd(r.v)}`);
+    });
+    P.filter(d => moves.has(d.key)).forEach(d => g.append('circle').attr('cx', x(d.date)).attr('cy', y(d.close)).attr('r', 4.5)
+      .attr('fill', 'var(--color-panel)').attr('stroke', 'var(--color-fg)').attr('stroke-width', 1.5));
+    g.append('circle').attr('cx', x(last.date)).attr('cy', y(last.close)).attr('r', 4).attr('fill', C[0]);
+    g.append('text').attr('class', 'vb-endlbl').attr('x', iw + 8).attr('y', y(last.close) + 4).attr('fill', 'var(--color-fg)').text(fVnd(last.close));
+    hoverLine(box, g, m, iw, ih, P, x, [
+      { key: 'close', name: 'Close', color: C[0], y, fmt: fVnd },
+      { key: 'ma50', name: '50-day avg', color: C[1], y, fmt: fVnd },
+      { key: 'ma200', name: '200-day avg', color: C[2], y, fmt: fVnd }
+    ], d => { const mv = moves.get(d.key); return mv ? `Large move ${FMT.pct(mv.ret)}: ${mv.driver}` : null; });
+  }
+
+  function drawRel() {
+    const box = document.getElementById('c-rel');
+    if (!ready(box, ['prices'])) return;
+    const P = prices(); const h = 240; const { svg, w } = frame(box, h);
+    const y0 = d3.scaleLinear(d3.extent(P.flatMap(d => [d.vib, d.vni]).concat([100])), [1, 0]).nice();
+    const yt = y0.ticks(5); const last = P[P.length - 1];
+    const ends = [{ k: 'vib', n: 'VIB', c: C[0] }, { k: 'vni', n: 'VN-Index', c: 'var(--cds-chart-muted)' }].map(s => ({ ...s, v: last[s.k], label: `${s.n} ${d3.format('.0f')(last[s.k])}` }));
+    const ml = measure(svg, yt.map(String)) + 10, mr = measure(svg, ends.map(e => e.label)) + 16;
+    const m = { t: 10, r: mr, b: 26, l: ml }, iw = w - m.l - m.r, ih = h - m.t - m.b;
+    const x = d3.scaleUtc(d3.extent(P, d => d.date), [0, iw]); const y = d3.scaleLinear(y0.domain(), [ih, 0]);
+    const g = svg.append('g').attr('transform', `translate(${m.l},${m.t})`);
+    g.append('g').call(d3.axisLeft(y).tickValues(yt).tickSize(-iw).tickPadding(8)).call(axisStyle);
+    g.append('g').attr('transform', `translate(0,${ih})`).call(d3.axisBottom(x).ticks(Math.max(2, Math.floor(iw / 90))).tickFormat(d3.utcFormat('%b %y')).tickSize(0).tickPadding(8)).call(axisStyle);
+    g.append('line').attr('x1', 0).attr('x2', iw).attr('y1', y(100)).attr('y2', y(100)).attr('stroke', 'var(--cds-chart-reference)').attr('stroke-dasharray', '4 4');
+    ends.slice().reverse().forEach(s => g.append('path').datum(P).attr('d', d3.line().x(d => x(d.date)).y(d => y(d[s.k]))).attr('fill', 'none').attr('stroke', s.c).attr('stroke-width', 2).attr('stroke-linejoin', 'round').attr('stroke-linecap', 'round'));
+    const ly = ends.map(e => y(e.v));
+    if (Math.abs(ly[0] - ly[1]) < 14) { const mid = (ly[0] + ly[1]) / 2, s = ly[0] <= ly[1] ? -1 : 1; ly[0] = mid + s * 7; ly[1] = mid - s * 7; }
+    ends.forEach((e, i) => {
+      g.append('circle').attr('cx', iw).attr('cy', y(e.v)).attr('r', 3.5).attr('fill', e.c);
+      g.append('text').attr('class', 'vb-endlbl').attr('x', iw + 8).attr('y', ly[i] + 4).attr('fill', 'var(--color-fg)').text(e.label);
+    });
+    const f = v => d3.format('.1f')(v);
+    hoverLine(box, g, m, iw, ih, P, x, [{ key: 'vib', name: 'VIB', color: C[0], y, fmt: f }, { key: 'vni', name: 'VN-Index', color: 'var(--cds-chart-muted)', y, fmt: f }]);
+  }
+
+  function drawReturns() {
+    const box = document.getElementById('c-ret');
+    if (!ready(box, ['returns'])) return;
+    const R = dash.data('returns').data.map(r => ({ period: r.period, vib: num(r.VIB), vni: num(r.VNINDEX) }));
+    const h = R.length * 40 + 30; const { svg, w } = frame(box, h);
+    const lw = measure(svg, R.map(r => r.period)) + 12;
+    const vw = measure(svg, R.flatMap(r => [FMT.pct(r.vib), FMT.pct(r.vni)])) + 8;
+    const m = { t: 4, r: vw, b: 22, l: lw + vw }, iw = w - m.l - m.r, ih = h - m.t - m.b;
+    const ext = d3.extent(R.flatMap(r => [r.vib, r.vni]).concat([0]));
+    const x = d3.scaleLinear(ext, [0, iw]).nice();
+    const yb = d3.scaleBand(R.map(r => r.period), [0, ih]).padding(0.28);
+    const ys = d3.scaleBand(['vib', 'vni'], [0, yb.bandwidth()]).padding(0.12);
+    const g = svg.append('g').attr('transform', `translate(${m.l},${m.t})`);
+    g.append('g').attr('transform', `translate(0,${ih})`).call(d3.axisBottom(x).ticks(Math.max(2, Math.floor(iw / 70))).tickFormat(d3.format('.0%')).tickSize(-ih).tickPadding(6)).call(axisStyle);
+    g.append('line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', 0).attr('y2', ih).attr('stroke', 'var(--cds-chart-axis)');
+    svg.append('g').selectAll('text').data(R).join('text').attr('class', 'vb-endlbl').attr('x', 0).attr('y', r => m.t + yb(r.period) + yb.bandwidth() / 2 + 4).attr('fill', 'var(--color-fg)').text(r => r.period);
+    const tip = tipEl(box);
+    R.forEach(r => {
+      const gg = g.append('g');
+      [['vib', C[0]], ['vni', 'var(--cds-chart-muted)']].forEach(([k, c]) => {
+        const v = r[k], yy = yb(r.period) + ys(k);
+        gg.append('rect').attr('x', Math.min(x(0), x(v))).attr('y', yy).attr('width', Math.max(1, Math.abs(x(v) - x(0)))).attr('height', ys.bandwidth()).attr('rx', 3).attr('fill', c);
+        gg.append('text').attr('class', 'vb-endlbl').attr('fill', 'var(--color-fg-muted)')
+          .attr('x', v < 0 ? x(v) - 4 : x(v) + 4).attr('text-anchor', v < 0 ? 'end' : 'start').attr('y', yy + ys.bandwidth() / 2 + 4).text(FMT.pct(v));
+      });
+      gg.append('rect').attr('x', -m.l + 0).attr('width', iw + m.l).attr('y', yb(r.period)).attr('height', yb.bandwidth()).attr('fill', 'transparent')
+        .on('pointermove', ev => { fillTip(tip, r.period, [{ color: C[0], name: 'VIB', value: FMT.pct(r.vib) }, { color: 'var(--cds-chart-muted)', name: 'VN-Index', value: FMT.pct(r.vni) }, { name: 'Gap', value: FMT.pct(r.vib - r.vni) }]); const [bx, by] = d3.pointer(ev, box); placeTip(tip, box, bx, by); })
+        .on('pointerleave', () => tip.style.opacity = 0);
+    });
+  }
+
+  function drawRsi() {
+    const box = document.getElementById('c-rsi');
+    if (!ready(box, ['prices'])) return;
+    const P = prices().slice(-250); const h = 170; const { svg, w } = frame(box, h);
+    const last = P[P.length - 1];
+    const ml = measure(svg, ['100']) + 10, mr = measure(svg, [d3.format('.0f')(last.rsi)]) + 16;
+    const m = { t: 8, r: mr, b: 24, l: ml }, iw = w - m.l - m.r, ih = h - m.t - m.b;
+    const x = d3.scaleUtc(d3.extent(P, d => d.date), [0, iw]); const y = d3.scaleLinear([0, 100], [ih, 0]);
+    const g = svg.append('g').attr('transform', `translate(${m.l},${m.t})`);
+    g.append('g').call(d3.axisLeft(y).tickValues([30, 50, 70]).tickSize(-iw).tickPadding(8)).call(axisStyle);
+    g.append('g').attr('transform', `translate(0,${ih})`).call(d3.axisBottom(x).ticks(Math.max(2, Math.floor(iw / 90))).tickFormat(d3.utcFormat('%b %y')).tickSize(0).tickPadding(8)).call(axisStyle);
+    [30, 70].forEach(v => g.append('line').attr('x1', 0).attr('x2', iw).attr('y1', y(v)).attr('y2', y(v)).attr('stroke', 'var(--cds-chart-reference)').attr('stroke-dasharray', '4 4'));
+    g.append('path').datum(P).attr('d', d3.line().defined(d => isFinite(d.rsi)).x(d => x(d.date)).y(d => y(d.rsi))).attr('fill', 'none').attr('stroke', C[0]).attr('stroke-width', 2).attr('stroke-linejoin', 'round');
+    g.append('circle').attr('cx', iw).attr('cy', y(last.rsi)).attr('r', 3.5).attr('fill', C[0]);
+    g.append('text').attr('class', 'vb-endlbl').attr('x', iw + 8).attr('y', y(last.rsi) + 4).attr('fill', 'var(--color-fg)').text(d3.format('.0f')(last.rsi));
+    hoverLine(box, g, m, iw, ih, P, x, [{ key: 'rsi', name: 'RSI', color: C[0], y, fmt: d3.format('.1f') }]);
+  }
+
+  const qLabel = q => `Q${String(q).slice(5)} '${String(q).slice(2, 4)}`;
+  function fund() { return dash.data('fundamentals').data.map(r => ({ q: String(r.quarter), npat: num(r.npat), prov: num(r.provisions), npl: num(r.npl), casa: num(r.casa), cov: num(r.coverage), cc: num(r.credit_cost) })); }
+
+  function drawProv() {
+    const box = document.getElementById('c-prov');
+    if (!ready(box, ['fundamentals'])) return;
+    const Q = fund(); const h = 240; const { svg, w } = frame(box, h);
+    const y0 = d3.scaleLinear([0, d3.max(Q, d => Math.max(d.npat, d.prov))], [1, 0]).nice(); const yt = y0.ticks(4);
+    const ml = measure(svg, yt.map(fVnd)) + 10;
+    const m = { t: 8, r: 4, b: 26, l: ml }, iw = w - m.l - m.r, ih = h - m.t - m.b;
+    const x = d3.scaleBand(Q.map(d => d.q), [0, iw]).padding(0.25);
+    const xs = d3.scaleBand(['npat', 'prov'], [0, x.bandwidth()]).padding(0.1);
+    const y = d3.scaleLinear(y0.domain(), [ih, 0]);
+    const g = svg.append('g').attr('transform', `translate(${m.l},${m.t})`);
+    g.append('g').call(d3.axisLeft(y).tickValues(yt).tickFormat(fVnd).tickSize(-iw).tickPadding(8)).call(axisStyle);
+    const lblW = measure(svg, ["Q4 '25"]) + 8; const every = Math.max(1, Math.ceil(lblW / x.step()));
+    g.append('g').attr('transform', `translate(0,${ih})`).call(d3.axisBottom(x).tickValues(Q.map(d => d.q).filter((_, i) => (Q.length - 1 - i) % every === 0)).tickFormat(qLabel).tickSize(0).tickPadding(8)).call(axisStyle);
+    const tip = tipEl(box); const bw = Math.min(32, xs.bandwidth());
+    Q.forEach(d => {
+      [['npat', C[0]], ['prov', C[1]]].forEach(([k, c]) => g.append('rect').attr('x', x(d.q) + xs(k) + (xs.bandwidth() - bw) / 2).attr('width', bw).attr('y', y(d[k])).attr('height', Math.max(0, ih - y(d[k]))).attr('rx', 3).attr('fill', c));
+      g.append('rect').attr('x', x(d.q) - x.step() * x.padding() / 2).attr('width', x.step()).attr('y', 0).attr('height', ih).attr('fill', 'transparent')
+        .on('pointermove', ev => { fillTip(tip, qLabel(d.q), [{ color: C[0], name: 'Net profit', value: fVnd(d.npat) + ' bn' }, { color: C[1], name: 'Provisions', value: fVnd(d.prov) + ' bn' }, { name: 'Credit cost (annualised)', value: fPctU(d.cc) }]); const [bx, by] = d3.pointer(ev, box); placeTip(tip, box, bx, by); })
+        .on('pointerleave', () => tip.style.opacity = 0);
+    });
+  }
+
+  function drawAsset() {
+    const box = document.getElementById('c-asset');
+    if (!ready(box, ['fundamentals'])) return;
+    const Q = fund();
+    const panels = [{ k: 'npl', n: 'Non-performing loans' }, { k: 'casa', n: 'CASA ratio' }, { k: 'cov', n: 'Loan-loss coverage' }];
+    const ph = 90, h = ph * panels.length; const { svg, w } = frame(box, h);
+    const mr = measure(svg, Q.slice(-1).flatMap(d => panels.map(p => fPctU(d[p.k])))) + 16;
+    const m = { l: 4, r: mr }, iw = w - m.l - m.r;
+    const x = d3.scalePoint(Q.map(d => d.q), [0, iw]);
+    const tip = tipEl(box);
+    panels.forEach((p, i) => {
+      const top = i * ph, t = 24, b = 10, ihh = ph - t - b;
+      const ext = d3.extent(Q, d => d[p.k]); const pad = (ext[1] - ext[0]) * 0.15 || 0.01;
+      const y = d3.scaleLinear([ext[0] - pad, ext[1] + pad], [ihh, 0]);
+      const g = svg.append('g').attr('transform', `translate(${m.l},${top + t})`);
+      svg.append('text').attr('class', 'vb-endlbl').attr('x', m.l).attr('y', top + 14).attr('fill', 'var(--color-fg-muted)').text(`${p.n}, ${qLabel(Q[0].q)} to ${qLabel(Q[Q.length - 1].q)}`);
+      g.append('line').attr('x1', 0).attr('x2', iw).attr('y1', ihh).attr('y2', ihh).attr('stroke', 'var(--cds-chart-grid)');
+      g.append('path').datum(Q).attr('d', d3.line().x(d => x(d.q)).y(d => y(d[p.k]))).attr('fill', 'none').attr('stroke', C[0]).attr('stroke-width', 2).attr('stroke-linejoin', 'round').attr('stroke-linecap', 'round');
+      const l = Q[Q.length - 1], f = Q[0];
+      g.append('circle').attr('cx', x(f.q)).attr('cy', y(f[p.k])).attr('r', 3).attr('fill', 'var(--cds-chart-muted)');
+      g.append('circle').attr('cx', x(l.q)).attr('cy', y(l[p.k])).attr('r', 3.5).attr('fill', C[0]);
+      g.append('text').attr('class', 'vb-endlbl').attr('x', iw + 8).attr('y', y(l[p.k]) + 4).attr('fill', 'var(--color-fg)').text(fPctU(l[p.k]));
+    });
+    svg.append('rect').attr('x', m.l).attr('width', iw).attr('height', h).attr('fill', 'transparent')
+      .on('pointermove', ev => { const [px] = d3.pointer(ev); const step = x.step(); const i = Math.max(0, Math.min(Q.length - 1, Math.round((px - m.l) / step))); const d = Q[i];
+        fillTip(tip, qLabel(d.q), [{ name: 'NPL', value: fPctU(d.npl) }, { name: 'CASA', value: fPctU(d.casa) }, { name: 'Coverage', value: fPctU(d.cov) }]); const [bx, by] = d3.pointer(ev, box); placeTip(tip, box, bx, by); })
+      .on('pointerleave', () => tip.style.opacity = 0);
+  }
+
+  function peerRows() { return dash.data('peers').data.map(r => ({ t: r.ticker, pb: num(r.pb), pe: num(r.pe), roe: num(r.roe), nim: num(r.nim), npl: num(r.npl), cov: num(r.coverage), casa: num(r.casa), r1: num(r.ret_1y) })); }
+  function drawPeers() {
+    const box = document.getElementById('c-peers');
+    if (!ready(box, ['peers'])) return;
+    const R = peerRows(); const h = 300; const { svg, w } = frame(box, h);
+    const y0 = d3.scaleLinear(d3.extent(R, d => d.pb), [1, 0]).nice(); const yt = y0.ticks(5);
+    const ml = measure(svg, yt.map(v => d3.format('.1f')(v) + '×')) + 10, mr = measure(svg, ['WWW']) + 12;
+    const m = { t: 10, r: mr, b: 40, l: ml }, iw = w - m.l - m.r, ih = h - m.t - m.b;
+    const x = d3.scaleLinear(d3.extent(R, d => d.roe), [0, iw]).nice(); const y = d3.scaleLinear(y0.domain(), [ih, 0]);
+    const g = svg.append('g').attr('transform', `translate(${m.l},${m.t})`);
+    g.append('g').call(d3.axisLeft(y).tickValues(yt).tickFormat(v => d3.format('.1f')(v) + '×').tickSize(-iw).tickPadding(8)).call(axisStyle);
+    g.append('g').attr('transform', `translate(0,${ih})`).call(d3.axisBottom(x).ticks(Math.max(2, Math.floor(iw / 80))).tickFormat(d3.format('.0%')).tickSize(-ih).tickPadding(8)).call(axisStyle);
+    g.append('text').attr('class', 'vb-endlbl').attr('x', iw).attr('y', ih + 34).attr('text-anchor', 'end').attr('fill', 'var(--color-fg-muted)').text('Return on equity, trailing 12M →');
+    const tip = tipEl(box);
+    R.slice().sort((a, b) => (a.t === 'VIB') - (b.t === 'VIB')).forEach(d => {
+      const vib = d.t === 'VIB', cx = x(d.roe), cy = y(d.pb);
+      g.append('circle').attr('cx', cx).attr('cy', cy).attr('r', vib ? 7 : 5).attr('fill', vib ? C[0] : 'var(--cds-chart-muted)').attr('stroke', 'var(--color-panel)').attr('stroke-width', 2);
+      g.append('text').attr('class', 'vb-endlbl').attr('x', cx + (vib ? 11 : 9)).attr('y', cy + 4).attr('fill', vib ? 'var(--color-fg)' : 'var(--color-fg-muted)').attr('font-weight', vib ? 600 : null).text(d.t);
+      g.append('circle').attr('cx', cx).attr('cy', cy).attr('r', 14).attr('fill', 'transparent')
+        .on('pointermove', ev => { fillTip(tip, d.t, [{ name: 'Price / book', value: FMT.x(d.pb) }, { name: 'ROE', value: fPctU(d.roe) }, { name: 'P/E', value: FMT.x(d.pe) }, { name: 'NPL', value: fPctU(d.npl) }, { name: 'Coverage', value: d3.format('.0%')(d.cov) }]); const [bx, by] = d3.pointer(ev, box); placeTip(tip, box, bx, by); })
+        .on('pointerleave', () => tip.style.opacity = 0);
+    });
+  }
+  function drawPeerTable() {
+    const tb = document.querySelector('#t-peers tbody'); tb.replaceChildren();
+    if (dash.data('peers').status !== 'ok') return;
+    const R = peerRows().sort((a, b) => a.pb - b.pb);
+    R.forEach(d => {
+      const tr = document.createElement('tr'); if (d.t === 'VIB') tr.className = 'hl';
+      [d.t, FMT.x(d.pb), FMT.x(d.pe), fPctU(d.roe), fPctU(d.nim), fPctU(d.npl), d3.format('.0%')(d.cov), fPctU(d.casa), FMT.pct(d.r1)].forEach((v, i) => {
+        const td = document.createElement('td'); td.textContent = v;
+        if (i === 8) td.className = d.r1 < 0 ? 'neg' : 'pos';
+        tr.appendChild(td);
+      });
+      tb.appendChild(tr);
+    });
+  }
+
+  function drawScen() {
+    const box = document.getElementById('c-scen'); const list = document.getElementById('scen-list');
+    list.replaceChildren();
+    if (!ready(box, ['scenarios', 'kpis'])) return;
+    const S = dash.data('scenarios').data.map(r => ({ s: r.scenario, roe: num(r.roe), coe: num(r.coe), g: num(r.g), pb: num(r.pb), v: num(r.value), up: num(r.upside), why: r.rationale }));
+    const price = num(dash.data('kpis').data[0].close);
+    const h = S.length * 40 + 44; const { svg, w } = frame(box, h);
+    const lw = measure(svg, S.map(d => d.s)) + 12;
+    const labs = S.map(d => `${fVnd(d.v)} (${FMT.pct(d.up)})`); const vw = measure(svg, labs) + 10;
+    const m = { t: 22, r: vw, b: 22, l: lw + vw }, iw = w - m.l - m.r, ih = h - m.t - m.b;
+    const x = d3.scaleLinear([Math.min(price, d3.min(S, d => d.v)), Math.max(price, d3.max(S, d => d.v))], [0, iw]).nice();
+    const yb = d3.scaleBand(S.map(d => d.s), [0, ih]).padding(0.3);
+    const g = svg.append('g').attr('transform', `translate(${m.l},${m.t})`);
+    g.append('g').attr('transform', `translate(0,${ih})`).call(d3.axisBottom(x).ticks(Math.max(2, Math.floor(iw / 70))).tickFormat(fVnd).tickSize(-ih).tickPadding(6)).call(axisStyle);
+    S.forEach((d, i) => {
+      const c = d.v < price ? 'var(--cds-chart-status-critical)' : C[0];
+      const bh = Math.min(24, yb.bandwidth());
+      const yy = yb(d.s) + (yb.bandwidth() - bh) / 2;
+      g.append('rect').attr('x', Math.min(x(price), x(d.v))).attr('width', Math.max(1, Math.abs(x(d.v) - x(price)))).attr('y', yy).attr('height', bh).attr('rx', 4).attr('fill', c);
+      g.append('text').attr('class', 'vb-endlbl').attr('fill', 'var(--color-fg)').attr('x', d.v < price ? x(d.v) - 6 : x(d.v) + 6).attr('text-anchor', d.v < price ? 'end' : 'start').attr('y', yy + bh / 2 + 4).text(labs[i]);
+      svg.append('text').attr('class', 'vb-endlbl').attr('fill', 'var(--color-fg)').attr('x', 0).attr('y', m.t + yy + bh / 2 + 4).text(d.s);
+    });
+    g.append('line').attr('x1', x(price)).attr('x2', x(price)).attr('y1', -6).attr('y2', ih).attr('stroke', 'var(--color-fg)').attr('stroke-width', 1.5);
+    g.append('text').attr('class', 'vb-endlbl').attr('x', x(price)).attr('y', -10).attr('text-anchor', 'middle').attr('fill', 'var(--color-fg)').text(`Price ${fVnd(price)}`);
+    S.forEach(d => {
+      const li = document.createElement('li'); const b = document.createElement('b'); b.textContent = d.s + ': ';
+      li.append(b, document.createTextNode(`ROE ${fPctU(d.roe)}, cost of equity ${fPctU(d.coe)}, growth ${d3.format('.0%')(d.g)} → ${FMT.x(d.pb)} book. ${d.why}.`));
+      list.appendChild(li);
+    });
+  }
+
+  function drawSens() {
+    const box = document.getElementById('c-sens');
+    if (!ready(box, ['sensitivity', 'kpis'])) return;
+    box.replaceChildren();
+    const rows = dash.data('sensitivity').data.map(r => ({ roe: num(r.roe), coe: num(r.coe), v: num(r.value) }));
+    const price = num(dash.data('kpis').data[0].close);
+    const roes = [...new Set(rows.map(r => r.roe))].sort((a, b) => a - b), coes = [...new Set(rows.map(r => r.coe))].sort((a, b) => a - b);
+    const maxGap = d3.max(rows, r => Math.abs(r.v / price - 1)) || 1;
+    const wrap = document.createElement('div'); wrap.className = 'vb-tablewrap';
+    const t = document.createElement('table'); t.className = 'vb-sens';
+    const hr = document.createElement('tr'); const corner = document.createElement('th'); corner.textContent = 'ROE ↓ / COE →'; hr.appendChild(corner);
+    coes.forEach(c => { const th = document.createElement('th'); th.textContent = d3.format('.0%')(c); hr.appendChild(th); });
+    const thead = document.createElement('thead'); thead.appendChild(hr); t.appendChild(thead);
+    const tb = document.createElement('tbody');
+    roes.forEach(r => {
+      const tr = document.createElement('tr'); const th = document.createElement('th'); th.textContent = d3.format('.0%')(r); tr.appendChild(th);
+      coes.forEach(c => {
+        const cell = rows.find(x => x.roe === r && x.coe === c); const td = document.createElement('td');
+        if (cell) {
+          const gap = cell.v / price - 1; const pct = Math.round(8 + 42 * Math.min(1, Math.abs(gap) / maxGap));
+          const col = gap >= 0 ? 'var(--color-ok)' : 'var(--color-bad)';
+          td.style.background = `color-mix(in srgb, ${col} ${pct}%, transparent)`;
+          td.textContent = fVnd(cell.v); td.title = `${FMT.pct(gap)} vs price`;
+        }
+        tr.appendChild(td);
+      });
+      tb.appendChild(tr);
+    });
+    t.appendChild(tb); wrap.appendChild(t); box.appendChild(wrap);
+  }
+
+  function drawMoves() {
+    const tb = document.querySelector('#t-moves tbody'); tb.replaceChildren();
+    if (dash.data('big_moves').status !== 'ok') return;
+    dash.data('big_moves').data.slice().sort((a, b) => String(b.date).localeCompare(String(a.date))).forEach(r => {
+      const tr = document.createElement('tr');
+      const cells = [String(r.date), FMT.pct(r.ret), FMT.pct(r.vnindex_ret), FMT.pct(r.idio), r.vol_vs_20d === '' ? '—' : d3.format('.1f')(+r.vol_vs_20d) + '×', r.driver];
+      cells.forEach((v, i) => { const td = document.createElement('td'); td.textContent = v; if (i === 1) td.className = +r.ret < 0 ? 'neg' : 'pos'; if (i === 5) td.className = 'wrap'; tr.appendChild(td); });
+      tb.appendChild(tr);
+    });
+  }
+
+  dash.onData(() => {
+    fillMarks();
+    drawPrice(); drawRel(); drawReturns(); drawRsi();
+    drawProv(); drawAsset(); drawPeers(); drawPeerTable();
+    drawScen(); drawSens(); drawMoves();
+  });
+})();
+</script>
