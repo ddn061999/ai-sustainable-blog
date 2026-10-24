@@ -33,4 +33,4 @@ Each item gives its date and source. **[Data]** marks something derived from our
 - I found no SBV credit-quota change in Oct 2026.
 - The MBB 2026 stock-dividend record date is not confirmed from a primary source; the ex-date is inferred from price-adjustment data.
 - The VIB strategic-partner search announced in 2024 has no 2026 status update in the sources reviewed.
-- I attribute no cause to the VNINDEX +5.0% move over 19–23 Oct 2026. It was market-wide (VIB beta-adjusted residual ≈ 0), and I found no sourced catalyst.
+- I found no sourced catalyst for the VNINDEX +5.0% move over 19–23 Oct 2026. Both banks lagged it: VIB +3.3%, MBB +0.5% **[Data]**. Any explanation is unverified.
