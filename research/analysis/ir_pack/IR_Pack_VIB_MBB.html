@@ -1,0 +1,409 @@
+<!doctype html><html><head><meta charset='utf-8'><title>IR Pack VIB vs MBB</title><style>body{font-family:Arial,sans-serif;font-size:14px;color:#222;max-width:900px} table{border-collapse:collapse;font-size:13px;margin:8px 0} th{background:#1f3864;color:#fff;padding:5px;border:1px solid #999} td{padding:5px;border:1px solid #bbb;vertical-align:top} code{background:#eef;padding:1px 4px} blockquote{background:#fff4e5;border-left:4px solid #f0a500;margin:8px 0;padding:6px 10px}</style></head><body><h1>IR Pack — VIB vs MBB</h1>
+<p><strong>As of 24-Oct-2026.</strong> Prices are the 23-Oct-2026 close: VIB 14,200, MBB 19,800, VNINDEX 1,774.15. Fundamentals are <strong>2026Q2</strong>: Q3 2026 has not yet been filed. In 2025 the Q3 filing dates were MBB 27-Oct and VIB 29-Oct. <strong>Refresh this pack when Q3 is published.</strong>
+Units are VND bn unless stated otherwise. TTM = 2025Q3–2026Q2. Sources: Vietcap IQ financial statements, the Vietcap chart API and price board, and the dated news links in <code>market/catalysts.md</code>.
+Built by two agents in this repo. The <code>financial-analyst</code> agent produced <code>fundamentals/</code>. The <code>quant-stock-researcher</code> agent produced <code>market/</code>.</p>
+<blockquote>
+<p><strong>Two ROE bases are used.</strong> Sections 2–4 use <em>our calculation</em>: parent NPAT divided by average parent equity, giving VIB 15.9% and MBB 22.1%. Sections 5–6 use <em>Vietcap's published ROE</em>, VIB 15.7% and MBB 20.7%, to stay consistent with the peer valuation set. The direction and size of the gap are the same on both bases.</p>
+</blockquote>
+<hr />
+<h2>1. Executive summary</h2>
+<ol>
+<li><strong>MBB earns about 6pp more ROE than VIB, and almost all of the gap is margin.</strong> On TTM figures, net interest income per unit of assets is 3.92% at MBB against 3.03% at VIB, worth <strong>+8.1pp of ROE</strong>. The two banks' costs and provisions per unit of assets are almost identical.</li>
+<li><strong>VIB's earnings run-rate is under pressure.</strong> Q2 NPAT fell 8.2% YoY and TTM NPAT fell 1.5%. NIM fell 0.25pp to 3.07%. CASA is 11.8%, its lowest since 2021. The 2026 PBT plan of VND11,550bn needs H2 PBT to grow <strong>56% YoY</strong>.</li>
+<li><strong>VIB's balance-sheet buffer is thin.</strong> Reserves cover 43.6% of NPLs, the lowest of 8 peers, against 93.6% at MBB. NPL plus Group 2 is 5.49% at VIB and 2.43% at MBB.</li>
+<li><strong>MBB is growing very fast.</strong> Loans grew 39.5% YoY and NPAT grew 22.7%. The trade-off is heavy share issuance: about +25% more shares in 2026 from a 15% stock dividend and a 10:1 rights issue. Leverage rose from 10.0x to 11.2x.</li>
+<li><strong>The market discounts both stocks, for different reasons.</strong> VIB trades at <strong>1.11x P/B</strong>, 19% below its 3Y median. The COE implied by its price is 14.7%, close to the peer median of ~13.9%, so the market is pricing the lower ROE rather than adding extra risk. MBB trades at <strong>1.27x P/B and 6.6x P/E</strong>. Its implied COE of <strong>17.6%</strong> is the highest of the 8 banks, so the market is pricing in extra risk.</li>
+<li><strong>Base-case 12-month value (no re-rating):</strong> VIB ~15,100 (+13% total return) and MBB ~20,600 (+9%). At a uniform 14% COE, the justified values are VIB ~15,500 and MBB ~28,700.</li>
+<li><strong>IR implications.</strong> VIB's story has to rest on <em>ROE delivery</em>: core earnings separated from recoveries, a rebuild of coverage, and funding. MBB's story has to rest on <em>reducing perceived risk</em>: real-estate exposure, ROE on the enlarged equity, and foreign room.</li>
+</ol>
+<hr />
+<h2>2. Scorecard (2026Q2, our calculation)</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>VIB</th>
+<th>MBB</th>
+<th>Edge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NPAT-parent Q2 (YoY)</td>
+<td>1,905 (−8.2%)</td>
+<td>8,229 (+40.0%)</td>
+<td>MBB</td>
+</tr>
+<tr>
+<td>NPAT-parent 6M26 (YoY)</td>
+<td>4,147 (+3.3%)</td>
+<td>15,745 (+26.5%)</td>
+<td>MBB</td>
+</tr>
+<tr>
+<td>NPAT-parent TTM (YoY)</td>
+<td>7,419 (−1.5%)</td>
+<td>30,078 (+22.7%)</td>
+<td>MBB</td>
+</tr>
+<tr>
+<td>PPOP 6M26 (YoY)</td>
+<td>7,672 (+26.3%)</td>
+<td>27,890 (+17.9%)</td>
+<td>VIB</td>
+</tr>
+<tr>
+<td>ROE / ROA TTM</td>
+<td>15.9% / 1.34%</td>
+<td>22.1% / 2.04%</td>
+<td>MBB</td>
+</tr>
+<tr>
+<td>NIM TTM</td>
+<td>3.07%</td>
+<td>4.02%</td>
+<td>MBB</td>
+</tr>
+<tr>
+<td>CIR TTM</td>
+<td>34.2%</td>
+<td>28.4%</td>
+<td>MBB</td>
+</tr>
+<tr>
+<td>Credit cost TTM</td>
+<td>1.29%</td>
+<td>1.30%</td>
+<td>=</td>
+</tr>
+<tr>
+<td>NPL / Group 2</td>
+<td>2.93% / 2.56%</td>
+<td>1.45% / 0.98%</td>
+<td>MBB</td>
+</tr>
+<tr>
+<td>LLR coverage</td>
+<td>43.6%</td>
+<td>93.6%</td>
+<td>MBB</td>
+</tr>
+<tr>
+<td>CASA</td>
+<td>11.8%</td>
+<td>33.6%</td>
+<td>MBB</td>
+</tr>
+<tr>
+<td>Loans / deposits (simple)</td>
+<td>125.1%</td>
+<td>127.4%</td>
+<td>VIB</td>
+</tr>
+<tr>
+<td>Loan growth YTD / YoY</td>
+<td>+4.0% / +11.5%</td>
+<td>+13.2% / +39.5%</td>
+<td>MBB (growth)</td>
+</tr>
+<tr>
+<td>Equity / assets</td>
+<td>8.23%</td>
+<td>9.05%</td>
+<td>MBB</td>
+</tr>
+<tr>
+<td>CAR</td>
+<td>&gt;12.4% (AGM, Mar-26; Basel III)</td>
+<td>11.02% (FY2025, Vietcap)</td>
+<td>Not comparable (different dates)</td>
+</tr>
+</tbody>
+</table>
+<h2>3. ROE gap: MBB minus VIB = 6.21pp on TTM (3.76pp a year earlier)</h2>
+<table>
+<thead>
+<tr>
+<th>Driver (% of average assets)</th>
+<th>MBB</th>
+<th>VIB</th>
+<th>Contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Net interest income</td>
+<td>3.92%</td>
+<td>3.03%</td>
+<td><strong>+8.13pp</strong></td>
+</tr>
+<tr>
+<td>Non-interest income</td>
+<td>0.90%</td>
+<td>0.85%</td>
+<td>+0.45pp</td>
+</tr>
+<tr>
+<td>Opex</td>
+<td>−1.37%</td>
+<td>−1.32%</td>
+<td>−0.42pp</td>
+</tr>
+<tr>
+<td>Provisions</td>
+<td>−0.90%</td>
+<td>−0.88%</td>
+<td>−0.18pp</td>
+</tr>
+<tr>
+<td>Tax and minority retention</td>
+<td>0.780</td>
+<td>0.800</td>
+<td>−0.49pp</td>
+</tr>
+<tr>
+<td>Leverage (x)</td>
+<td>11.16</td>
+<td>11.92</td>
+<td>−1.28pp</td>
+</tr>
+</tbody>
+</table>
+<p>The gap widened over the year. VIB's NII/A fell from 3.29% to 3.03% and its provisions/A rose from 0.70% to 0.88%. MBB's provisions/A fell from 1.13% to 0.90%. In Q2, VIB's interest expense rose 52.8% YoY against 33.3% for interest income.</p>
+<h2>4. Asset quality and funding</h2>
+<ul>
+<li><strong>VIB:</strong> NPL fell 0.63pp YoY and Group 2 fell 0.34pp, but retail NPL is 4.3% (Vietcap note, 7-Aug-26). The 6M credit cost rose 0.65pp to 1.28%, and 6M provisions rose 135%. CASA fell from 16.6% to 11.8%. Deposits grew 7.8% YTD against 4.0% for loans.</li>
+<li><strong>MBB:</strong> coverage is 93.6% and the 6M credit cost fell 0.55pp to 1.35%. CASA fell 3.3pp to 33.6%. Q2 interest expense rose 96.1% YoY against 61.2% for interest income. Total assets jumped 21.6% in 4Q25 alone.</li>
+<li><strong>Earnings-quality flags:</strong> VIB's 6M fees rose 293.5%, but Q1 was 1,989 and Q2 1,075, so the spike looks largely one-off. FX and securities lost 958 in 6M. At MBB, 6M non-interest income fell 28.8% as FX and securities dropped from 2,367 to 109.</li>
+</ul>
+<h2>5. Market and valuation (prices at 23-Oct-26; Vietcap ROE basis)</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>VIB</th>
+<th>MBB</th>
+<th>VNINDEX</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Return 3M / YTD / 1Y / 3Y</td>
+<td>+6.5% / −7.6% / −16.7% / +24.2%</td>
+<td>+7.8% / −2.3% / −8.8% / +109.8%</td>
+<td>+4.4% / −0.6% / +2.5% / +55.1%</td>
+</tr>
+<tr>
+<td>Volatility 1Y / beta 1Y</td>
+<td>24.1% / 0.82</td>
+<td>26.7% / 0.80</td>
+<td>20.5% / 1.0</td>
+</tr>
+<tr>
+<td>Max drawdown 3Y / current drawdown</td>
+<td>−36.8% / −30.5%</td>
+<td>−22.4% / −14.8%</td>
+<td>−18.1% / −8.0%</td>
+</tr>
+<tr>
+<td>ADTV 3M (VND bn)</td>
+<td>74</td>
+<td>252</td>
+<td>16,626</td>
+</tr>
+<tr>
+<td>Foreign room left (cap)</td>
+<td>1.14% (4.99%)</td>
+<td>0.89% (23.24%)</td>
+<td>–</td>
+</tr>
+<tr>
+<td>P/B / P/E TTM</td>
+<td>1.11x / 7.1x</td>
+<td>1.27x / 6.6x</td>
+<td>peer median P/B 1.35x</td>
+</tr>
+<tr>
+<td>3Y P/B median (min–max)</td>
+<td>1.39 (1.09–1.58)</td>
+<td>1.37 (1.23–1.78)</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Implied COE (g = 6%)</td>
+<td>14.7%</td>
+<td><strong>17.6%</strong> (highest of 8)</td>
+<td>peer ~13.9%</td>
+</tr>
+<tr>
+<td>Justified P/B at COE 14% / g 6%</td>
+<td>1.21x → ~15,500 (+9%)</td>
+<td>1.84x → ~28,700 (+44%)</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Technicals</td>
+<td>Above MA20/50, 1.3% below MA200; RSI 64; S 13,750 / R 14,300–14,600</td>
+<td>Below MA50/200; RSI 53; S 19,700 / R 20,125–20,500</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<h2>6. 12-month scenarios (value per share, total return incl. assumed DPS of VIB 900 / MBB 1,000)</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Bear</th>
+<th>Base (no re-rating)</th>
+<th>Bull</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VIB</td>
+<td>10,100 (−22%): ROE 13%, NPL hit, plan missed</td>
+<td>15,100 (+13%): ROE 15.5%</td>
+<td>20,300 (+50%): recoveries plus full quota, COE 14%</td>
+</tr>
+<tr>
+<td>MBB</td>
+<td>15,200 (−18%): real-estate hit, NIM &lt;3.9%, ROE 17%</td>
+<td>20,600 (+9%): ROE 19.5% after dilution</td>
+<td>29,700 (+55%): plan delivered, COE 15% (tail case)</td>
+</tr>
+</tbody>
+</table>
+<p>For every 1pp change in ROE, VIB's value moves about 10.5% and MBB's about 7.4%. <strong>ROE drives VIB's value; COE drives MBB's.</strong></p>
+<h2>7. Catalyst calendar</h2>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Bank</th>
+<th>Event</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~27–29 Oct 2026</td>
+<td>Both</td>
+<td><strong>Q3 2026 results.</strong> MBS forecasts VIB Q3 PBT at ~VND3,000bn (+48%). MBB needs only +4.6% YoY in H2 to meet its plan</td>
+</tr>
+<tr>
+<td>Q4 2026</td>
+<td>VIB</td>
+<td>Credit catch-up from 4.0% H1 growth toward a 12–14% quota; VND2–3tn of write-off recoveries guided</td>
+</tr>
+<tr>
+<td>Pending</td>
+<td>Both</td>
+<td>Listing of new shares: VIB +331m, MBB ~805m</td>
+</tr>
+<tr>
+<td>Mar / Jun / Sep 2027</td>
+<td>Sector</td>
+<td>FTSE Secondary EM phase-in (20% / 35% / 35%). Neither bank is on ACBS's list of expected inclusions</td>
+</tr>
+<tr>
+<td>Mar–Apr 2027</td>
+<td>Both</td>
+<td>AGMs: VIB foreign cap and strategic partner; MBB further capital raising</td>
+</tr>
+<tr>
+<td>Ongoing</td>
+<td>Sector</td>
+<td>CD rates at 7.2–7.5%; system credit +11.6% YTD against a ~15% target</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>8. Investor Q&amp;A: 14 tough questions with model answers</h2>
+<p><em>Setting assumed: a Q3 2026 earnings call or investor meeting with a mixed audience of foreign funds, local brokers and retail shareholders. Answers are draft talking points written from each bank's own IR seat. Items in [brackets] must be confirmed by management before use; never quote a commitment that has not been approved.</em></p>
+<h3>Part A: VIB</h3>
+<h4>Earnings quality and plan delivery</h4>
+<p><strong>Q1. H1 PBT grew only 3%, and Q2 NPAT fell 8%. Your VND11,550bn plan needs H2 PBT +56% YoY, and you've guided VND2–3tn of write-off recoveries. Strip out the recoveries and the one-off fees: what is core PBT growth, and will you revise the plan?</strong>
+<code>[Earnings quality]</code> <code>[Sell-side analyst]</code> <code>[Very Hard]</code> → <strong>CEO / CFO</strong>
+- We understand the concern about earnings quality, so we'll separate core earnings from recoveries in our disclosures.
+- The core engine is improving: 6M PPOP grew 26.3% YoY, opex fell 2.4% and CIR fell 5.8pp to 31.7%. The H1 shortfall came from provisions, which rose 135% while we built buffers.
+- [Confirm: the Q3 core PBT figure, the recovery amount booked, and whether the plan is reaffirmed or revised.] We will report recoveries separately each quarter so investors can value the core run-rate.</p>
+<p><strong>Q2. FX and investment securities lost VND958bn in 6M26, and fees fell from 1,989 in Q1 to 1,075 in Q2. What caused the losses, and what is the sustainable quarterly fee run-rate?</strong>
+<code>[Earnings quality – ambush]</code> <code>[Sell-side analyst]</code> <code>[Very Hard]</code> → <strong>Head of Treasury / CFO</strong>
+- Fair challenge. Q1 fees included one-off items, and we don't ask investors to annualise them.
+- Q2 fees of VND1,075bn are the cleaner base. [Explain the treasury loss: mark-to-market on bonds as yields rose, or hedging cost.]
+- [Confirm: the guided fee run-rate and the treasury book duration and hedging policy.]</p>
+<h4>Margin and funding</h4>
+<p><strong>Q3. NIM fell 0.25pp to 3.07% and CASA fell to 11.8%, the lowest since 2021. In Q2, interest expense grew 53% against 33% for interest income. With CDs still at 7.2–7.5%, why won't NIM keep falling?</strong>
+<code>[NIM / Funding]</code> <code>[Foreign fund]</code> <code>[Very Hard]</code> → <strong>Head of Treasury</strong>
+- Funding cost is the main pressure on our ROE today, and we're addressing it directly.
+- We have improved the funding balance: deposits grew 7.8% YTD against 4.0% for loans, and we are building a USD1bn medium-term funding pipeline, with USD500m highly advanced (Vietcap analyst note, 7-Aug-26).
+- [Confirm: the NIM guidance range for Q4 and 2027, and the CASA initiatives, such as payroll and digital transaction accounts.] Our aim is to stabilise NIM around current levels rather than chase volume with expensive funding.</p>
+<p><strong>Q4. MBB's ROE is about 6pp higher than yours, and our breakdown attributes 8pp of that to net interest income per unit of assets. Your costs and credit costs are in line with MBB's. Isn't this a structural franchise gap that a cost programme can't close?</strong>
+<code>[Peer benchmarking]</code> <code>[Peer analyst – TCBC/SSI]</code> <code>[Very Hard]</code> → <strong>CEO</strong>
+- We agree on the diagnosis: the gap is in funding and yield, not efficiency.
+- Our opex per unit of assets (1.32%) is already slightly <em>below</em> MBB's (1.37%), and our credit cost matches theirs (1.29% vs 1.30%). That means every basis point of margin we recover goes almost entirely to profit.
+- [Confirm: the 2027 ROE ambition and margin levers, such as CASA, the retail-SME mix and card yields.] On our numbers, each 1pp of ROE adds about 10% to the bank's value, so this is our primary focus.</p>
+<h4>Asset quality and capital</h4>
+<p><strong>Q5. Reserves cover only 43.6% of NPLs, the lowest of 8 peers. Retail NPL is 4.3%, and NPL plus Group 2 is 5.5%. Why pay a 9% cash dividend and 9.5% bonus shares before rebuilding coverage?</strong>
+<code>[Asset quality – ambush]</code> <code>[Foreign fund / rating agency]</code> <code>[Very Hard]</code> → <strong>CRO</strong>
+- Coverage is a fair question, so here is the full picture.
+- Headline NPL fell 0.63pp YoY and Group 2 fell 0.34pp. Our book is predominantly secured retail, so the loss-given-default profile differs from unsecured lenders. [Confirm the collateral and LTV data before citing it.] Our capital is solid: CAR above 12.4% under Basel III, completed per the March 2026 AGM.
+- [Confirm: the coverage target and timeline, and the 2026 retail NPL target.] We raised provisions 135% in H1 and intend to keep building coverage alongside dividends.</p>
+<p><strong>Q6. Credit grew only 4.0% in H1 against a 12–14% quota. If you rush to catch up in Q4 while retail NPL is 4.3%, aren't you buying growth at the wrong point in the cycle?</strong>
+<code>[Growth vs risk]</code> <code>[Securities house – SSI/HSC]</code> <code>[Hard]</code> → <strong>CEO / CRO</strong>
+- Our H1 caution was deliberate; we prioritised quality over the quota.
+- We have room under the quota, and the new lending is focused on [segments to confirm: secured mortgage, SME supply chain, corporate].
+- [Confirm: the full-year credit growth expectation and the risk-appetite guardrails.] We will not use the full quota if risk-adjusted returns aren't there.</p>
+<h4>Shareholder value</h4>
+<p><strong>Q7. VIB is last of 8 banks over 1 year (−16.7%) and sits 30% below its peak. The foreign cap was cut to 4.99% and only 1.14% of room is left. Liquidity is down to VND74bn a day, and 331m new shares are waiting to list. What is the plan for shareholders?</strong>
+<code>[Shareholder value]</code> <code>[Retail shareholder / foreign fund]</code> <code>[Very Hard]</code> → <strong>CEO / IR</strong>
+- We hear the frustration. The share price reflects the ROE dip, and that is the problem we are solving.
+- At 1.11x P/B, against a 3Y median of 1.39x, the market prices us on ROE rather than on extra risk: our implied COE is 14.7% against a peer median of ~13.9%. Restoring ROE is therefore the most direct route to re-rating.
+- [Confirm: the status of the strategic partner search and of restoring the foreign cap, the listing timetable for new shares, and the dividend policy for 2027.]</p>
+<h3>Part B: MBB</h3>
+<p><strong>Q8. At 6.6x P/E and 20.7% ROE, your price implies a 17.6% cost of equity, the highest of 8 banks. Is the market discounting your real-estate exposure? Give us the numbers.</strong>
+<code>[Valuation / Risk]</code> <code>[Foreign fund]</code> <code>[Very Hard]</code> → <strong>CEO / CRO</strong>
+- We see the same gap, and we think disclosure is the way to close it.
+- The asset-quality data supports a lower risk premium: NPL is 1.45%, Group 2 is 0.98%, coverage is 93.6%, and the 6M credit cost fell 0.55pp to 1.35%.
+- [Confirm and disclose: real-estate and developer exposure as a % of loans, corporate bond holdings, and compliance with SBV real-estate credit caps.]</p>
+<p><strong>Q9. Your share count rises about 25% in 2026 from the 15% stock dividend and the 10:1 rights issue at VND10,000, against a share price of 19,800. Leverage still went from 10.0x to 11.2x. What ROE do you target on the enlarged equity, and is more issuance coming?</strong>
+<code>[Capital / Dilution]</code> <code>[Sell-side analyst]</code> <code>[Very Hard]</code> → <strong>CEO / CFO</strong>
+- The capital raise funds growth that already earns strong returns.
+- TTM ROE is 22.1% (parent, our calculation), driven by core NII rather than leverage. The equity raise lifts the buffer from a CAR of 11.02% at FY2025.
+- [Confirm: the post-raise ROE target, the CAR after the rights issue, and the private placement of up to 200m shares.]</p>
+<p><strong>Q10. Loans grew 39.5% YoY and total assets jumped 21.6% in 4Q25 alone. Credit is up 13.2% YTD against a system target of ~15%. Is the quota exhausted, and when does this growth show up in NPLs?</strong>
+<code>[Growth / Asset quality]</code> <code>[Securities house]</code> <code>[Very Hard]</code> → <strong>CRO</strong>
+- Fast growth always deserves scrutiny, and we monitor new-vintage performance closely.
+- Credit cost fell even as the book grew, and coverage of 93.6% gives a substantial buffer.
+- [Confirm: what drove the 4Q25 balance-sheet jump, the remaining quota headroom, and how new vintages are performing.]</p>
+<p><strong>Q11. In Q2, interest expense grew 96% YoY against 61% for interest income, and CASA fell 3.3pp to 33.6%. Q2 NIM of 4.16% looks peak-ish. How does NIM hold if deposit rates stay up?</strong>
+<code>[NIM / Funding]</code> <code>[Mass investor]</code> <code>[Hard]</code> → <strong>Head of Treasury</strong>
+- Funding costs are rising for the whole sector, and CASA is our biggest defence.
+- CASA of 33.6% is about three times VIB's. TTM NIM is 4.02%, 0.95pp above VIB.
+- [Confirm: the NIM guidance range and the outlook for deposit pricing.]</p>
+<p><strong>Q12. Non-interest income fell 28.8% in 6M, and FX and securities income collapsed from VND2,367bn to VND109bn. Is MBB now a pure NII story?</strong>
+<code>[Revenue mix – ambush]</code> <code>[Sell-side analyst]</code> <code>[Hard]</code> → <strong>CFO</strong>
+- The decline is concentrated in market-driven lines, not in client fees.
+- [Confirm: the trend in core service fees, separated from treasury income.]
+- [Confirm: the outlook for treasury income and for the subsidiaries' contribution.]</p>
+<p><strong>Q13. You have 0.89% of foreign room left under a 23.24% cap, and you are not on the FTSE inclusion list. ACB, STB and VCB use 30%. Will you raise the cap?</strong>
+<code>[Foreign ownership]</code> <code>[Foreign fund]</code> <code>[Hard]</code> → <strong>CEO</strong>
+- Foreign demand is clearly there: room has almost run out.
+- At current turnover, the remaining room is about 7 days of trading.
+- [Confirm: whether the AGM 2027 agenda includes changing the foreign cap.]</p>
+<h3>Part C: Both banks</h3>
+<p><strong>Q14. Deposit rates have barely moved since September, while CDs pay up to 9% at some joint-stock banks and system credit is +11.6% YTD. What is your rate outlook for Q4 2026 and 2027, and how sensitive is your NIM to a 50bp rise in funding cost?</strong>
+<code>[Macro / Rates]</code> <code>[Mass investor]</code> <code>[Hard]</code> → <strong>Head of Treasury</strong>
+- We plan on rates staying broadly stable through year-end.
+- [Insert the bank's NIM sensitivity per 50bp, from ALCO.]
+- [Confirm: the funding mix strategy, covering CASA, valuable papers and offshore funding.]</p>
+<hr />
+<h2>9. Data gaps and methodology</h2>
+<ul>
+<li><strong>Not in the feed:</strong> Q3 2026 results; CAR under Circular 41 at Jun-26; the regulatory LDR under Circular 22; restructured and written-off loans; deposit cost; LCR/NSFR; segment split; real-estate exposure.</li>
+<li><strong>MBB share count:</strong> BVPS is 18,540 on charter-capital shares, 14,832 on Vietcap's 10,068.7m shares, and 15,569 on the valuation basis (Q2 equity over current shares). Reconcile against MBB's disclosure before external use.</li>
+<li><strong>NIM</strong> is calculated by us: 3.07% and 4.02%, against Vietcap's 3.04% and 3.90%. <strong>CASA</strong> counts current deposits only: 11.8% and 33.6%, or 11.9% and 34.6% on the broad definition.</li>
+<li><strong>Valuation assumptions:</strong> COE 14%, g 6%, rf 4.45%, ERP 8%, DPS 900 and 1,000 (not declared). The peer P/B–ROE regression is weak (R² 0.15–0.38).</li>
+<li><strong>Checks passed:</strong> the balance sheets balance, the P&amp;L subtotals add up, and loan grades sum to gross loans for 2021Q1–2026Q2 for both banks.</li>
+<li><strong>To refresh:</strong> <code>fundamentals/fetch_raw.py</code> → <code>build_fundamentals.py</code> → <code>build_kpis.py</code>, then <code>market/fetch_market.py</code> → <code>market_analysis.py</code> → <code>valuation_ir.py</code>.</li>
+</ul></body></html>
