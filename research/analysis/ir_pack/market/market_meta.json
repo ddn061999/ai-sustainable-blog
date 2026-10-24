@@ -1,0 +1,7 @@
+{
+ "as_of": "2026-10-23",
+ "rf": 0.0445,
+ "VIB_over_MBB_relative_3Y": 0.5918609164702106,
+ "VIB_MBB_corr_1Y": 0.6375333381096348,
+ "notes": "Prices back-adjusted by Vietcap for stock & cash dividends/rights (detected via VWAP/close ratio); returns ~ total return for stocks; VNINDEX is a price index. ADTV = order-matched value (accumulatedValue), excludes put-throughs."
+}
