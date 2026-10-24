@@ -71,6 +71,9 @@ V["regression_residual_PB"]=V.PB_now-V.PB_fit_exSTB_LOO; V["regression_residual_
 V["peer_median_PB_exSTB"]=V.loc[exS,"PB_now"].median(); V["peer_median_implied_COE_g6_exSTB_exSubject"]=[V.loc[[x for x in exS if x not in("VIB","MBB",t)],"implied_COE_g6"].median() for t in V.index]
 V.loc[:,"regression_note"]="LOO fit on peers ex-STB (STB ROE depressed by legacy restructuring) excluding subject; n=6; cross-section as of "+AS_OF
 V=V.join(C)
+V["BV_note"]=""
+V.loc["MBB","BV_note"]="Q2-2026 parent equity / 10,069m current shares; excludes post-Q2 cash dividend paid 17-Jul (~VND8.06tn) and rights proceeds (805.5m x 10,000 = ~VND8.06tn), which roughly offset"
+V.loc["VIB","BV_note"]="Q2-2026 parent equity / 3,735m shares (post 9.5% bonus); 2025 cash dividend paid 3-Jun-2026 already deducted"
 cols_first=["as_of_price","price","BVPS","PB_now","EPS_TTM","PE_TTM","PB_3Y_median","PB_3Y_min","PB_3Y_max","PB_3Y_n","PB_pctile_vs_3Y","PB_vs_3Y_median_%","PE_3Y_median",
  "ROE_TTM","ROE_TTM_own_avg5Q","ROE_Q2_2026_ann","COE_base","g_base","justified_PB_base","justified_value_base","upside_to_justified_%",
  "implied_COE_g5","implied_COE_g6","implied_COE_g7","CAPM_COE","implied_ROE_at_COE14_g6","PB_fit_exSTB_LOO","regression_residual_PB","regression_residual_%","LOO_R2","LOO_slope"]
@@ -90,13 +93,13 @@ DPS={"VIB":900.0,   # ASSUMPTION: 9% of par cash (2025 dividend paid 3-Jun-2026 
      "MBB":1000.0}  # ASSUMPTION: 10% of par cash (2025 dividend, record 10-Jul-2026); next payout not declared
 imp={t:float(V.loc[t,"implied_COE_g6"]) for t in ["VIB","MBB"]}
 S={"VIB":{
-  "Bear":dict(ROE=0.13,COE=round(imp["VIB"]+0.01,4),g=0.05,why="Retail/mortgage NPL (4.3% retail NPL Q2) forces credit cost ~1.5%; NIM <3% as deposit rates stay >7%; 2026 PBT plan missed by ~20%; COE +1pp vs today"),
+  "Bear":dict(ROE=0.13,COE=round(imp["VIB"]+0.01,4),g=0.05,why="Retail/mortgage NPL (4.3% retail NPL Q2) forces credit cost ~1.5%; NIM <3% as JSB deposit/CD rates stay ~7%+; 2026 PBT plan missed by ~20%; COE +1pp vs today"),
   "Base":dict(ROE=0.155,COE=round(imp["VIB"],4),g=0.06,why="ROE ~TTM (15.7%); market keeps today's implied COE (no re-rating); value grows with book"),
   "Bull":dict(ROE=0.175,COE=COE,g=0.06,why="Write-off recoveries (mgmt guides VND2-3tn H2) + full credit quota; NIM stabilises 3.1%; COE converges to 14% (peer median)")},
  "MBB":{
-  "Bear":dict(ROE=0.17,COE=round(imp["MBB"]+0.01,4),g=0.05,why="Real-estate/MBV-related asset quality hit, NIM back <3.9% on funding cost; equity +~11% from rights/placement dilutes ROE; COE +1pp"),
+  "Bear":dict(ROE=0.17,COE=round(imp["MBB"]+0.01,4),g=0.05,why="Real-estate asset-quality hit, NIM back <3.9% on funding cost; rights (VND8.1tn) + placement (up to VND2tn) add ~6% to Q2 equity and dilute ROE; COE +1pp"),
   "Base":dict(ROE=0.195,COE=round(imp["MBB"],4),g=0.06,why="ROE eases from 20.7% TTM to ~19.5% as 2026 capital raise (rights 10:1 @10,000) enlarges equity; no re-rating"),
-  "Bull":dict(ROE=0.21,COE=0.15,g=0.06,why="2026 PBT plan (~VND39.4tn) delivered, NIM ~4.1%; COE falls 1.5-2pp toward peer median as foreign-room overhang is addressed")}}
+  "Bull":dict(ROE=0.21,COE=0.15,g=0.06,why="2026 PBT plan (~VND39.4tn) delivered, NIM ~4.1%; COE falls ~2.5pp (17.6% to 15%) toward peer median as foreign-room/dilution overhang clears")}}
 out=[]
 for t,sc in S.items():
     P0=float(V.loc[t,"price"]); B0=float(V.loc[t,"BVPS"])
